@@ -29,6 +29,7 @@ public class OtherRobot {
 
     private String name;
     private ArrayList<Tick> history = new ArrayList<Tick>(10000);
+    private ArrayList<EnemyBullet> bullets = new ArrayList<EnemyBullet>();
 
     public OtherRobot(String name) {
         this.name = name;
@@ -49,6 +50,57 @@ public class OtherRobot {
 
     public void pushHistory(Tick tick) {
         this.history.add(tick);
+    }
+
+    public List<EnemyBullet> getAllBullets() {
+        return this.bullets;
+    }
+
+    public EnemyBullet getBullet(int index) {
+        if (index < 0) {
+            // for going backwards
+            index = this.bullets.size() + index;
+        }
+
+        return this.bullets.get(index);
+    }
+
+    public double getGunHeat(long time) {
+        EnemyBullet lastBullet = this.getBullet(-1);
+        return (1 + (lastBullet.getPower()/5)) - (0.1 * (time - lastBullet.getTime()));
+    }
+
+    public boolean predictBulletShot(long time) {
+
+        // check if it's possible that a bullet was shot
+        if(this.getGunHeat(time) > 0) {
+            return false;
+        }
+
+        double power = getHistory(-1).energy - getHistory(-2).energy;
+
+        // TODO: account for being hit by us
+
+        // TODO: account for robot ramming into wall
+
+        // TODO: account for robot ramming other robot
+
+        // check if power is still less than allowed
+        if(power < 0.1)
+        {
+            // assume that robot didn't shoot
+            return false;
+        }
+
+        // something we didn't account for happened
+        if (power > 3) {
+            power = 3;
+        }
+
+        // TODO: predict angle of bullet
+        // this.bullets.add(new EnemyBullet(position, power, angle, time));
+
+        return true;
     }
 
 }
