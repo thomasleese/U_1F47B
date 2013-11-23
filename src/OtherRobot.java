@@ -3,9 +3,9 @@ package bot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OtherRobot {
+public class OtherRobot implements Comparable<OtherRobot> {
 
-    public static class Tick {
+    public static class Tick implements Comparable<Tick> {
 
         public long time;
         public boolean isWatching;
@@ -25,6 +25,13 @@ public class OtherRobot {
                 + ", energy=" + this.energy + ")";
         }
 
+        @Override
+        public int compareTo(Tick t) {
+            return this.time < t.time ?  1:
+                   this.time > t.time ? -1:
+                /* this.time ==t.time */ 0;
+        }
+
     }
 
     private String name;
@@ -33,6 +40,11 @@ public class OtherRobot {
 
     public OtherRobot(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int compareTo(OtherRobot robot) {
+        return this.getHistory(-1).compareTo(robot.getHistory(-1));
     }
 
     public List<Tick> getAllHistory() {
