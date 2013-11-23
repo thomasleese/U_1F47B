@@ -1,13 +1,13 @@
 package bot;
 
-public class EnemyBullet {
+public class VirtualBullet {
 
     private Vector a;
     private Vector b;
     private double power;
     private long time;
 
-    public EnemyBullet(double positionX, double positionY, double power, double angleD, long time) {
+    public VirtualBullet(double positionX, double positionY, double power, double angleD, long time) {
         double angleR = Math.toRadians(angleD);
         this.a = new Vector(positionX, positionY);
         this.b = new Vector(Math.sin(angleR) * this.getSpeed(), Math.cos(angleR) * this.getSpeed());
