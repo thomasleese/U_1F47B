@@ -8,11 +8,11 @@ public class VirtualBullet {
     private long time;
 
     public VirtualBullet(double positionX, double positionY, double power, double angleD, long time) {
+        this.power = power;
+        this.time = time;
         double angleR = Math.toRadians(angleD);
         this.a = new Vector(positionX, positionY);
         this.b = new Vector(Math.sin(angleR) * this.getSpeed(), Math.cos(angleR) * this.getSpeed());
-        this.power = power;
-        this.time = time;
     }
 
     public Vector getPosition(long time) {
