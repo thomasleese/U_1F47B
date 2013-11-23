@@ -40,12 +40,7 @@ public class OtherRobot {
     }
 
     public Tick getHistory(int index) {
-        if (index < 0) {
-            // for going backwards
-            index = this.history.size() + index;
-        }
-
-        return this.history.get(index);
+        return this.history.get(index % this.bullets.size());
     }
 
     public void pushHistory(Tick tick) {
@@ -57,12 +52,7 @@ public class OtherRobot {
     }
 
     public EnemyBullet getBullet(int index) {
-        if (index < 0) {
-            // for going backwards
-            index = this.bullets.size() + index;
-        }
-
-        return this.bullets.get(index);
+        return this.bullets.get(index % this.bullets.size());
     }
 
     public double getGunHeat(long time) {
