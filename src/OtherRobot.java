@@ -6,7 +6,7 @@ import java.util.List;
 public class OtherRobot {
 
     public static class Tick {
-        
+
         public long time;
         public boolean isWatching;
         public double bearing;
@@ -20,7 +20,7 @@ public class OtherRobot {
 
         @Override
         public String toString() {
-            return "Tick(time=" + this.time + ", isWatching=" + this.isWatching 
+            return "Tick(time=" + this.time + ", isWatching=" + this.isWatching
                 + ", bearing=" + this.bearing + ", distance=" + this.distance
                 + ", energy=" + this.energy + ")";
         }

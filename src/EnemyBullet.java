@@ -1,7 +1,7 @@
 package bot;
 
 public class EnemyBullet {
-    
+
     private Vector a;
     private Vector b;
     private double power;

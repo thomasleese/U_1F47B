@@ -17,7 +17,7 @@ public class Bot extends RateControlRobot {
 
     @Override
     public void run() {
-        setColors(new Color(0, 40, 43), 
+        setColors(new Color(0, 40, 43),
                   new Color(0, 96, 102),
                   new Color(0, 120, 128));
 
