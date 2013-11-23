@@ -8,21 +8,18 @@ public class OtherRobot implements Comparable<OtherRobot> {
     public static class Tick implements Comparable<Tick> {
 
         public long time;
-        public boolean isWatching;
         public double bearing;
         public double distance;
         public double energy;
 
-        public Tick(long time, boolean isWatching) {
+        public Tick(long time) {
             this.time = time;
-            this.isWatching = isWatching;
         }
 
         @Override
         public String toString() {
-            return "Tick(time=" + this.time + ", isWatching=" + this.isWatching
-                + ", bearing=" + this.bearing + ", distance=" + this.distance
-                + ", energy=" + this.energy + ")";
+            return "Tick(time=" + this.time + ", bearing=" + this.bearing
+                + ", distance=" + this.distance + ", energy=" + this.energy + ")";
         }
 
         @Override

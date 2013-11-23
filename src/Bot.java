@@ -96,44 +96,22 @@ public class Bot extends RateControlRobot {
 
     @Override
     public void onScannedRobot(ScannedRobotEvent e) {
-        // we don't need to use this
-    }
-
-    private void updateOtherRobots() {
-        ArrayList<OtherRobot> robotsDealtWith = new ArrayList<OtherRobot>();
-
-        for (ScannedRobotEvent ev : this.getScannedRobotEvents()) {
-            OtherRobot robot = this.otherRobots.get(ev.getName());
-            if (robot == null) {
-                robot = new OtherRobot(ev.getName());
-                this.otherRobots.put(ev.getName(), robot);
-            }
-
-            OtherRobot.Tick tick = new OtherRobot.Tick(this.getTime(), true);
-            tick.bearing = ev.getBearing();
-            tick.distance = ev.getDistance();
-            tick.energy = ev.getEnergy();
-            robot.pushHistory(tick);
-            robotsDealtWith.add(robot);
+        OtherRobot robot = this.otherRobots.get(e.getName());
+        if (robot == null) {
+            robot = new OtherRobot(e.getName());
+            this.otherRobots.put(e.getName(), robot);
         }
 
-        // add any "not watching" events to robots not dealth with
-        for (Map.Entry<String, OtherRobot> entry : this.otherRobots.entrySet()) {
-            OtherRobot robot = entry.getValue();
-            if (!robotsDealtWith.contains(robot)) {
-                // we can guarantee that there will be at least one tick
-                OtherRobot.Tick lastTick = robot.getHistory(-1);
-                if (lastTick.isWatching) {
-                    // we were watching it, but we've lost contact
-                    robot.pushHistory(new OtherRobot.Tick(this.getTime(), false));
-                }
-            }
-        }
+        OtherRobot.Tick tick = new OtherRobot.Tick(this.getTime());
+        tick.bearing = e.getBearing();
+        tick.distance = e.getDistance();
+        tick.energy = e.getEnergy();
+        robot.pushHistory(tick);
     }
 
     @Override
     public void onStatus(StatusEvent e) {
-        updateOtherRobots();
+        
     }
 
     @Override
