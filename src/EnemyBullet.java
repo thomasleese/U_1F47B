@@ -16,7 +16,7 @@ public class EnemyBullet {
     }
 
     public Vector getPosition(long time) {
-        return a.add(b, time - this.time);
+        return this.a.add(this.b, time - this.time);
     }
 
     public double getPower() {
