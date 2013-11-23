@@ -2,9 +2,14 @@ package bot;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import robocode.*;
 
 public class Bot extends RateControlRobot {
+
+    private HashMap<String, OtherRobot> otherRobots = new HashMap<String, OtherRobot>();
 
     public Bot() {
         
@@ -15,13 +20,17 @@ public class Bot extends RateControlRobot {
         setColors(new Color(0, 40, 43), 
                   new Color(0, 96, 102),
                   new Color(0, 120, 128));
-        
+
+        // we want to control the radar manually
+        this.setAdjustRadarForRobotTurn(true);
+        this.setAdjustGunForRobotTurn(true);
+        this.setAdjustRadarForGunTurn(true);
+
         while (true) {
-            // temporary robot logic for testing
-            ahead(100);
-            turnGunRight(360);
-            back(100);
-            turnGunRight(360);
+            this.setTurnRadarLeft(45);
+            this.scan();
+
+            this.execute();
         }
     }
 
@@ -83,12 +92,44 @@ public class Bot extends RateControlRobot {
 
     @Override
     public void onScannedRobot(ScannedRobotEvent e) {
-        System.out.println("Seen a robot: " + e);
+        // we don't need to use this
+    }
+
+    private void updateOtherRobots() {
+        ArrayList<OtherRobot> robotsDealtWith = new ArrayList<OtherRobot>();
+
+        for (ScannedRobotEvent ev : this.getScannedRobotEvents()) {
+            OtherRobot robot = this.otherRobots.get(ev.getName());
+            if (robot == null) {
+                robot = new OtherRobot(ev.getName());
+                this.otherRobots.put(ev.getName(), robot);
+            }
+
+            OtherRobot.Tick tick = new OtherRobot.Tick(this.getTime(), true);
+            tick.bearing = ev.getBearing();
+            tick.distance = ev.getDistance();
+            tick.energy = ev.getEnergy();
+            robot.pushHistory(tick);
+            robotsDealtWith.add(robot);
+        }
+
+        // add any "not watching" events to robots not dealth with
+        for (Map.Entry<String, OtherRobot> entry : this.otherRobots.entrySet()) {
+            OtherRobot robot = entry.getValue();
+            if (!robotsDealtWith.contains(robot)) {
+                // we can guarantee that there will be at least one tick
+                OtherRobot.Tick lastTick = robot.getHistory(-1);
+                if (lastTick.isWatching) {
+                    // we were watching it, but we've lost contact
+                    robot.pushHistory(new OtherRobot.Tick(this.getTime(), false));
+                }
+            }
+        }
     }
 
     @Override
     public void onStatus(StatusEvent e) {
-        System.out.println("We've got some status information: " + e);
+        updateOtherRobots();
     }
 
     @Override
