@@ -72,7 +72,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
     public boolean predictBulletShot(long time) {
 
         // check if it's possible that a bullet was shot
-        if(this.getGunHeat(time) > 0) {
+        if (this.getGunHeat(time) > 0) {
             return false;
         }
 
@@ -85,8 +85,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
         // TODO: account for robot ramming other robot
 
         // check if power is still less than allowed
-        if(power < 0.1)
-        {
+        if (power < 0.1) {
             // assume that robot didn't shoot
             return false;
         }

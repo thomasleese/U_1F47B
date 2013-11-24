@@ -35,7 +35,7 @@ public class Bot extends RateControlRobot {
             this.setTurnRadarLeft(45);
             this.scan();
 
-            if(this.getGunHeat() == 0) {
+            if (this.getGunHeat() == 0) {
                 this.setFireBullet(Rules.MIN_BULLET_POWER);
             }
 
