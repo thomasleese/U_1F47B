@@ -49,7 +49,10 @@ public class OtherRobot implements Comparable<OtherRobot> {
     }
 
     public Tick getHistory(int index) {
-        return this.history.get(index % this.bullets.size());
+        if (this.history.size() == 0) {
+            return null;
+        }
+        return this.history.get(Util.modulo(index, this.history.size()));
     }
 
     public void pushHistory(Tick tick) {
@@ -61,11 +64,17 @@ public class OtherRobot implements Comparable<OtherRobot> {
     }
 
     public VirtualBullet getBullet(int index) {
-        return this.bullets.get(index % this.bullets.size());
+        if (this.bullets.size() == 0) {
+            return null;
+        }
+        return this.bullets.get(Util.modulo(index, this.bullets.size()));
     }
 
     public double getGunHeat(long time) {
         VirtualBullet lastBullet = this.getBullet(-1);
+        if (lastBullet == null) {
+            return 0.0;
+        }
         return (1 + (lastBullet.getPower()/5)) - (0.1 * (time - lastBullet.getTime()));
     }
 
