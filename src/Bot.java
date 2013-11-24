@@ -11,6 +11,11 @@ public class Bot extends RateControlRobot {
 
     private HashMap<String, OtherRobot> otherRobots = new HashMap<String, OtherRobot>();
 
+    // TODO: set these at some point
+    private Radar radar;
+    private Gun gun;
+    private Base base;
+
     public Bot() {
         
     }
