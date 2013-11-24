@@ -94,7 +94,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
             return false;
         }
 
-        double power = penultimate.energy - previous.energy;
+        double power = Util.roundTo1(penultimate.energy - previous.energy);
 
         // TODO: account for being hit by us
 
