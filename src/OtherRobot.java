@@ -85,7 +85,16 @@ public class OtherRobot implements Comparable<OtherRobot> {
             return false;
         }
 
-        double power = getHistory(-1).energy - getHistory(-2).energy;
+        OtherRobot.Tick previous = this.getHistory(-1);
+        OtherRobot.Tick penultimate = this.getHistory(-2);
+
+        if (previous == null || penultimate == null) {
+            // we don't know what the shot power is
+            // assume that no shot has been made
+            return false;
+        }
+
+        double power = penultimate.energy - previous.energy;
 
         // TODO: account for being hit by us
 
