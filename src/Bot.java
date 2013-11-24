@@ -112,6 +112,8 @@ public class Bot extends RateControlRobot {
         tick.distance = e.getDistance();
         tick.energy = e.getEnergy();
         robot.pushHistory(tick);
+
+        robot.predictBulletShot(this.getTime()));
     }
 
     @Override
