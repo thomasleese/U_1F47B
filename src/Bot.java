@@ -34,8 +34,13 @@ public class Bot extends RateControlRobot {
         this.setAdjustRadarForGunTurn(true);
 
         while (true) {
-            this.setTurnRadarLeft(45);
-            this.scan();
+
+            this.setRadarRotationRate(this.radar.getRotation());
+
+            this.setGunRotationRate(this.gun.getRotation());
+
+            this.setTurnRate(this.base.getRotation());
+            this.setVelocityRate(this.base.getSpeed());
 
             if (this.getGunHeat() == 0) {
                 this.setFireBullet(Rules.MIN_BULLET_POWER);
