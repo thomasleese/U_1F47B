@@ -9,17 +9,17 @@ import robocode.*;
 
 public class Bot extends RateControlRobot {
 
-    private HashMap<String, OtherRobot> otherRobots = new HashMap<String, OtherRobot>();
-
+    private State state;
     // TODO: set these at some point
     private Radar radar;
     private Gun gun;
     private Base base;
 
     public Bot() {
-        this.radar = new RandomRadar();
-        this.gun   = new RandomGun();
-        this.base  = new RandomBase();
+        this.state = new State();
+        this.radar = new RandomRadar(this.state);
+        this.gun   = new RandomGun(this.state);
+        this.base  = new RandomBase(this.state);
     }
 
     @Override
