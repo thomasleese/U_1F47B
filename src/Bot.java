@@ -17,7 +17,9 @@ public class Bot extends RateControlRobot {
     private Base base;
 
     public Bot() {
-        
+        this.radar = new RandomRadar();
+        this.gun   = new RandomGun();
+        this.base  = new RandomBase();
     }
 
     @Override
