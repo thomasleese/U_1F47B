@@ -8,4 +8,20 @@ public class State {
 	HashMap<String, OtherRobot> otherRobots = new HashMap<String, OtherRobot>();
 	long time = 0;
 
+    public void onScannedRobot(ScannedRobotEvent e) {
+        OtherRobot robot = this.otherRobots.get(e.getName());
+        if (robot == null) {
+            robot = new OtherRobot(e.getName());
+            this.otherRobots.put(e.getName(), robot);
+        }
+
+        OtherRobot.Tick tick = new OtherRobot.Tick(this.time);
+        tick.bearing = e.getBearing();
+        tick.distance = e.getDistance();
+        tick.energy = e.getEnergy();
+        robot.pushHistory(tick);
+
+        robot.predictBulletShot(this.time);
+    }
+
 }

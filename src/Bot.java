@@ -108,24 +108,7 @@ public class Bot extends RateControlRobot {
 
     @Override
     public void onScannedRobot(ScannedRobotEvent e) {
-        OtherRobot robot = this.otherRobots.get(e.getName());
-        if (robot == null) {
-            robot = new OtherRobot(e.getName());
-            this.otherRobots.put(e.getName(), robot);
-        }
-
-        OtherRobot.Tick tick = new OtherRobot.Tick(this.getTime());
-        tick.bearing = e.getBearing();
-        tick.distance = e.getDistance();
-        tick.energy = e.getEnergy();
-        robot.pushHistory(tick);
-
-        robot.predictBulletShot(this.getTime());
-    }
-
-    @Override
-    public void onStatus(StatusEvent e) {
-        
+        this.state.onScannedRobot(e);
     }
 
     @Override
