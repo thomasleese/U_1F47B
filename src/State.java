@@ -5,8 +5,14 @@ import robocode.*;
 
 public class State {
 
+    Robot owner;
+
 	HashMap<String, OtherRobot> otherRobots = new HashMap<String, OtherRobot>();
 	long time = 0;
+
+    public State(Robot robot) {
+        this.owner = robot;
+    }
 
     public void onScannedRobot(ScannedRobotEvent e) {
         OtherRobot robot = this.otherRobots.get(e.getName());

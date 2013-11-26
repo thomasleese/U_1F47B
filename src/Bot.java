@@ -16,7 +16,7 @@ public class Bot extends RateControlRobot {
     private Base base;
 
     public Bot() {
-        this.state = new State();
+        this.state = new State(this);
         this.radar = new RandomRadar(this.state);
         this.gun   = new RandomGun(this.state);
         this.base  = new RandomBase(this.state);
