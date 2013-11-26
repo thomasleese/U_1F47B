@@ -1,9 +1,9 @@
 package bot;
 
 public abstract class Component {
-	protected State state;
+    protected State state;
 
-	public Component(State state) {
-		this.state = state;
-	}
+    public Component(State state) {
+        this.state = state;
+    }
 }
