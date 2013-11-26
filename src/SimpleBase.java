@@ -31,11 +31,7 @@ public class SimpleBase extends Base {
         }
 
         // check if we're going into a wall
-        if (xPosition > 800 - this.state.owner.getWidth()/2 ||
-            xPosition < this.state.owner.getWidth()/2 ||
-            yPosition > 600 - this.state.owner.getHeight()/2 ||
-            yPosition < this.state.owner.getHeight()/2) {
-
+        if (this.isOutOfBattleField(xPosition, yPosition)) {
             this.overrideRotation = 100 * this.rotation;
             return 0;
         }
