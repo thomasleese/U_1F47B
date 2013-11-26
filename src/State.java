@@ -7,9 +7,8 @@ public class State {
 
     Robot owner;
 
-	HashMap<String, OtherRobot> otherRobots = new HashMap<String, OtherRobot>();
+    HashMap<String, OtherRobot> otherRobots = new HashMap<String, OtherRobot>();
     OtherRobot latestRobot = null;
-	long time = 0;
 
     public State(Robot robot) {
         this.owner = robot;
@@ -22,7 +21,7 @@ public class State {
             this.otherRobots.put(e.getName(), robot);
         }
 
-        OtherRobot.Tick tick = new OtherRobot.Tick(this.time);
+        OtherRobot.Tick tick = new OtherRobot.Tick(this.owner.getTime());
         tick.bearing = e.getBearing();
         tick.distance = e.getDistance();
         tick.energy = e.getEnergy();
@@ -30,7 +29,7 @@ public class State {
         robot.pushHistory(tick);
         this.latestRobot = robot;
 
-        robot.predictBulletShot(this.time);
+        robot.predictBulletShot(this.owner.getTime());
     }
 
     private Vector calculatePosition(double bearing, double distance) {
