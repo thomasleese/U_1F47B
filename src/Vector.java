@@ -18,4 +18,9 @@ public class Vector extends java.awt.geom.Point2D.Double {
 		return new Vector(this.getX() + coefficient * v.getX(),
 			              this.getY() + coefficient * v.getY());
 	}
+
+	@Override
+	public String toString() {
+		return "Vector(" + this.getX() + ", " + this.getY() +")";
+	}
 }
