@@ -27,10 +27,16 @@ public class State {
         tick.distance = e.getDistance();
         tick.energy = e.getEnergy();
         robot.pushHistory(tick);
-
         this.latestRobot = robot;
 
         robot.predictBulletShot(this.time);
+    }
+
+    private Vector calculatePosition(double bearing, double distance) {
+        double angleR = Math.toRadians(bearing + this.owner.getHeading());
+        double x = this.owner.getX() + Math.sin(angleR) * distance;
+        double y = this.owner.getY() + Math.cos(angleR) * distance;
+        return new Vector(x, y);
     }
 
 }
