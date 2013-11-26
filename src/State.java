@@ -8,6 +8,7 @@ public class State {
     Robot owner;
 
 	HashMap<String, OtherRobot> otherRobots = new HashMap<String, OtherRobot>();
+    OtherRobot latestRobot = null;
 	long time = 0;
 
     public State(Robot robot) {
@@ -26,6 +27,8 @@ public class State {
         tick.distance = e.getDistance();
         tick.energy = e.getEnergy();
         robot.pushHistory(tick);
+
+        this.latestRobot = robot;
 
         robot.predictBulletShot(this.time);
     }
