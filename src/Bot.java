@@ -19,7 +19,7 @@ public class Bot extends RateControlRobot {
         this.state = new State(this);
         this.radar = new TrackingRadar(this.state, 1.6);
         this.gun   = new SimpleGun(this.state, 1.0);
-        this.base  = new RandomBase(this.state);
+        this.base  = new SimpleBase(this.state, 2.0);
     }
 
     @Override
@@ -115,5 +115,4 @@ public class Bot extends RateControlRobot {
     public void onWin(WinEvent e) {
         System.out.println("We won! " + e);
     }
-
 }
