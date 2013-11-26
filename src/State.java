@@ -26,6 +26,7 @@ public class State {
         tick.bearing = e.getBearing();
         tick.distance = e.getDistance();
         tick.energy = e.getEnergy();
+        tick.position = this.calculatePosition(tick.bearing, tick.distance);
         robot.pushHistory(tick);
         this.latestRobot = robot;
 

@@ -12,6 +12,8 @@ public class OtherRobot implements Comparable<OtherRobot> {
         public double distance;
         public double energy;
 
+        public Vector position;
+
         public Tick(long time) {
             this.time = time;
         }
