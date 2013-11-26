@@ -12,14 +12,14 @@ public class SimpleGun extends Gun {
     }
 
     @Override
-    public double getRotation() {
+    public void execute() {
         if(this.state.latestRobot != null) {
             OtherRobot.Tick tick = this.state.latestRobot.getHistory(-1);
             double rotation = tick.bearing + this.state.owner.getHeading() - // absolute rotation to enemy
                               this.state.owner.getGunHeading(); // relative rotation to gun
-            return this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
+            this.rotation = this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
         } else {
-            return Double.POSITIVE_INFINITY;
+            this.rotation = Double.POSITIVE_INFINITY;
         }
     }
 

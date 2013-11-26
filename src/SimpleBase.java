@@ -5,7 +5,6 @@ import robocode.BattleRules;
 
 public class SimpleBase extends Base {
 
-    private double rotation;
     private double overrideRotation;
 
     public SimpleBase(State state, double rotation) {
@@ -14,7 +13,7 @@ public class SimpleBase extends Base {
     }
 
     @Override
-    public double getSpeed() {
+    public void execute() {
         double xDirection = Math.sin(Math.toRadians(this.state.owner.getHeading()));
         double yDirection = Math.cos(Math.toRadians(this.state.owner.getHeading()));
 
@@ -33,15 +32,13 @@ public class SimpleBase extends Base {
         // check if we're going into a wall
         if (this.isOutOfBattleField(xPosition, yPosition)) {
             this.overrideRotation = 100 * this.rotation;
-            return 0;
+            this.speed = 0;
+        } else {
+            this.overrideRotation = 0;
+            this.speed = Rules.MAX_VELOCITY;
         }
-        this.overrideRotation = 0;
-        return Rules.MAX_VELOCITY;
-    }
 
-    @Override
-    public double getRotation() {
-        return (this.overrideRotation == 0 ? this.rotation : this.overrideRotation);
+        this.rotation = (this.overrideRotation == 0 ? this.rotation : this.overrideRotation);
     }
 
 }

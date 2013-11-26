@@ -7,8 +7,8 @@ public class RandomRadar extends Radar {
     }
 
     @Override
-    public double getRotation() {
-        return Math.random()*360 - 180;
+    public void execute() {
+        this.rotation = Math.random()*360 - 180;
     }
 
 }

@@ -6,4 +6,6 @@ public abstract class Component {
     public Component(State state) {
         this.state = state;
     }
+
+    public abstract void execute();
 }
