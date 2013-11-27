@@ -5,11 +5,11 @@ import robocode.BattleRules;
 
 public class SimpleBase extends Base {
 
-    private double overrideRotation;
+    private double userRotation;
 
     public SimpleBase(State state, double rotation) {
         super(state);
-        this.rotation = rotation;
+        this.userRotation = rotation;
     }
 
     @Override
@@ -31,14 +31,12 @@ public class SimpleBase extends Base {
 
         // check if we're going into a wall
         if (this.isOutOfBattleField(xPosition, yPosition)) {
-            this.overrideRotation = 100 * this.rotation;
+            this.rotation = 100 * this.userRotation;
             this.speed = 0;
         } else {
-            this.overrideRotation = 0;
+            this.rotation = this.userRotation;
             this.speed = Rules.MAX_VELOCITY;
         }
-
-        this.rotation = (this.overrideRotation == 0 ? this.rotation : this.overrideRotation);
     }
 
 }
