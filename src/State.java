@@ -7,11 +7,13 @@ public class State {
 
     Robot owner;
 
-    HashMap<String, OtherRobot> otherRobots = new HashMap<String, OtherRobot>();
-    OtherRobot latestRobot = null;
+    HashMap<String, OtherRobot> otherRobots
+    OtherRobot latestRobot;
 
     public State(Robot robot) {
         this.owner = robot;
+        this.otherRobots = new HashMap<String, OtherRobot>();
+        this.latestRobot = null;
     }
 
     public void onScannedRobot(ScannedRobotEvent e) {
