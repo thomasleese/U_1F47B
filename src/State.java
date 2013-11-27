@@ -1,5 +1,6 @@
 package bot;
 
+import java.util.Map;
 import java.util.HashMap;
 import robocode.*;
 
@@ -7,7 +8,7 @@ public class State {
 
     Robot owner;
 
-    HashMap<String, OtherRobot> otherRobots
+    Map<String, OtherRobot> otherRobots;
     OtherRobot latestRobot;
 
     public State(Robot robot) {
