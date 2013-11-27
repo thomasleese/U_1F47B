@@ -57,6 +57,10 @@ public class OtherRobot implements Comparable<OtherRobot> {
         return this.history.get(Util.modulo(index, this.history.size()));
     }
 
+    public int getHistorySize() {
+        return this.history.size();
+    }
+
     public void pushHistory(Tick tick) {
         this.history.add(tick);
     }
