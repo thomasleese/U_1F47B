@@ -6,10 +6,14 @@ import robocode.BattleRules;
 public class SimpleBase extends Base {
 
     private double userRotation;
+    private boolean reverse;
+    private boolean wasNearWall;
 
     public SimpleBase(State state, double rotation) {
         super(state);
         this.userRotation = rotation;
+        this.reverse = false;
+        this.wasNearWall = false;
     }
 
     @Override
@@ -30,13 +34,17 @@ public class SimpleBase extends Base {
         }
 
         // check if we're going into a wall
-        if (this.isOutOfBattleField(xPosition, yPosition)) {
-            this.rotation = 100 * this.userRotation;
-            this.speed = 0;
+        if (this.isOutOfBattleField(xPosition, yPosition, 10)) {
+            if (!this.wasNearWall) {
+                this.reverse = !this.reverse;
+                this.wasNearWall = true;
+            }
         } else {
-            this.rotation = this.userRotation;
-            this.speed = Rules.MAX_VELOCITY;
+            this.wasNearWall = false;
         }
+
+        this.rotation = this.userRotation;
+        this.speed = Rules.MAX_VELOCITY * (this.reverse ? -1 : 1);
     }
 
 }
