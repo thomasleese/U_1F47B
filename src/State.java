@@ -43,7 +43,7 @@ public class State {
         return new Vector(x, y);
     }
 
-    private static Vector calculateVelocity(Vector newPosition, Vector oldPosition) {
+    private static Vector calculateVelocity(Vector oldPosition, Vector newPosition) {
         return new Vector(newPosition.getX() - oldPosition.getX(),
                           newPosition.getY() - oldPosition.getY());
     }
