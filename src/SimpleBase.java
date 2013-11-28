@@ -1,7 +1,6 @@
 package bot;
 
-import robocode.Rules;
-import robocode.BattleRules;
+import robocode.*;
 
 public class SimpleBase extends Base {
 

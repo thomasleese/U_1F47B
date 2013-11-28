@@ -1,6 +1,7 @@
 package bot;
 
-import robocode.util.Utils;
+import robocode.*;
+import robocode.util.*;
 
 public class SimpleGun extends Gun {
 

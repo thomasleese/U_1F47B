@@ -1,5 +1,7 @@
 package bot;
 
+import robocode.*;
+
 public abstract class Base extends Component {
 
     protected double speed;

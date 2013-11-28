@@ -1,6 +1,8 @@
 package bot;
 
-public class Vector extends java.awt.geom.Point2D.Double {
+import java.awt.geom.Point2D;
+
+public class Vector extends Point2D.Double {
 
     public Vector(double x, double y) {
         super(x, y);
