@@ -34,4 +34,21 @@ public class Util {
         return -90 - Math.toDegrees(Math.atan2(dy, dx));
     }
 
+    public double getDistance(double ax, double ay, double bx, double by)
+    {
+        double x = ax - bx;
+        double y = ay - by;
+        return getDistance(x, y);
+    }
+
+    /**
+     * a is origin
+     */
+    public double getAngle(double ax, double ay, double bx, double by)
+    {
+        double x = ax - bx;
+        double y = ay - by;
+        return getAngle(y, x);
+    }
+
 }
