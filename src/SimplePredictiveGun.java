@@ -33,18 +33,21 @@ public class SimplePredictiveGun extends Gun {
             
             // need a way to approximate velocity using history
             // if no history, wait a bit so we have some?
-            double locX = this.state.owner.getX();
-            double locY = this.state.owner.getY();
-            double targX = tick.position.getX();
-            double targY = tick.position.getY();
+            double velX = tick.velocity.getX(); // target velocity
+            double velY = tick.velocity.getY();
+
+            // out velocity
+            double mvX = Math.sin(this.state.owner.getHeading()) * this.state.owner.getVelocity();
+            double mvY = Math.cos(this.state.owner.getHeading()) * this.state.owner.getVelocity();
+            double locX = this.state.owner.getX() + mvX;
+            double locY = this.state.owner.getY() + mvY;
+            double targX = tick.position.getX() + velX;
+            double targY = tick.position.getY() + velY;
 
             double dist = tick.distance;
             double projectileSpeed = 19.7; // need to be able to turn this into power
 
             double timeSteps = dist / projectileSpeed;
-
-            double velX = 0;
-            double velY = 0;
 
             double afterDist = getDist(locX, locY, targX + velX * timeSteps, targY + velY * timeSteps);
             double afterTimeSteps = afterDist / projectileSpeed;
