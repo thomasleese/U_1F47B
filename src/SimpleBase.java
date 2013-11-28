@@ -34,7 +34,7 @@ public class SimpleBase extends Base {
         }
 
         // check if we're going into a wall
-        if (this.isOutOfBattleField(xPosition, yPosition, 10)) {
+        if (this.isOutOfBattleField(xPosition, yPosition, 0)) {
             if (!this.wasNearWall) {
                 this.reverse = !this.reverse;
                 this.wasNearWall = true;
