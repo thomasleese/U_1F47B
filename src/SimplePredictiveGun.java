@@ -37,8 +37,8 @@ public class SimplePredictiveGun extends Gun {
             double velY = tick.velocity.getY();
 
             // out velocity
-            double mvX = Math.sin(this.state.owner.getHeading()) * this.state.owner.getVelocity();
-            double mvY = Math.cos(this.state.owner.getHeading()) * this.state.owner.getVelocity();
+            double mvX = Math.sin(this.state.owner.getHeadingRadians()) * this.state.owner.getVelocity();
+            double mvY = Math.cos(this.state.owner.getHeadingRadians()) * this.state.owner.getVelocity();
             double locX = this.state.owner.getX() + mvX;
             double locY = this.state.owner.getY() + mvY;
             double targX = tick.position.getX() + velX;
