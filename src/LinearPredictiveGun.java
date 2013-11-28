@@ -31,7 +31,7 @@ public class LinearPredictiveGun extends Gun {
         // does not use coefficient
         if(this.state.latestRobot != null) {
             OtherRobot.Tick tick = this.state.latestRobot.getHistory(-1);
-            
+
             // need a way to approximate velocity using history
             // if no history, wait a bit so we have some?
             double velX = tick.velocity.getX(); // target velocity
@@ -53,7 +53,7 @@ public class LinearPredictiveGun extends Gun {
             {
                 projectileSpeed = (dist / cutoff) * 19.7;
             }
-            this.bulletPower = Utils.speedToFirepower(projectileSpeed);
+            this.bulletPower = Util.speedToFirepower(projectileSpeed);
 
             double timeSteps = dist / projectileSpeed;
 
