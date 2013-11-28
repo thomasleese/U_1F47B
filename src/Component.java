@@ -1,5 +1,8 @@
 package bot;
 
+import robocode.*;
+import robocode.util.*;
+
 public abstract class Component {
     protected State state;
 
@@ -8,4 +11,8 @@ public abstract class Component {
     }
 
     public abstract void execute();
+
+    public void onHitRobot(HitRobotEvent e) {
+        // implement this
+    }
 }

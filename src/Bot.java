@@ -85,6 +85,8 @@ public class Bot extends RateControlRobot {
 
     @Override
     public void onHitRobot(HitRobotEvent e) {
+        this.radar.onHitRobot(e);
+        this.gun.onHitRobot(e);
         this.base.onHitRobot(e);
     }
 
