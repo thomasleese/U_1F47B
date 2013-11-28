@@ -43,6 +43,10 @@ public class SimpleBase extends Base {
             this.wasNearWall = false;
         }
 
+        if (Math.random() > 0.99) {
+            this.userRotation = -this.userRotation;
+        }
+
         this.rotation = this.userRotation;
         this.speed = Rules.MAX_VELOCITY * (this.reverse ? -1 : 1);
     }
