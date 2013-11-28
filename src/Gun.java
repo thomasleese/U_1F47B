@@ -10,7 +10,7 @@ public abstract class Gun extends Component {
     }
 
     public double getBulletPower() {
-        return this.bulletPower
+        return this.bulletPower;
     }
 
     public double getRotation() {
