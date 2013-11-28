@@ -101,7 +101,7 @@ public class Bot extends RateControlRobot {
 
     @Override
     public void onRobotDeath(RobotDeathEvent e) {
-        System.out.println("Someone else has died: " + e);
+        this.state.onRobotDeath(e);
     }
 
     @Override

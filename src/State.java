@@ -35,6 +35,10 @@ public class State {
         robot.predictBulletShot(this.owner.getTime());
     }
 
+    public void onRobotDeath(RobotDeathEvent e) {
+        System.out.println("Someone else has died: " + e);
+    }
+
     private Vector calculatePosition(double bearing, double distance) {
         double angleR = Math.toRadians(bearing + this.owner.getHeading());
         double x = this.owner.getX() + Math.sin(angleR) * distance;
