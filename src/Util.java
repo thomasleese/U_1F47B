@@ -16,11 +16,11 @@ public class Util {
         return (double)Math.round(d * 10) / 10;
     }
 
-    public double firepowerToSpeed(double firepower) {
+    public static double firepowerToSpeed(double firepower) {
         return 20 - 3 * firepower;
     }
 
-    public double speedToFirepower(double speed) {
+    public static double speedToFirepower(double speed) {
         return (20 - speed) / 3;
     }
 
