@@ -28,4 +28,8 @@ public abstract class Base extends Component {
                y - margin < this.state.owner.getHeight() / 2; // bottom edge
     }
 
+    public void onHitRobot(HitRobotEvent e) {
+        // implement this
+    }
+
 }

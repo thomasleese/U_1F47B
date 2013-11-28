@@ -46,4 +46,9 @@ public class SimpleBase extends Base {
         this.speed = Rules.MAX_VELOCITY * (this.reverse ? -1 : 1);
     }
 
+    @Override
+    public void onHitRobot(HitRobotEvent e) {
+        this.reverse = !this.reverse;
+    }
+
 }

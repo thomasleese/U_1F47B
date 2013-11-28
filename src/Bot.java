@@ -85,7 +85,7 @@ public class Bot extends RateControlRobot {
 
     @Override
     public void onHitRobot(HitRobotEvent e) {
-        System.out.println("We've crashed into a robot: " + e);
+        this.base.onHitRobot(e);
     }
 
     @Override
