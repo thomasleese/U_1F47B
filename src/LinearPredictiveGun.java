@@ -2,11 +2,11 @@ package bot;
 
 import robocode.util.Utils;
 
-public class SimplePredictiveGun extends Gun {
+public class LinearPredictiveGun extends Gun {
 
     private double coefficient;
 
-    public SimplePredictiveGun(State state, double coefficient) {
+    public LinearPredictiveGun(State state, double coefficient) {
         super(state);
         this.coefficient = coefficient;
     }
