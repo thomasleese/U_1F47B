@@ -30,6 +30,7 @@ public class State {
         tick.energy = e.getEnergy();
         tick.position = this.calculatePosition(tick.bearing, tick.distance);
         robot.pushHistory(tick);
+        tick.velocity = State.calculateVelocity(robot.getHistory(-2).position, tick.position);
         this.latestRobot = robot;
 
         robot.predictBulletShot(this.owner.getTime());
@@ -40,6 +41,11 @@ public class State {
         double x = this.owner.getX() + Math.sin(angleR) * distance;
         double y = this.owner.getY() + Math.cos(angleR) * distance;
         return new Vector(x, y);
+    }
+
+    private static Vector calculateVelocity(Vector newPosition, Vector oldPosition) {
+        return new Vector(newPosition.getX() - oldPosition.getX(),
+                          newPosition.getY() - oldPosition.getY());
     }
 
 }
