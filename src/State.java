@@ -6,12 +6,12 @@ import robocode.*;
 
 public class State {
 
-    Robot owner;
+    AdvancedRobot owner;
 
     Map<String, OtherRobot> otherRobots;
     OtherRobot latestRobot;
 
-    public State(Robot robot) {
+    public State(AdvancedRobot robot) {
         this.owner = robot;
         this.otherRobots = new HashMap<String, OtherRobot>();
         this.latestRobot = null;
