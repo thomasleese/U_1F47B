@@ -1,6 +1,10 @@
 package bot;
 
+import java.util.Random;
+
 public class Util {
+
+    public static final Random RANDOM = new Random();
 
     public static int modulo(int c, int mod) {
         int result = c % mod;

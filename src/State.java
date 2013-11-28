@@ -10,6 +10,7 @@ public class State {
 
     Map<String, OtherRobot> otherRobots;
     OtherRobot latestRobot;
+    OtherRobot trackingRobot;
 
     public State(AdvancedRobot robot) {
         this.owner = robot;
@@ -46,6 +47,12 @@ public class State {
         // clear latest robot if it died
         if (this.latestRobot != null && this.latestRobot.getName().equals(name)) {
             this.latestRobot = null;
+        }
+
+        // clear tracking robot if it died
+        // is the code above required now? is this the right place to do this?
+        if (this.trackingRobot != null && this.trackingRobot.getName().equals(name)) {
+            this.trackingRobot = null;
         }
 
     }

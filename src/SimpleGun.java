@@ -7,9 +7,6 @@ public class SimpleGun extends Gun {
 
     private double coefficient;
 
-    private boolean overrideRotation = false;
-    private double overrideRotationValue;
-
     public SimpleGun(State state, double coefficient) {
         super(state);
         this.coefficient = coefficient;
@@ -23,14 +20,8 @@ public class SimpleGun extends Gun {
 
     @Override
     public void execute() {
-        if (this.overrideRotation) {
-            this.rotation = this.overrideRotationValue;
-            this.overrideRotation = false;
-            return;
-        }
-
-        if (this.state.latestRobot != null) {
-            OtherRobot.Tick tick = this.state.latestRobot.getHistory(-1);
+        if (this.state.trackingRobot != null) {
+            OtherRobot.Tick tick = this.state.trackingRobot.getHistory(-1);
             this.rotation = this.calculateRotation(tick.bearing);
         } else {
             this.rotation = Double.POSITIVE_INFINITY;
@@ -39,8 +30,7 @@ public class SimpleGun extends Gun {
 
     @Override
     public void onHitRobot(HitRobotEvent e) {
-        this.overrideRotationValue = this.calculateRotation(e.getBearing());
-        this.overrideRotation = true;
+        this.state.trackingRobot = this.state.otherRobots.get(e.getName());
     }
 
 }

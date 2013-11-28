@@ -15,8 +15,8 @@ public class LinearPredictiveGun extends Gun {
     @Override
     public void execute() {
         // does not use coefficient
-        if(this.state.latestRobot != null) {
-            OtherRobot.Tick tick = this.state.latestRobot.getHistory(-1);
+        if (this.state.trackingRobot != null) {
+            OtherRobot.Tick tick = this.state.trackingRobot.getHistory(-1);
 
             // need a way to approximate velocity using history
             // if no history, wait a bit so we have some?
@@ -55,6 +55,11 @@ public class LinearPredictiveGun extends Gun {
         } else {
             // leave the rotation as it is allready
         }
+    }
+
+    @Override
+    public void onHitRobot(HitRobotEvent e) {
+        this.state.trackingRobot = this.state.otherRobots.get(e.getName());
     }
 
 }
