@@ -32,4 +32,9 @@ public class TrackingRadar extends Radar {
         }
     }
 
+    @Override
+    public void onHitRobot(HitRobotEvent e) {
+        this.state.trackingRobot = this.state.otherRobots.get(e.getName());
+    }
+
 }

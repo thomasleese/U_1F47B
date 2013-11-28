@@ -28,9 +28,4 @@ public class SimpleGun extends Gun {
         }
     }
 
-    @Override
-    public void onHitRobot(HitRobotEvent e) {
-        this.state.trackingRobot = this.state.otherRobots.get(e.getName());
-    }
-
 }
