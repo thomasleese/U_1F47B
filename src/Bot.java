@@ -46,7 +46,7 @@ public class Bot extends RateControlRobot {
             this.setVelocityRate(this.base.getSpeed());
 
             if (this.getGunHeat() == 0) {
-                this.setFireBullet(Rules.MIN_BULLET_POWER);
+                this.setFireBullet(this.gun.getBulletPower());
             }
 
             this.execute();
