@@ -23,10 +23,11 @@ public class SimpleBase extends Base {
         double xPosition = this.state.owner.getX() + xDirection * this.state.owner.getVelocity();
         double yPosition = this.state.owner.getY() + yDirection * this.state.owner.getVelocity();
 
-        for (double velocity = Math.min(this.state.owner.getVelocity() + Rules.ACCELERATION,
-                                        Rules.MAX_VELOCITY); // if we try to go at max speed
-             velocity > 0.0;
-             velocity -= Rules.DECELERATION) {
+        for (double velocity = Math.min(Math.abs(this.state.owner.getVelocity()) + Rules.ACCELERATION,
+                                        Rules.MAX_VELOCITY) *
+                               (this.reverse ? -1 : 1 ); // if we try to go at max speed
+             velocity * (this.reverse ? -1 : 1 ) > 0.0;
+             velocity -= Rules.DECELERATION * (this.reverse ? -1 : 1 )) {
 
             xPosition += xDirection * velocity;
             yPosition += yDirection * velocity;
