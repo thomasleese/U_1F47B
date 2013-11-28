@@ -6,12 +6,12 @@ import robocode.*;
 
 public class State {
 
-    Robot owner;
+    AdvancedRobot owner;
 
     Map<String, OtherRobot> otherRobots;
     OtherRobot latestRobot;
 
-    public State(Robot robot) {
+    public State(AdvancedRobot robot) {
         this.owner = robot;
         this.otherRobots = new HashMap<String, OtherRobot>();
         this.latestRobot = null;
@@ -30,6 +30,7 @@ public class State {
         tick.energy = e.getEnergy();
         tick.position = this.calculatePosition(tick.bearing, tick.distance);
         robot.pushHistory(tick);
+        tick.velocity = State.calculateVelocity(robot.getHistory(-2).position, tick.position);
         this.latestRobot = robot;
 
         robot.predictBulletShot(this.owner.getTime());
@@ -54,6 +55,11 @@ public class State {
         double x = this.owner.getX() + Math.sin(angleR) * distance;
         double y = this.owner.getY() + Math.cos(angleR) * distance;
         return new Vector(x, y);
+    }
+
+    private static Vector calculateVelocity(Vector oldPosition, Vector newPosition) {
+        return new Vector(newPosition.getX() - oldPosition.getX(),
+                          newPosition.getY() - oldPosition.getY());
     }
 
 }
