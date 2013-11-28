@@ -1,3 +1,4 @@
+
 package bot;
 
 import java.util.ArrayList;
@@ -74,6 +75,10 @@ public class OtherRobot implements Comparable<OtherRobot> {
             return null;
         }
         return this.bullets.get(Util.modulo(index, this.bullets.size()));
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public double getGunHeat(long time) {
