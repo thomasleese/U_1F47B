@@ -2,27 +2,27 @@ package bot;
 
 import robocode.util.Utils;
 
-public class SimpleGun extends Gun {
+public class SimplePredictiveGun extends Gun {
 
     private double coefficient;
 
-    public SimpleGun(State state, double coefficient) {
+    public SimplePredictiveGun(State state, double coefficient) {
         super(state);
         this.coefficient = coefficient;
     }
 
-    public double getDist(double ax, double ay, double bx, double, by)
+    public double getDist(double ax, double ay, double bx, double by)
     {
         double x = ax - bx;
         double y = ay - by;
-        return Math.Sqrt(x * x + y * y);
+        return Math.sqrt(x * x + y * y);
     }
 
-    public double getAngle(double ax, double ay, double bx, double, by)
+    public double getAngle(double ax, double ay, double bx, double by)
     {
         double x = ax - bx;
         double y = ay - by;
-        return Math.Atan2(y, x);
+        return -90 - Math.toDegrees(Math.atan2(y, x));
     }
 
     @Override
@@ -35,8 +35,8 @@ public class SimpleGun extends Gun {
             // if no history, wait a bit so we have some?
             double locX = this.state.owner.getX();
             double locY = this.state.owner.getY();
-            double targX = tick.x;
-            double targY = tick.y;
+            double targX = tick.position.getX();
+            double targY = tick.position.getY();
 
             double dist = tick.distance;
             double projectileSpeed = 19.7; // need to be able to turn this into power
@@ -51,10 +51,9 @@ public class SimpleGun extends Gun {
 
             double adqTimeSteps = (afterTimeSteps + timeSteps) * 0.5;
 
-            double litDir = getAngle(locX, locY, u.locX + velX * adqTimeSteps, u.locY + velY * adqTimeSteps);
+            double litDir = getAngle(locX, locY, targX + velX * adqTimeSteps, targY + velY * adqTimeSteps);
 
-            double rotation = litDir + this.state.owner.getHeading() - // absolute rotation to enemy
-                              this.state.owner.getGunHeading(); // relative rotation to gun
+            double rotation = litDir - this.state.owner.getGunHeading(); // relative rotation to gun
             this.rotation = this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
         } else {
             // leave the rotation as it is allready
