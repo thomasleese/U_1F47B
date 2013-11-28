@@ -37,6 +37,16 @@ public class State {
 
     public void onRobotDeath(RobotDeathEvent e) {
         System.out.println("Someone else has died: " + e);
+
+        // Remove dead robot from otherRobots
+        String name = e.getName();
+        this.otherRobots.remove(name);
+
+        // clear latest robot if it died
+        if (this.latestRobot != null && this.latestRobot.getName().equals(name)) {
+            this.latestRobot = null;
+        }
+
     }
 
     private Vector calculatePosition(double bearing, double distance) {
