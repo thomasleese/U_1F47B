@@ -24,4 +24,14 @@ public class Util {
         return (20 - speed) / 3;
     }
 
+    public static double getDistance(double dx, double dy)
+    {
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    public static double getAngle(double dx, double dy)
+    {
+        return -90 - Math.toDegrees(Math.atan2(dy, dx));
+    }
+
 }

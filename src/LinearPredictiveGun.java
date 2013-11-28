@@ -12,16 +12,6 @@ public class LinearPredictiveGun extends Gun {
         this.coefficient = coefficient;
     }
 
-    public double getDist(double dx, double dy)
-    {
-        return Math.sqrt(dx * dx + dy * dy);
-    }
-
-    public double getAngle(double dx, double dy)
-    {
-        return -90 - Math.toDegrees(Math.atan2(dy, dx));
-    }
-
     @Override
     public void execute() {
         // does not use coefficient
@@ -53,12 +43,12 @@ public class LinearPredictiveGun extends Gun {
 
             double timeSteps = dist / projectileSpeed;
 
-            double afterDist = getDist(locX - (targX + velX * timeSteps), locY - (targY + velY * timeSteps));
+            double afterDist = Util.getDistance(locX - (targX + velX * timeSteps), locY - (targY + velY * timeSteps));
             double afterTimeSteps = afterDist / projectileSpeed;
 
             double adqTimeSteps = (afterTimeSteps + timeSteps) * 0.5;
 
-            double litDir = getAngle(locX - (targX + velX * adqTimeSteps), locY - (targY + velY * adqTimeSteps));
+            double litDir = Util.getAngle(locX - (targX + velX * adqTimeSteps), locY - (targY + velY * adqTimeSteps));
 
             double rotation = litDir - this.state.owner.getGunHeading(); // relative rotation to gun
             this.rotation = this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
