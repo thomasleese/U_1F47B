@@ -15,6 +15,12 @@ public class SimpleGun extends Gun {
         this.coefficient = coefficient;
     }
 
+    private double calculateRotation(double bearing) {
+        double rotation = bearing + this.state.owner.getHeading() - // absolute rotation to enemy
+                          this.state.owner.getRadarHeading();   // relative rotation to gun
+        return this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
+    }
+
     @Override
     public void execute() {
         if (this.overrideRotation) {
@@ -25,9 +31,7 @@ public class SimpleGun extends Gun {
 
         if (this.state.latestRobot != null) {
             OtherRobot.Tick tick = this.state.latestRobot.getHistory(-1);
-            double rotation = tick.bearing + this.state.owner.getHeading() - // absolute rotation to enemy
-                              this.state.owner.getGunHeading(); // relative rotation to gun
-            this.rotation = this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
+            this.rotation = this.calculateRotation(tick.bearing);
         } else {
             this.rotation = Double.POSITIVE_INFINITY;
         }
@@ -35,9 +39,7 @@ public class SimpleGun extends Gun {
 
     @Override
     public void onHitRobot(HitRobotEvent e) {
-        double rotation = e.getBearing() + this.state.owner.getHeading() - // absolute rotation to enemy
-                          this.state.owner.getRadarHeading();   // relative rotation to gun
-        this.overrideRotationValue = this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
+        this.overrideRotationValue = this.calculateRotation(e.getBearing());
         this.overrideRotation = true;
     }
 
