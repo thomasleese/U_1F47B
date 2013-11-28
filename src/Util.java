@@ -13,7 +13,15 @@ public class Util {
     }
 
     public static double roundTo1(double d) {
-            return (double)Math.round(d * 10) / 10;
+        return (double)Math.round(d * 10) / 10;
+    }
+
+    public double firepowerToSpeed(double firepower) {
+        return 20 - 3 * firepower;
+    }
+
+    public double speedToFirepower(double speed) {
+        return (20 - speed) / 3;
     }
 
 }
