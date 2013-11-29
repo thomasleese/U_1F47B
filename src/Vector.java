@@ -44,7 +44,7 @@ public class Vector extends Point2D.Double {
     }
 
     public double getAngle() {
-        return Util.getAngle(this.getX(), this.getY());
+        return Util.getAngle(-this.getX(), -this.getY());
     }
 
     @Override

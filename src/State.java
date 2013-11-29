@@ -3,6 +3,7 @@ package bot;
 import java.util.Map;
 import java.util.HashMap;
 import robocode.*;
+import robocode.util.*;
 
 public class State {
 
@@ -31,7 +32,8 @@ public class State {
         tick.energy = e.getEnergy();
         tick.position = this.calculatePosition(tick.bearing, tick.distance);
         robot.pushHistory(tick);
-        tick.velocity = State.calculateVelocity(robot.getHistory(-2).position, tick.position);
+        tick.velocity = State.calculateVelocity(robot.getHistory(-2).position, tick.position); // this needs to be smarter
+        tick.turnRate = State.calculateTurnRate(robot.getHistory(-2).velocity, tick.velocity);
         this.latestRobot = robot;
 
         robot.predictBulletShot(this.owner.getTime());
@@ -67,6 +69,10 @@ public class State {
     private static Vector calculateVelocity(Vector oldPosition, Vector newPosition) {
         return new Vector(newPosition.getX() - oldPosition.getX(),
                           newPosition.getY() - oldPosition.getY());
+    }
+
+    private static double calculateTurnRate(Vector oldVelocity, Vector newVelocity) {
+        return Utils.normalRelativeAngleDegrees(newVelocity.getAngle() - oldVelocity.getAngle());
     }
 
 }
