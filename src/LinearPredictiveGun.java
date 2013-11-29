@@ -32,14 +32,11 @@ public class LinearPredictiveGun extends Gun {
             double targY = tick.position.getY() + velY;
 
             double dist = tick.distance;
-            double projectileSpeed = 19.7; // need to be able to turn this into power
+            this.bulletPower = 2.0;
 
-            double cutoff = 200.0;
-            if (dist < cutoff)
-            {
-                projectileSpeed = (dist / cutoff) * 19.7;
-            }
-            this.bulletPower = Util.speedToFirepower(projectileSpeed);
+            this.bulletPower += 80/(dist - 35); // adjust this
+
+            double projectileSpeed = Util.firepowerToSpeed(this.bulletPower);
 
             double timeSteps = dist / projectileSpeed;
 
