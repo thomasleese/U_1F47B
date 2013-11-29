@@ -98,7 +98,10 @@ public class Bot extends RateControlRobot {
     @Override
     public void onPaint(Graphics2D g) {
         super.onPaint(g);
-        // perhaps we should do some debug drawing ehre
+
+        this.radar.onPaint(g);
+        this.gun.onPaint(g);
+        this.base.onPaint(g);
     }
 
     @Override

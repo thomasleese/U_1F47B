@@ -1,5 +1,6 @@
 package bot;
 
+import java.awt.Graphics2D;
 import robocode.*;
 import robocode.util.*;
 
@@ -13,6 +14,10 @@ public abstract class Component {
     public abstract void execute();
 
     public void onHitRobot(HitRobotEvent e) {
+        // implement this
+    }
+
+    public void onPaint(Graphics2D g) {
         // implement this
     }
 }
