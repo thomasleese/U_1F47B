@@ -53,12 +53,12 @@ public class OtherRobot implements Comparable<OtherRobot> {
     
     public static class ProjectedBot
     {
-        double locX;
-        double locY;
+        private double locX;
+        private double locY;
         
-        double dir;
-        double speed;
-        double turnRate;
+        private double dir;
+        private double speed;
+        private double turnRate;
         
         /**
          * init a ProjectedBot from a tick
@@ -70,7 +70,25 @@ public class OtherRobot implements Comparable<OtherRobot> {
             
             dir = tick.velocity.getAngle();
             speed = tick.velocity.length();
-            turnRate = tick.turnRate; // need to get hold of this
+            turnRate = tick.turnRate;
+        }
+        
+        /**
+         * init a ProjectedBot from values
+         */
+        public ProjectedBot(double locXN, double locYN, double dirN, double speedN, double turnRateN)
+        {
+            locX = locXN;
+            locY = locYN;
+            
+            dir = dirN;
+            speed = speedN;
+            turnRate = turnRateN;
+        }
+        
+        public ProjectedBot clone()
+        {
+            return new ProjectedBot(locX, locY, dir, speed, turnRate);
         }
         
         public void project(int timeFrame, TurnBehaviours tb, SpeedBehaviours sb)
