@@ -4,6 +4,7 @@ public abstract class Gun extends Component {
 
     protected double bulletPower;
     protected double rotation;
+    protected boolean shouldFire = true;
 
     public Gun(State state) {
         super(state);
@@ -15,6 +16,10 @@ public abstract class Gun extends Component {
 
     public double getRotation() {
         return this.rotation;
+    }
+
+    public boolean getShouldFire() {
+        return this.shouldFire;
     }
 
 }
