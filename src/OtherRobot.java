@@ -263,11 +263,11 @@ public class OtherRobot implements Comparable<OtherRobot> {
     
     public PresentHistoryDatas availablePresentHistoryData(long time)
     {
-        if (time - 1 != getHistory(-1).time)
+        if (time - 0 != getHistory(-1).time)
             return PresentHistoryDatas.none;
-        else if (time - 2 != getHistory(-2).time)
+        else if (time - 1 != getHistory(-2).time)
             return PresentHistoryDatas.positionOnly;
-        else if (time - 3 != getHistory(-3).time)
+        else if (time - 2 != getHistory(-3).time)
             return PresentHistoryDatas.positionVelocity;
         else
             return PresentHistoryDatas.positionVelocityTurnRate;

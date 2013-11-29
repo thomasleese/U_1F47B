@@ -19,6 +19,18 @@ public class PredictiveGun extends Gun {
     public void execute() {
         // does not use coefficient
         if (this.state.trackingRobot != null) {
+
+            // see how much good data we have
+            OtherRobot.PresentHistoryDatas phs = this.state.trackingRobot.availablePresentHistoryData(this.state.owner.getTime());
+            
+            if (phs == OtherRobot.PresentHistoryDatas.positionVelocity)
+                shouldFire = true;
+            else if (phs == OtherRobot.PresentHistoryDatas.positionVelocityTurnRate)
+                shouldFire = true;
+            else
+                shouldFire = false;
+        
+            // predict his location
             OtherRobot.Tick tick = this.state.trackingRobot.getHistory(-1);
             
             // our velocity
@@ -59,13 +71,24 @@ public class PredictiveGun extends Gun {
 
     @Override
     public void onPaint(Graphics2D g) {
-        double x = this.predVec.getX();
-        double y = this.predVec.getY();
+        if (this.state.trackingRobot != null) {
+            double x = this.predVec.getX();
+            double y = this.predVec.getY();
 
-        int a = 36;
+            int a = 36;
 
-        g.setColor(new Color(255, 255, 0));
-        g.drawRect((int) x - a/2, (int) y - a/2, a, a);
+            OtherRobot.PresentHistoryDatas phs = this.state.trackingRobot.availablePresentHistoryData(this.state.owner.getTime());
+            
+            if (phs == OtherRobot.PresentHistoryDatas.none)
+                g.setColor(new Color(255, 0, 0));
+            else if (phs == OtherRobot.PresentHistoryDatas.positionOnly)
+                g.setColor(new Color(255, 85, 0));
+            else if (phs == OtherRobot.PresentHistoryDatas.positionVelocity)
+                g.setColor(new Color(255, 170, 0));
+            else if (phs == OtherRobot.PresentHistoryDatas.positionVelocityTurnRate)
+                g.setColor(new Color(255, 255, 0));
+            g.drawRect((int) x - a/2, (int) y - a/2, a, a);
+        }
     }
 
 }
