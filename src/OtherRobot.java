@@ -88,6 +88,116 @@ public class OtherRobot implements Comparable<OtherRobot> {
         }
         return (1 + (lastBullet.getPower()/5)) - (0.1 * (time - lastBullet.getTime()));
     }
+    
+    public enum turnBehaviours
+    {
+        noTurn,
+        keepTurn,
+        hardLeft,
+        hardRight,
+    }
+    
+    public enum speedBehaviours
+    {
+        keepSpeed,
+        accel,
+        reverse,
+        stop,
+    }
+    
+    public Vector predictLocation(int timeFrame, turnBehaviours tb, speedBehaviours sb)
+    {
+        OtherRobot.Tick tick = getHistory(-1);
+        
+        double locX = tick.position.getX();
+        double locY = tick.position.getY();
+        
+        double dir = tick.bearing;
+        double speed = tick.velocity.length();
+        
+        double turnRate = 0; // need to get hold of this
+        
+        for (int i = 0; i < timeFrame; i++)
+        {
+            switch (sb)
+            {
+                case keepSpeed:
+                    break;
+                case accel:
+                    if (speed < 8.0)
+                    {
+                        if (speed >= 0)
+                            speed += 1.0;
+                        else
+                        {
+                            speed += 2.0;
+                            if (speed > 0)
+                                speed /= 2.0;
+                        }
+                    }
+                    break;
+                case reverse:
+                    if (speed >= -8.0)
+                    {
+                        if (speed <= 0)
+                            speed += 1.0;
+                        else
+                        {
+                            speed -= 2.0;
+                            if (speed < 0)
+                                speed /= 2.0;
+                        }
+                    }
+                    break;
+                case stop:
+                    if (speed > 0)
+                    {
+                        speed -= 2.0;
+                        if (speed < 0)
+                            speed = 0;
+                    }
+                    else if (speed < 0)
+                    {
+                        speed += 2.0;
+                        if (speed > 0)
+                            speed = 0;
+                    }
+                    break;
+            }
+            
+            switch (tb)
+            {
+                case keepTurn:
+                    break;
+                case noTurn:
+                    turnRate = 0;
+                    break;
+                case hardRight:
+                    turnRate = 90;
+                    break;
+                case hardLeft:
+                    turnRate = -90;
+                    break;
+            }
+            
+            locX += Math.sin(dir) * speed;
+            locY += Math.cos(dir) * speed;
+            // this should be clamed based on speed
+            double clampedTR = Util.clamp(turnRate, -Util.speedToMaxTurnRate(speed), Util.speedToMaxTurnRate(speed));
+            dir += turnRate;
+            
+            if (locX < 16)
+                locX = 16;
+            if (locX > 800/*width of arena*/)
+                locX = 800 - 16;
+            if (locY < 16)
+                locY = 16;
+            if (locY > 600/*height of arena*/)
+                locY = 600 - 16;
+        }
+        
+        return new Vector(locX, locY);
+    }
 
     public boolean predictBulletShot(long time) {
 
