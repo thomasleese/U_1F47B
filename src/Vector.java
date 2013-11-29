@@ -35,6 +35,18 @@ public class Vector extends Point2D.Double {
         return new Vector(resX, resY);
     }
 
+    public Vector add(Vector v) {
+        return this.add(v, 1.0);
+    }
+
+    public Vector square() {
+        return new Vector(this.getX() * this.getX(), this.getY() * this.getY());
+    }
+
+    public double getAngle() {
+        return Util.getAngle(this.getX(), this.getY());
+    }
+
     @Override
     public String toString() {
         return "Vector(" + this.getX() + ", " + this.getY() +")";
