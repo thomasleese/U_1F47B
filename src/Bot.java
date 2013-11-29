@@ -80,6 +80,11 @@ public class Bot extends RateControlRobot {
         this.setAdjustRadarForGunTurn(true);
 
         while (true) {
+            // switch to 1vs1 Components when only one other is left
+            if (this.getOthers() == 1) {
+                this.updateStrategy(Strategy.ONEVSONE);
+            }
+
             this.radar.execute();
             this.gun.execute();
             this.base.execute();
