@@ -14,6 +14,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
 
         public Vector position;
         public Vector velocity;
+        public double turnRate;
 
         public Tick(long time) {
             this.time = time;
@@ -112,10 +113,9 @@ public class OtherRobot implements Comparable<OtherRobot> {
         double locX = tick.position.getX();
         double locY = tick.position.getY();
         
-        double dir = tick.bearing;
+        double dir = tick.velocity.getAngle();
         double speed = tick.velocity.length();
-        
-        double turnRate = 0; // need to get hold of this
+        double turnRate = tick.turnRate; // need to get hold of this
         
         for (int i = 0; i < timeFrame; i++)
         {
@@ -180,20 +180,32 @@ public class OtherRobot implements Comparable<OtherRobot> {
                     break;
             }
             
-            locX += Math.sin(dir) * speed;
-            locY += Math.cos(dir) * speed;
-            // this should be clamed based on speed
+            locX += Math.sin(Math.toRadians(dir)) * speed;
+            locY += Math.cos(Math.toRadians(dir)) * speed;
+            
             double clampedTR = Util.clamp(turnRate, -Util.speedToMaxTurnRate(speed), Util.speedToMaxTurnRate(speed));
-            dir += turnRate;
+            dir += clampedTR;
             
             if (locX < 16)
+            {
                 locX = 16;
+                speed = 0;
+            }
             if (locX > 800/*width of arena*/)
+            {
                 locX = 800 - 16;
+                speed = 0;
+            }
             if (locY < 16)
+            {
                 locY = 16;
+                speed = 0;
+            }
             if (locY > 600/*height of arena*/)
+            {
                 locY = 600 - 16;
+                speed = 0;
+            }
         }
         
         return new Vector(locX, locY);
