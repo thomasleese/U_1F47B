@@ -18,7 +18,7 @@ public class Bot extends RateControlRobot {
     public Bot() {
         this.state = new State(this);
         this.radar = new PriorityRadar(this.state);
-        this.gun   = new LinearPredictiveGun(this.state, 1.0);
+        this.gun   = new PredictiveGun(this.state, 1.0);
         this.base  = new SimpleBase(this.state, 2.0);
     }
 
