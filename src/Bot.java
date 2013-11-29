@@ -9,6 +9,24 @@ import robocode.*;
 
 public class Bot extends RateControlRobot {
 
+    private class StrategyComponents {
+        public Radar radar;
+        public Gun gun;
+        public Base base;
+
+        public StrategyComponents(Radar radar, Gun gun, Base base) {
+            this.radar = radar;
+            this.gun = gun;
+            this.base = base;
+        }
+    }
+
+    public static enum Strategy {
+        MELEE, ONEVSONE
+    }
+
+    private Map<Strategy, Bot.StrategyComponents> strategyMap;
+
     private State state;
     // TODO: set these at some point
     private Radar radar;
@@ -17,9 +35,37 @@ public class Bot extends RateControlRobot {
 
     public Bot() {
         this.state = new State(this);
-        this.radar = new PriorityRadar(this.state);
-        this.gun   = new PredictiveGun(this.state, 1.0);
-        this.base  = new SimpleBase(this.state, 2.0);
+        this.initStrategies(this.state);
+        this.updateStrategy(Strategy.MELEE);
+    }
+
+    private void initStrategies(final State state) {
+        this.strategyMap = new HashMap<Strategy, Bot.StrategyComponents>() {{
+
+            put(Strategy.MELEE, new Bot.StrategyComponents(
+                    new PriorityRadar(state),
+                    new PredictiveGun(state, 1.0),
+                    new SimpleBase(state, 2.0)
+            ));
+
+            put(Strategy.ONEVSONE, new Bot.StrategyComponents(
+                    new PriorityRadar(state),
+                    new PredictiveGun(state, 1.0),
+                    new SimpleBase(state, 2.0)
+            ));
+
+        }};
+    }
+
+    public void updateStrategy(Strategy strategy) {
+        Bot.StrategyComponents components = this.strategyMap.get(strategy);
+
+        if (components.radar != null)
+            this.radar = components.radar;
+        if (components.gun != null)
+            this.gun = components.gun;
+        if (components.base != null)
+            this.base = components.base;
     }
 
     @Override
