@@ -7,12 +7,14 @@ public class SimpleBase extends Base {
     private double userRotation;
     private boolean reverse;
     private boolean wasReversing;
+    private int reversingFor;
 
     public SimpleBase(State state, double rotation) {
         super(state);
         this.userRotation = rotation;
         this.reverse = false;
         this.wasReversing = false;
+        this.reversingFor = 0;
     }
 
     @Override
@@ -53,7 +55,13 @@ public class SimpleBase extends Base {
 
     @Override
     public void onHitRobot(HitRobotEvent e) {
-        this.reverse = !this.reverse;
+        // make sure that we don't get stuck in a reverse loop
+        if (this.reversingFor < 3) {
+            this.reverse = !this.reverse;
+            this.reversingFor++;
+        } else {
+            this.reversingFor = 0;
+        }
     }
 
 }
