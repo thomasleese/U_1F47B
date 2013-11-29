@@ -6,13 +6,13 @@ public class SimpleBase extends Base {
 
     private double userRotation;
     private boolean reverse;
-    private boolean wasNearWall;
+    private boolean wasReversing;
 
     public SimpleBase(State state, double rotation) {
         super(state);
         this.userRotation = rotation;
         this.reverse = false;
-        this.wasNearWall = false;
+        this.wasReversing = false;
     }
 
     @Override
@@ -35,12 +35,12 @@ public class SimpleBase extends Base {
 
         // check if we're going into a wall
         if (this.isOutOfBattleField(xPosition, yPosition, 0)) {
-            if (!this.wasNearWall) {
+            if (!this.wasReversing) {
                 this.reverse = !this.reverse;
-                this.wasNearWall = true;
+                this.wasReversing = true;
             }
         } else {
-            this.wasNearWall = false;
+            this.wasReversing = false;
         }
 
         if (Math.random() > 0.99) {
