@@ -252,6 +252,26 @@ public class OtherRobot implements Comparable<OtherRobot> {
         pb.project(timeFrame, tb, sb);
         return pb.getPosition();
     }
+    
+    public enum PresentHistoryDatas
+    {
+        none,
+        positionOnly,
+        positionVelocity,
+        positionVelocityTurnRate,
+    }
+    
+    public PresentHistoryDatas availablePresentHistoryData(long time)
+    {
+        if (time - 1 != getHistory(-1).time)
+            return PresentHistoryDatas.none;
+        else if (time - 2 != getHistory(-2).time)
+            return PresentHistoryDatas.positionOnly;
+        else if (time - 3 != getHistory(-3).time)
+            return PresentHistoryDatas.positionVelocity;
+        else
+            return PresentHistoryDatas.positionVelocityTurnRate;
+    }
 
     public boolean predictBulletShot(long time) {
 
