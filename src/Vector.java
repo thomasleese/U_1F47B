@@ -20,6 +20,20 @@ public class Vector extends Point2D.Double {
         return new Vector(this.getX() + coefficient * v.getX(),
                           this.getY() + coefficient * v.getY());
     }
+    
+    // degrees
+    public Vector rotate(double angle, Vector origin)
+    {
+        double originX = origin.getX();
+        double originY = origin.getY();
+        double pointX = getX();
+        double pointY = getY();
+        double sinVar = (double)Math.sin(Math.toRadians(angle));
+        double cosVar = (double)Math.cos(Math.toRadians(angle));
+        double resX = originX + (pointX - originX) * cosVar - (pointY - originY) * sinVar;
+        double resY = originY + (pointY - originY) * cosVar + (pointX - originX) * sinVar;
+        return new Vector(resX, resY);
+    }
 
     @Override
     public String toString() {

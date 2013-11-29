@@ -11,6 +11,14 @@ public class Util {
         return result < 0 ? mod + result : result;
     }
 
+    public static double clamp(double val, double lower, double upper) {
+        if (val < lower)
+            return lower;
+        if (val > upper)
+            return upper;
+        return val;
+    }
+
     public static double round(double d, int digits) {
         double factor = Math.pow(10.0, (double)digits);
         return (double)Math.round(d * factor) / factor;
@@ -26,6 +34,11 @@ public class Util {
 
     public static double speedToFirepower(double speed) {
         return (20 - speed) / 3;
+    }
+
+    // degrees
+    public static double speedToMaxTurnRate(double speed) {
+        return (10 - 0.75 * Math.abs(speed));
     }
 
     public static double getDistance(double dx, double dy)
