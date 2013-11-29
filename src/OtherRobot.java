@@ -34,6 +34,22 @@ public class OtherRobot implements Comparable<OtherRobot> {
         }
 
     }
+    
+    public enum TurnBehaviours
+    {
+        noTurn,
+        keepTurn,
+        hardLeft,
+        hardRight,
+    }
+    
+    public enum SpeedBehaviours
+    {
+        keepSpeed,
+        accel,
+        reverse,
+        stop,
+    }
 
     private String name;
     private ArrayList<Tick> history = new ArrayList<Tick>(10000);
@@ -90,23 +106,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
         return (1 + (lastBullet.getPower()/5)) - (0.1 * (time - lastBullet.getTime()));
     }
     
-    public enum turnBehaviours
-    {
-        noTurn,
-        keepTurn,
-        hardLeft,
-        hardRight,
-    }
-    
-    public enum speedBehaviours
-    {
-        keepSpeed,
-        accel,
-        reverse,
-        stop,
-    }
-    
-    public Vector predictLocation(int timeFrame, turnBehaviours tb, speedBehaviours sb)
+    public Vector predictLocation(int timeFrame, TurnBehaviours tb, SpeedBehaviours sb)
     {
         OtherRobot.Tick tick = getHistory(-1);
         

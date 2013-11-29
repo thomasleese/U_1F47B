@@ -36,14 +36,14 @@ public class PredictiveGun extends Gun {
 
             double timeSteps = dist / projectileSpeed;
 
-            Vector predVec = this.state.trackingRobot.predictLocation((int)timeSteps + 1, OtherRobot.turnBehaviours.keepTurn, OtherRobot.speedBehaviours.keepSpeed);
+            Vector predVec = this.state.trackingRobot.predictLocation((int)timeSteps + 1, OtherRobot.TurnBehaviours.keepTurn, OtherRobot.SpeedBehaviours.keepSpeed);
 
             double afterDist = Util.getDistance(locX - predVec.getX(), locY - predVec.getY());
             double afterTimeSteps = afterDist / projectileSpeed;
 
             double adqTimeSteps = (afterTimeSteps * 0.8 + timeSteps * 0.2); // take weighted average
 
-            predVec = this.state.trackingRobot.predictLocation((int)adqTimeSteps + 1, OtherRobot.turnBehaviours.keepTurn, OtherRobot.speedBehaviours.keepSpeed);
+            predVec = this.state.trackingRobot.predictLocation((int)adqTimeSteps + 1, OtherRobot.TurnBehaviours.keepTurn, OtherRobot.SpeedBehaviours.keepSpeed);
 
             double litDir = Util.getAngle(locX - predVec.getX(), locY - predVec.getY());
 
