@@ -50,6 +50,128 @@ public class OtherRobot implements Comparable<OtherRobot> {
         reverse,
         stop,
     }
+    
+    public static class ProjectedBot
+    {
+        double locX;
+        double locY;
+        
+        double dir;
+        double speed;
+        double turnRate;
+        
+        /**
+         * init a ProjectedBot from a tick
+         */
+        public ProjectedBot(Tick tick)
+        {
+            locX = tick.position.getX();
+            locY = tick.position.getY();
+            
+            dir = tick.velocity.getAngle();
+            speed = tick.velocity.length();
+            turnRate = tick.turnRate; // need to get hold of this
+        }
+        
+        public void project(int timeFrame, TurnBehaviours tb, SpeedBehaviours sb)
+        {
+            for (int i = 0; i < timeFrame; i++)
+            {
+                switch (sb)
+                {
+                    case keepSpeed:
+                        break;
+                    case accel:
+                        if (speed < 8.0)
+                        {
+                            if (speed >= 0)
+                                speed += 1.0;
+                            else
+                            {
+                                speed += 2.0;
+                                if (speed > 0)
+                                    speed /= 2.0;
+                            }
+                        }
+                        break;
+                    case reverse:
+                        if (speed >= -8.0)
+                        {
+                            if (speed <= 0)
+                                speed += 1.0;
+                            else
+                            {
+                                speed -= 2.0;
+                                if (speed < 0)
+                                    speed /= 2.0;
+                            }
+                        }
+                        break;
+                    case stop:
+                        if (speed > 0)
+                        {
+                            speed -= 2.0;
+                            if (speed < 0)
+                                speed = 0;
+                        }
+                        else if (speed < 0)
+                        {
+                            speed += 2.0;
+                            if (speed > 0)
+                                speed = 0;
+                        }
+                        break;
+                }
+                
+                switch (tb)
+                {
+                    case keepTurn:
+                        break;
+                    case noTurn:
+                        turnRate = 0;
+                        break;
+                    case hardRight:
+                        turnRate = 90;
+                        break;
+                    case hardLeft:
+                        turnRate = -90;
+                        break;
+                }
+                
+                locX += Math.sin(Math.toRadians(dir)) * speed;
+                locY += Math.cos(Math.toRadians(dir)) * speed;
+                
+                double clampedTR = Util.clamp(turnRate, -Util.speedToMaxTurnRate(speed), Util.speedToMaxTurnRate(speed));
+                dir += clampedTR;
+                
+                if (locX < 16)
+                {
+                    locX = 16;
+                    speed = 0;
+                }
+                if (locX > 800/*width of arena*/)
+                {
+                    locX = 800 - 16;
+                    speed = 0;
+                }
+                if (locY < 16)
+                {
+                    locY = 16;
+                    speed = 0;
+                }
+                if (locY > 600/*height of arena*/)
+                {
+                    locY = 600 - 16;
+                    speed = 0;
+                }
+            }
+        }
+        
+        public Vector getPosition()
+        {  
+            return new Vector(locX, locY);
+        }
+    }
 
     private String name;
     private ArrayList<Tick> history = new ArrayList<Tick>(10000);
@@ -108,107 +230,9 @@ public class OtherRobot implements Comparable<OtherRobot> {
     
     public Vector predictLocation(int timeFrame, TurnBehaviours tb, SpeedBehaviours sb)
     {
-        OtherRobot.Tick tick = getHistory(-1);
-        
-        double locX = tick.position.getX();
-        double locY = tick.position.getY();
-        
-        double dir = tick.velocity.getAngle();
-        double speed = tick.velocity.length();
-        double turnRate = tick.turnRate; // need to get hold of this
-        
-        for (int i = 0; i < timeFrame; i++)
-        {
-            switch (sb)
-            {
-                case keepSpeed:
-                    break;
-                case accel:
-                    if (speed < 8.0)
-                    {
-                        if (speed >= 0)
-                            speed += 1.0;
-                        else
-                        {
-                            speed += 2.0;
-                            if (speed > 0)
-                                speed /= 2.0;
-                        }
-                    }
-                    break;
-                case reverse:
-                    if (speed >= -8.0)
-                    {
-                        if (speed <= 0)
-                            speed += 1.0;
-                        else
-                        {
-                            speed -= 2.0;
-                            if (speed < 0)
-                                speed /= 2.0;
-                        }
-                    }
-                    break;
-                case stop:
-                    if (speed > 0)
-                    {
-                        speed -= 2.0;
-                        if (speed < 0)
-                            speed = 0;
-                    }
-                    else if (speed < 0)
-                    {
-                        speed += 2.0;
-                        if (speed > 0)
-                            speed = 0;
-                    }
-                    break;
-            }
-            
-            switch (tb)
-            {
-                case keepTurn:
-                    break;
-                case noTurn:
-                    turnRate = 0;
-                    break;
-                case hardRight:
-                    turnRate = 90;
-                    break;
-                case hardLeft:
-                    turnRate = -90;
-                    break;
-            }
-            
-            locX += Math.sin(Math.toRadians(dir)) * speed;
-            locY += Math.cos(Math.toRadians(dir)) * speed;
-            
-            double clampedTR = Util.clamp(turnRate, -Util.speedToMaxTurnRate(speed), Util.speedToMaxTurnRate(speed));
-            dir += clampedTR;
-            
-            if (locX < 16)
-            {
-                locX = 16;
-                speed = 0;
-            }
-            if (locX > 800/*width of arena*/)
-            {
-                locX = 800 - 16;
-                speed = 0;
-            }
-            if (locY < 16)
-            {
-                locY = 16;
-                speed = 0;
-            }
-            if (locY > 600/*height of arena*/)
-            {
-                locY = 600 - 16;
-                speed = 0;
-            }
-        }
-        
-        return new Vector(locX, locY);
+        ProjectedBot pb = new ProjectedBot(getHistory(-1));
+        pb.project(timeFrame, tb, sb);
+        return pb.getPosition();
     }
 
     public boolean predictBulletShot(long time) {
