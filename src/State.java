@@ -15,6 +15,7 @@ public class State {
     OtherRobot trackingRobot;
 
     java.util.Vector<BulletHitEvent> bulletHitEvents = new java.util.Vector<BulletHitEvent>();
+    java.util.Vector<HitRobotEvent> hitRobotEvents = new java.util.Vector<HitRobotEvent>();
 
     public State(AdvancedRobot robot) {
         this.owner = robot;
@@ -28,6 +29,7 @@ public class State {
         }
 
         this.bulletHitEvents.clear();
+        this.hitRobotEvents.clear();
     }
 
     public void onScannedRobot(ScannedRobotEvent e) {
