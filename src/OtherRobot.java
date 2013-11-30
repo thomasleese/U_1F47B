@@ -44,6 +44,12 @@ public class OtherRobot implements Comparable<OtherRobot> {
         this.name = name;
     }
 
+    public void advance() {
+        for (BulletWave bw : this.bulletWaves) {
+            bw.advance();
+        }
+    }
+
     @Override
     public int compareTo(OtherRobot robot) {
         return this.getHistory(-1).compareTo(robot.getHistory(-1));
@@ -88,7 +94,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
         if (lastBullet == null) {
             return 0.0;
         }
-        return (1 + (lastBullet.getPower()/5)) - (0.1 * (time - lastBullet.getTime()));
+        return (1 + (lastBullet.getPower()/5)) - (0.1 * lastBullet.getFlightTime());
     }
     
     public Vector predictLocation(int timeFrame, ProjectedBot.TurnBehaviours tb, ProjectedBot.SpeedBehaviours sb)
@@ -154,14 +160,14 @@ public class OtherRobot implements Comparable<OtherRobot> {
             power = 3;
         }
 
-        this.bulletWaves.add(new BulletWave(previous.position, power, time, 360, confidence));
+        this.bulletWaves.add(new BulletWave(previous.position, power, 360, confidence));
 
         return true;
     }
 
     public void onPaint(Graphics2D g, long time) {
         for (BulletWave bw : this.bulletWaves) {
-            bw.onPaint(g, time);
+            bw.onPaint(g);
         }
     }
 

@@ -4,39 +4,37 @@ import java.awt.Graphics2D;
 
 public class VirtualBullet {
 
-    private Vector a;
-    private Vector b;
-    private double power;
-    private long time;
+    private Vector position;
+    private Vector velocity;
+    private long flightTime;
 
-    public VirtualBullet(double positionX, double positionY, double power, double angleD, long time) {
-        this.power = power;
-        this.time = time;
+    public VirtualBullet(double positionX, double positionY, double power, double angleD) {
         double angleR = Math.toRadians(angleD);
-        this.a = new Vector(positionX, positionY);
-        this.b = new Vector(Math.sin(angleR) * this.getSpeed(), Math.cos(angleR) * this.getSpeed());
+        double speed = Util.firepowerToSpeed(power);
+        this.position = new Vector(positionX, positionY);
+        this.velocity = new Vector(Math.sin(angleR) * speed, Math.cos(angleR) * speed);
+        this.flightTime = 0;
     }
 
-    public Vector getPosition(long time) {
-        return this.a.add(this.b, time - this.time);
+    public void advance() {
+        this.position = this.position.add(this.velocity);
+    }
+
+    public Vector getPosition() {
+        return this.position;
     }
 
     public double getPower() {
-        return this.power;
+        return this.velocity.length();
     }
 
-    public double getSpeed() {
-        return 20 - (3 * this.getPower());
+    public long getFlightTime() {
+        return this.flightTime;
     }
 
-    public long getTime() {
-        return this.time;
-    }
-
-    public void onPaint(Graphics2D g, long time) {
+    public void onPaint(Graphics2D g) {
         int diameter = 4;
 
-        Vector position = this.getPosition(time);
-        g.fillArc((int)(position.getX() - diameter/2), (int)(position.getY() - diameter/2), diameter, diameter, 0, 360);
+        g.fillArc((int)(this.position.getX() - diameter/2), (int)(this.position.getY() - diameter/2), diameter, diameter, 0, 360);
     }
 }

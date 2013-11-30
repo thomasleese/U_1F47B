@@ -19,6 +19,12 @@ public class State {
         this.latestRobot = null;
     }
 
+    public void advance() {
+        for (OtherRobot robot : this.otherRobots.values()) {
+            robot.advance();
+        }
+    }
+
     public void onScannedRobot(ScannedRobotEvent e) {
         OtherRobot robot = this.otherRobots.get(e.getName());
         if (robot == null) {

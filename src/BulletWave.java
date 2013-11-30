@@ -9,31 +9,36 @@ public class BulletWave {
 
 	private VirtualBullet[] bullets;
 	private double power;
-	private long time;
 	private double confidence;
 
-	public BulletWave(Vector position, double power, long time, int resolution, double confidence) {
+	public BulletWave(Vector position, double power, int resolution, double confidence) {
 		this.power = power;
-		this.time = time;
 		this.confidence = confidence;
 		this.bullets = new VirtualBullet[resolution];
 		for(int i = 0; i < resolution; i++) {
-			this.bullets[i] = new VirtualBullet(position.getX(), position.getY(), this.power, i, this.time);
+			this.bullets[i] = new VirtualBullet(position.getX(), position.getY(), this.power, i);
 		}
+		this.advance();
+	}
+
+	public void advance() {
+		for (VirtualBullet bullet : this.bullets) {
+			bullet.advance();
+		}
+	}
+
+	public long getFlightTime() {
+		return bullets[0].getFlightTime();
 	}
 
 	public double getPower() {
 		return this.power;
 	}
 
-	public long getTime() {
-		return this.time;
-	}
-
-	public void onPaint(Graphics2D g, long time) {
+	public void onPaint(Graphics2D g) {
 		g.setColor(new Color(0, 255, 0, (int)(255 * this.confidence)));
 		for(VirtualBullet bullet : this.bullets) {
-			bullet.onPaint(g, time);
+			bullet.onPaint(g);
 		}
 	}
 }

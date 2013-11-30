@@ -85,6 +85,8 @@ public class Bot extends RateControlRobot {
                 this.updateStrategy(Strategy.ONEVSONE);
             }
 
+            this.state.advance();
+
             this.radar.execute();
             this.gun.execute();
             this.base.execute();
