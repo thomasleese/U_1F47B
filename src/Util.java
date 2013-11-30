@@ -68,4 +68,16 @@ public class Util {
         return getAngle(y, x);
     }
 
+    public static boolean isOutOfBattleField(double x, double y, double width, double height,
+                                             double marginLeft, double marginTop,
+                                             double marginRight, double marginBottom) {
+        return x + marginRight > width || // right edge
+               x - marginLeft < 0 || // left edge
+               y + marginTop > height || // top edge
+               y - marginBottom < 0; // bottom edge
+    }
+
+    public static boolean isOutOfBattleField(double x, double y, double width, double height) {
+        return Util.isOutOfBattleField(x, y, width, height, 0, 0, 0, 0);
+    }
 }

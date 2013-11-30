@@ -20,12 +20,12 @@ public abstract class Base extends Component {
     }
 
     public boolean isOutOfBattleField(double x, double y, double margin) {
-        return x + margin > this.state.owner.getBattleFieldWidth() -
-                            (this.state.owner.getWidth() / 2) || // right edge
-               x - margin < this.state.owner.getWidth() / 2 || // left edge
-               y + margin > this.state.owner.getBattleFieldHeight() -
-                            (this.state.owner.getHeight() / 2) || // top edge
-               y - margin < this.state.owner.getHeight() / 2; // bottom edge
+        Robot owner = this.state.owner;
+        return Util.isOutOfBattleField(x, y, owner.getBattleFieldWidth(), owner.getBattleFieldHeight(),
+                                       owner.getWidth()/2 + margin, // left
+                                       owner.getHeight()/2 + margin, // top
+                                       owner.getWidth()/2 + margin, // right
+                                       owner.getHeight()/2 + margin); // bottom
     }
 
 }
