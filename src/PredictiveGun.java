@@ -9,6 +9,7 @@ public class PredictiveGun extends Gun {
 
     private double coefficient;
     private boolean shouldFireNextTick = false;
+    private double nextProjectileSpeed = 19.7;
     
     private Vector predVec;
     private OtherRobot.PresentHistoryDatas phs = OtherRobot.PresentHistoryDatas.none;
