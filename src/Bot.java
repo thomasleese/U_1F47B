@@ -49,7 +49,7 @@ public class Bot extends RateControlRobot {
             ));
 
             put(Strategy.ONEVSONE, new Bot.StrategyComponents(
-                    new PriorityRadar(state),
+                    new TrackingRadar(state, 2.0),
                     new PredictiveGun(state, 1.0),
                     new SimpleBase(state, 2.0)
             ));
