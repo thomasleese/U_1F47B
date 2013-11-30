@@ -193,7 +193,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
 
     private String name;
     private ArrayList<Tick> history = new ArrayList<Tick>(10000);
-    private ArrayList<VirtualBullet> bullets = new ArrayList<VirtualBullet>();
+    private ArrayList<BulletWave> bulletWaves = new ArrayList<BulletWave>();
 
     public OtherRobot(String name) {
         this.name = name;
@@ -223,15 +223,15 @@ public class OtherRobot implements Comparable<OtherRobot> {
         this.history.add(tick);
     }
 
-    public List<VirtualBullet> getAllBullets() {
-        return this.bullets;
+    public List<BulletWave> getAllBullets() {
+        return this.bulletWaves;
     }
 
-    public VirtualBullet getBullet(int index) {
-        if (this.bullets.size() == 0) {
+    public BulletWave getBullet(int index) {
+        if (this.bulletWaves.size() == 0) {
             return null;
         }
-        return this.bullets.get(Util.modulo(index, this.bullets.size()));
+        return this.bulletWaves.get(Util.modulo(index, this.bulletWaves.size()));
     }
 
     public String getName() {
@@ -239,7 +239,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
     }
 
     public double getGunHeat(long time) {
-        VirtualBullet lastBullet = this.getBullet(-1);
+        BulletWave lastBullet = this.getBullet(-1);
         if (lastBullet == null) {
             return 0.0;
         }
@@ -308,8 +308,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
             power = 3;
         }
 
-        // TODO: predict angle of bullet
-        // this.bullets.add(new VirtualBullet(position, power, angle, time));
+        this.bulletWaves.add(new BulletWave(penultimate.position, power, time));
 
         return true;
     }
