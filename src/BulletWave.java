@@ -10,10 +10,12 @@ public class BulletWave {
 	private VirtualBullet[] bullets;
 	private double power;
 	private long time;
+	private double confidence;
 
-	public BulletWave(Vector position, double power, long time, int resolution) {
+	public BulletWave(Vector position, double power, long time, int resolution, double confidence) {
 		this.power = power;
 		this.time = time;
+		this.confidence = confidence;
 		this.bullets = new VirtualBullet[resolution];
 		for(int i = 0; i < resolution; i++) {
 			this.bullets[i] = new VirtualBullet(position.getX(), position.getY(), this.power, i, this.time);
@@ -29,8 +31,7 @@ public class BulletWave {
 	}
 
 	public void onPaint(Graphics2D g, long time) {
-		g.setColor(new Color(0, 255, 0));
-
+		g.setColor(new Color(0, 255, 0, (int)(255 * this.confidence)));
 		for(VirtualBullet bullet : this.bullets) {
 			bullet.onPaint(g, time);
 		}
