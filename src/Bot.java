@@ -142,6 +142,8 @@ public class Bot extends RateControlRobot {
         this.radar.onHitRobot(e);
         this.gun.onHitRobot(e);
         this.base.onHitRobot(e);
+
+        this.state.hitRobotEvents.add(e);
     }
 
     @Override
