@@ -51,7 +51,7 @@ public class State {
             tick.turnRate = 0;
         this.latestRobot = robot;
 
-        robot.predictBulletShot(this.owner.getTime());
+        robot.predictBulletShot(this.owner.getTime(), this);
     }
 
     public void onRobotDeath(RobotDeathEvent e) {

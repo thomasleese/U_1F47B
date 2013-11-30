@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import robocode.*;
 
 public class OtherRobot implements Comparable<OtherRobot> {
 
@@ -128,7 +129,21 @@ public class OtherRobot implements Comparable<OtherRobot> {
             return PresentHistoryDatas.positionVelocityTurnRate;
     }
 
-    public boolean predictBulletShot(long time) {
+    private double calcHitWallPowerDiff(OtherRobot.Tick tick, State state) {
+        double width = state.owner.getBattleFieldWidth();
+        double height = state.owner.getBattleFieldHeight();
+        double marginTopBottom = Util.ROBOT_HEIGHT / 2;
+        double marginLeftRight = Util.ROBOT_WIDTH / 2;
+
+        if (Util.isOutOfBattleField(tick.position, width, height,
+                                     marginLeftRight, marginTopBottom, marginLeftRight, marginTopBottom)) {
+            return Rules.getWallHitDamage(tick.velocity.length());
+        }
+
+        return 0;
+    }
+
+    public boolean predictBulletShot(long time, State state) {
 
         // check if it's possible that a bullet was shot
         if (this.getGunHeat(time) > 0) {
@@ -149,7 +164,8 @@ public class OtherRobot implements Comparable<OtherRobot> {
 
         // TODO: account for being hit by us
 
-        // TODO: account for robot ramming into wall
+        // remove any power that would be caused by crashing
+        power -= this.calcHitWallPowerDiff(previous, state);
 
         // TODO: account for robot ramming other robot
 
