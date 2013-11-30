@@ -172,7 +172,12 @@ public class OtherRobot implements Comparable<OtherRobot> {
         // remove any power that would be caused by crashing
         power -= this.calcHitWallPowerDiff(previous, state);
 
-        // TODO: account for robot ramming other robot
+        // remove any power that would've been lost if we rammed into them
+        for (HitRobotEvent e : state.hitRobotEvents) {
+            if (e.getName().equals(this.name)) {
+                power -= Rules.ROBOT_HIT_DAMAGE;
+            }
+        }
 
         // check if power is still less than allowed
         if (power < 0.1) {
