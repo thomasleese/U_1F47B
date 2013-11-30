@@ -309,7 +309,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
             power = 3;
         }
 
-        this.bulletWaves.add(new BulletWave(previous.position, power, time));
+        this.bulletWaves.add(new BulletWave(previous.position, power, time, 360));
 
         return true;
     }

@@ -7,14 +7,17 @@ import robocode.util.*;
 
 public class BulletWave {
 
-	private Vector position;
+	private VirtualBullet[] bullets;
 	private double power;
 	private long time;
 
-	public BulletWave(Vector position, double power, long time) {
-		this.position = position;
+	public BulletWave(Vector position, double power, long time, int resolution) {
 		this.power = power;
 		this.time = time;
+		this.bullets = new VirtualBullet[resolution];
+		for(int i = 0; i < resolution; i++) {
+			this.bullets[i] = new VirtualBullet(position.getX(), position.getY(), this.power, i, this.time);
+		}
 	}
 
 	public double getPower() {
@@ -28,8 +31,8 @@ public class BulletWave {
 	public void onPaint(Graphics2D g, long time) {
 		g.setColor(new Color(0, 255, 0));
 
-		double a = 2 * Util.firepowerToSpeed(this.power) * (time + 1 - this.time);
-		System.out.println(a);
-		g.drawArc((int)(this.position.getX() - a/2), (int)(this.position.getY() - a/2), (int)a, (int)a, 0, 360);
+		for(VirtualBullet bullet : this.bullets) {
+			bullet.onPaint(g, time);
+		}
 	}
 }
