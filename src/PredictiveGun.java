@@ -24,6 +24,8 @@ public class PredictiveGun extends Gun {
         if (this.state.trackingRobot != null) {
             shouldFire = shouldFireNextTick;
             shouldFireNextTick = false;
+            if (shouldFire)
+                this.bulletPower = Util.speedToFirepower(nextProjectileSpeed);
 
             // see how much good data we have
             phs = this.state.trackingRobot.availablePresentHistoryData(this.state.owner.getTime());
@@ -50,7 +52,7 @@ public class PredictiveGun extends Gun {
             {
                 projectileSpeed = (dist / cutoff) * 19.7;
             }
-            this.bulletPower = Util.speedToFirepower(projectileSpeed);
+            nextProjectileSpeed = projectileSpeed;
 
             double timeSteps = dist / projectileSpeed;
 
