@@ -17,6 +17,7 @@ public class VirtualBullet {
     }
 
     public void advance() {
+        this.flightTime++;
         this.position = this.position.add(this.velocity);
     }
 
