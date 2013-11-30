@@ -280,16 +280,16 @@ public class OtherRobot implements Comparable<OtherRobot> {
             return false;
         }
 
-        OtherRobot.Tick previous = this.getHistory(-1);
-        OtherRobot.Tick penultimate = this.getHistory(-2);
+        OtherRobot.Tick current = this.getHistory(-1);
+        OtherRobot.Tick previous = this.getHistory(-2);
 
-        if (previous == null || penultimate == null) {
+        if (current == null || previous == null) {
             // we don't know what the shot power is
             // assume that no shot has been made
             return false;
         }
 
-        double power = Util.roundTo1(penultimate.energy - previous.energy);
+        double power = Util.roundTo1(previous.energy - current.energy);
 
         // TODO: account for being hit by us
 
@@ -308,7 +308,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
             power = 3;
         }
 
-        this.bulletWaves.add(new BulletWave(penultimate.position, power, time));
+        this.bulletWaves.add(new BulletWave(previous.position, power, time));
 
         return true;
     }
