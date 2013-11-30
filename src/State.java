@@ -2,6 +2,7 @@ package bot;
 
 import java.util.Map;
 import java.util.HashMap;
+
 import robocode.*;
 import robocode.util.*;
 
@@ -13,6 +14,8 @@ public class State {
     OtherRobot latestRobot;
     OtherRobot trackingRobot;
 
+    java.util.Vector<BulletHitEvent> bulletHitEvents = new java.util.Vector<BulletHitEvent>();
+
     public State(AdvancedRobot robot) {
         this.owner = robot;
         this.otherRobots = new HashMap<String, OtherRobot>();
@@ -23,6 +26,8 @@ public class State {
         for (OtherRobot robot : this.otherRobots.values()) {
             robot.advance();
         }
+
+        this.bulletHitEvents.clear();
     }
 
     public void onScannedRobot(ScannedRobotEvent e) {

@@ -114,6 +114,7 @@ public class Bot extends RateControlRobot {
     @Override
     public void onBulletHit(BulletHitEvent e) {
         System.out.println("Out bullet hit a robot: " + e);
+        this.state.bulletHitEvents.add(e);
     }
 
     @Override
@@ -180,4 +181,5 @@ public class Bot extends RateControlRobot {
     public void onWin(WinEvent e) {
         System.out.println("We won! " + e);
     }
+
 }
