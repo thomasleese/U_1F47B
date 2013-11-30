@@ -20,6 +20,16 @@ public class Vector extends Point2D.Double {
         return new Vector(this.getX() + coefficient * v.getX(),
                           this.getY() + coefficient * v.getY());
     }
+
+    public Vector mul(double coefficient) {
+        return new Vector(coefficient * this.getX(),
+                          coefficient * this.getY());
+    }
+
+    public Vector div(double coefficient) {
+        return new Vector(this.getX() / coefficient,
+                          this.getY() / coefficient);
+    }
     
     // degrees
     public Vector rotate(double angle, Vector origin)
