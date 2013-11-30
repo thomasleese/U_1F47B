@@ -32,8 +32,17 @@ public class State {
         tick.energy = e.getEnergy();
         tick.position = this.calculatePosition(tick.bearing, tick.distance);
         robot.pushHistory(tick);
-        tick.velocity = State.calculateVelocity(robot.getHistory(-2).position, tick.position); // this needs to be smarter
-        tick.turnRate = State.calculateTurnRate(robot.getHistory(-2).velocity, tick.velocity);
+        
+        OtherRobot.Tick oldTick = robot.getHistory(-2); // this doesn't quite fit the rest of the logic of this function
+        long timeDisc = tick.time - oldTick.time;
+        if (timeDisc <= 3) // couple of ticks leniancy
+            tick.velocity = State.calculateVelocity(oldTick.position, tick.position).div((double)timeDisc);
+        else
+            tick.velocity = new Vector(0, 0);
+        if (timeDisc <= 3)
+            tick.turnRate = State.calculateTurnRate(oldTick.velocity, tick.velocity) / (double)timeDisc;
+        else
+            tick.turnRate = 0;
         this.latestRobot = robot;
 
         robot.predictBulletShot(this.owner.getTime());
