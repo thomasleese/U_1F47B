@@ -162,7 +162,12 @@ public class OtherRobot implements Comparable<OtherRobot> {
         double confidence = 1.0 / (current.time - previous.time);
         double power = Util.roundTo1(previous.energy - current.energy);
 
-        // TODO: account for being hit by us
+        // remove any power that would've been caused by us hitting it
+        for (BulletHitEvent e : state.bulletHitEvents) {
+            if (e.getName().equals(this.name)) {
+                power -= Rules.getBulletDamage(e.getBullet().getPower());
+            }
+        }
 
         // remove any power that would be caused by crashing
         power -= this.calcHitWallPowerDiff(previous, state);
