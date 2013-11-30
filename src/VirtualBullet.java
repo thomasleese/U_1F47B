@@ -16,9 +16,13 @@ public class VirtualBullet {
         this.flightTime = 0;
     }
 
-    public void advance() {
+    public boolean advance() {
         this.flightTime++;
         this.position = this.position.add(this.velocity);
+        if (Util.isOutOfBattleField(this.position.getX(), this.position.getY(), 800, 600)) {
+            return false;
+        }
+        return true;
     }
 
     public Vector getPosition() {

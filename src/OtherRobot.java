@@ -2,6 +2,7 @@ package bot;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class OtherRobot implements Comparable<OtherRobot> {
@@ -45,8 +46,11 @@ public class OtherRobot implements Comparable<OtherRobot> {
     }
 
     public void advance() {
-        for (BulletWave bw : this.bulletWaves) {
-            bw.advance();
+        Iterator<BulletWave> it = this.bulletWaves.iterator();
+        while (it.hasNext()) {
+            if (!it.next().advance()) {
+                it.remove();
+            }
         }
     }
 
