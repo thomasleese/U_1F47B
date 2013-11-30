@@ -1,5 +1,6 @@
 package bot;
 
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -311,6 +312,12 @@ public class OtherRobot implements Comparable<OtherRobot> {
         this.bulletWaves.add(new BulletWave(previous.position, power, time));
 
         return true;
+    }
+
+    public void onPaint(Graphics2D g, long time) {
+        for (BulletWave bw : this.bulletWaves) {
+            bw.onPaint(g, time);
+        }
     }
 
 }

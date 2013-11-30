@@ -153,6 +153,10 @@ public class Bot extends RateControlRobot {
         this.radar.onPaint(g);
         this.gun.onPaint(g);
         this.base.onPaint(g);
+
+        for(OtherRobot r : this.state.otherRobots.values()) {
+            r.onPaint(g, this.getTime());
+        }
     }
 
     @Override
