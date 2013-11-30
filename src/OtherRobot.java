@@ -129,20 +129,6 @@ public class OtherRobot implements Comparable<OtherRobot> {
             return PresentHistoryDatas.positionVelocityTurnRate;
     }
 
-    private double calcHitWallPowerDiff(OtherRobot.Tick tick, State state) {
-        double width = state.owner.getBattleFieldWidth();
-        double height = state.owner.getBattleFieldHeight();
-        double marginTopBottom = Util.ROBOT_HEIGHT / 2;
-        double marginLeftRight = Util.ROBOT_WIDTH / 2;
-
-        if (Util.isOutOfBattleField(tick.position, width, height,
-                                     marginLeftRight, marginTopBottom, marginLeftRight, marginTopBottom)) {
-            return Rules.getWallHitDamage(tick.velocity.length());
-        }
-
-        return 0;
-    }
-
     public boolean predictBulletShot(long time, State state) {
 
         // check if it's possible that a bullet was shot
@@ -170,7 +156,19 @@ public class OtherRobot implements Comparable<OtherRobot> {
         }
 
         // remove any power that would be caused by crashing
-        power -= this.calcHitWallPowerDiff(previous, state);
+        double battlefieldWidth = state.owner.getBattleFieldWidth();
+        double battlefieldHeight = state.owner.getBattleFieldHeight();
+        double marginTopBottom = Util.ROBOT_HEIGHT / 2 - 2; // -2 to make detection more lenient
+        double marginLeftRight = Util.ROBOT_WIDTH / 2 - 2;
+
+        if (Util.isOutOfBattleField(previous.position, battlefieldWidth, battlefieldHeight,
+                                     marginLeftRight, marginTopBottom, marginLeftRight, marginTopBottom)) {
+            confidence *= 0.9;
+            double speedChange = previous.velocity.length() - current.velocity.length();
+            if (Math.abs(speedChange) >= 2.0) {
+                power -= Rules.getWallHitDamage(previous.velocity.length());
+            }
+        }
 
         // remove any power that would've been lost if we rammed into them
         for (HitRobotEvent e : state.hitRobotEvents) {
