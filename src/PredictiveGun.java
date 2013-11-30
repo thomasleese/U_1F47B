@@ -8,7 +8,10 @@ import robocode.util.*;
 public class PredictiveGun extends Gun {
 
     private double coefficient;
+    private boolean shouldFireNextTick = false;
+    
     private Vector predVec;
+    private OtherRobot.PresentHistoryDatas phs = OtherRobot.PresentHistoryDatas.none;
 
     public PredictiveGun(State state, double coefficient) {
         super(state);
@@ -19,16 +22,16 @@ public class PredictiveGun extends Gun {
     public void execute() {
         // does not use coefficient
         if (this.state.trackingRobot != null) {
+            shouldFire = shouldFireNextTick;
+            shouldFireNextTick = false;
 
             // see how much good data we have
-            OtherRobot.PresentHistoryDatas phs = this.state.trackingRobot.availablePresentHistoryData(this.state.owner.getTime());
+            phs = this.state.trackingRobot.availablePresentHistoryData(this.state.owner.getTime());
             
             if (phs == OtherRobot.PresentHistoryDatas.positionVelocity)
-                shouldFire = true;
+                shouldFireNextTick = true;
             else if (phs == OtherRobot.PresentHistoryDatas.positionVelocityTurnRate)
-                shouldFire = true;
-            else
-                shouldFire = false;
+                shouldFireNextTick = true;
         
             // predict his location
             OtherRobot.Tick tick = this.state.trackingRobot.getHistory(-1);
@@ -77,8 +80,6 @@ public class PredictiveGun extends Gun {
 
             int a = 36;
 
-            OtherRobot.PresentHistoryDatas phs = this.state.trackingRobot.availablePresentHistoryData(this.state.owner.getTime());
-            
             if (phs == OtherRobot.PresentHistoryDatas.none)
                 g.setColor(new Color(255, 0, 0));
             else if (phs == OtherRobot.PresentHistoryDatas.positionOnly)
