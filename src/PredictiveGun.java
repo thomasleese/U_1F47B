@@ -11,7 +11,7 @@ public class PredictiveGun extends Gun {
     private boolean shouldFireNextTick = false;
     private double nextProjectileSpeed = 19.7;
     private double expectedGunDir = 0;
-    
+
     private Vector predVec;
     private OtherRobot.PresentHistoryDatas phs = OtherRobot.PresentHistoryDatas.none;
 
@@ -39,15 +39,15 @@ public class PredictiveGun extends Gun {
 
             // see how much good data we have
             phs = this.state.trackingRobot.availablePresentHistoryData(this.state.owner.getTime());
-            
+
             if (phs == OtherRobot.PresentHistoryDatas.positionVelocity)
                 shouldFireNextTick = true;
             else if (phs == OtherRobot.PresentHistoryDatas.positionVelocityTurnRate)
                 shouldFireNextTick = true;
-        
+
             // predict his location
             OtherRobot.Tick tick = this.state.trackingRobot.getHistory(-1);
-            
+
             // our velocity
             double mvX = Math.sin(this.state.owner.getHeadingRadians()) * this.state.owner.getVelocity();
             double mvY = Math.cos(this.state.owner.getHeadingRadians()) * this.state.owner.getVelocity();
@@ -78,10 +78,10 @@ public class PredictiveGun extends Gun {
                 timeSteps = afterTimeSteps - 1.0;
                 this.predVec = this.state.trackingRobot.predictLocation((int)adqTimeSteps + 1, ProjectedBot.TurnBehaviours.keepTurn, ProjectedBot.SpeedBehaviours.keepSpeed);
             }
-            
+
             double litDir = Util.getAngle(locX - predVec.getX(), locY - predVec.getY());
             expectedGunDir = litDir;
-            
+
             double rotation = litDir - this.state.owner.getGunHeading(); // relative rotation to gun
             this.rotation = this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
         } else {

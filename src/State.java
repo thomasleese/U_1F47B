@@ -45,7 +45,7 @@ public class State {
         tick.energy = e.getEnergy();
         tick.position = this.calculatePosition(tick.bearing, tick.distance);
         robot.pushHistory(tick);
-        
+
         OtherRobot.Tick oldTick = robot.getHistory(-2); // this doesn't quite fit the rest of the logic of this function
         long timeDisc = tick.time - oldTick.time;
         if (timeDisc <= 3) // couple of ticks leniancy

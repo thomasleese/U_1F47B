@@ -2,7 +2,7 @@ package bot;
 
 public class ProjectedBot
 {
-    
+
     public enum TurnBehaviours
     {
         noTurn,
@@ -10,7 +10,7 @@ public class ProjectedBot
         hardLeft,
         hardRight,
     }
-    
+
     public enum SpeedBehaviours
     {
         keepSpeed,
@@ -21,11 +21,11 @@ public class ProjectedBot
 
     private double locX;
     private double locY;
-    
+
     private double dir;
     private double speed;
     private double turnRate;
-    
+
     /**
      * init a ProjectedBot from a tick
      */
@@ -33,12 +33,12 @@ public class ProjectedBot
     {
         locX = tick.position.getX();
         locY = tick.position.getY();
-        
+
         dir = tick.velocity.getAngle();
         speed = tick.velocity.length();
         turnRate = tick.turnRate;
     }
-    
+
     /**
      * init a ProjectedBot from values
      */
@@ -46,17 +46,17 @@ public class ProjectedBot
     {
         locX = locXN;
         locY = locYN;
-        
+
         dir = dirN;
         speed = speedN;
         turnRate = turnRateN;
     }
-    
+
     public ProjectedBot clone()
     {
         return new ProjectedBot(locX, locY, dir, speed, turnRate);
     }
-    
+
     public void project(int timeFrame, TurnBehaviours tb, SpeedBehaviours sb)
     {
         for (int i = 0; i < timeFrame; i++)
@@ -106,7 +106,7 @@ public class ProjectedBot
                     }
                     break;
             }
-            
+
             switch (tb)
             {
                 case keepTurn:
@@ -121,13 +121,13 @@ public class ProjectedBot
                     turnRate = -90;
                     break;
             }
-            
+
             locX += Math.sin(Math.toRadians(dir)) * speed;
             locY += Math.cos(Math.toRadians(dir)) * speed;
-            
+
             double clampedTR = Util.clamp(turnRate, -Util.speedToMaxTurnRate(speed), Util.speedToMaxTurnRate(speed));
             dir += clampedTR;
-            
+
             if (locX < 16)
             {
                 locX = 16;
@@ -150,9 +150,9 @@ public class ProjectedBot
             }
         }
     }
-    
+
     public Vector getPosition()
-    {  
+    {
         return new Vector(locX, locY);
     }
 }

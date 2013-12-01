@@ -40,7 +40,7 @@ public class PriorityRadar extends Radar {
                 return;
             }
 
-            double rotation = Utils.normalRelativeAngleDegrees(this.lastSeen.bearing + 
+            double rotation = Utils.normalRelativeAngleDegrees(this.lastSeen.bearing +
                                                                this.state.owner.getHeading() -
                                                                this.state.owner.getRadarHeading());
             reverse = rotation < 0;

@@ -37,7 +37,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
         }
 
     }
-    
+
     private String name;
     private ArrayList<Tick> history = new ArrayList<Tick>(10000);
     private ArrayList<BulletWave> bulletWaves = new ArrayList<BulletWave>();
@@ -101,14 +101,14 @@ public class OtherRobot implements Comparable<OtherRobot> {
         }
         return (1 + (lastBullet.getPower()/5)) - (0.1 * lastBullet.getFlightTime());
     }
-    
+
     public Vector predictLocation(int timeFrame, ProjectedBot.TurnBehaviours tb, ProjectedBot.SpeedBehaviours sb)
     {
         ProjectedBot pb = new ProjectedBot(getHistory(-1));
         pb.project(timeFrame, tb, sb);
         return pb.getPosition();
     }
-    
+
     public enum PresentHistoryDatas
     {
         none,
@@ -116,7 +116,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
         positionVelocity,
         positionVelocityTurnRate,
     }
-    
+
     public PresentHistoryDatas availablePresentHistoryData(long time)
     {
         if (time - 0 != getHistory(-1).time)

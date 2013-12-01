@@ -30,7 +30,7 @@ public class Vector extends Point2D.Double {
         return new Vector(this.getX() / coefficient,
                           this.getY() / coefficient);
     }
-    
+
     // degrees
     public Vector rotate(double angle, Vector origin)
     {
