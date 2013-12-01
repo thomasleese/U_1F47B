@@ -10,6 +10,7 @@ public class PredictiveGun extends Gun {
     private double coefficient;
     private boolean shouldFireNextTick = false;
     private double nextProjectileSpeed = 19.7;
+    private double expectedGunDir = 0;
     
     private Vector predVec;
     private OtherRobot.PresentHistoryDatas phs = OtherRobot.PresentHistoryDatas.none;
@@ -22,11 +23,19 @@ public class PredictiveGun extends Gun {
     @Override
     public void execute() {
         // does not use coefficient
+        shouldFire = shouldFireNextTick;
+        shouldFireNextTick = false;
         if (this.state.trackingRobot != null) {
-            shouldFire = shouldFireNextTick;
-            shouldFireNextTick = false;
             if (shouldFire)
-                this.bulletPower = Util.speedToFirepower(nextProjectileSpeed);
+            {
+                // only fire if our gun is pointing in the right direction
+                if (Math.abs(Utils.normalRelativeAngleDegrees(expectedGunDir - this.state.owner.getGunHeading())) <= 0.2)
+                {
+                    this.bulletPower = Util.speedToFirepower(nextProjectileSpeed);
+                }
+                else
+                    shouldFire = false;
+            }
 
             // see how much good data we have
             phs = this.state.trackingRobot.availablePresentHistoryData(this.state.owner.getTime());
@@ -48,7 +57,7 @@ public class PredictiveGun extends Gun {
             double dist = tick.distance;
             double projectileSpeed = 19.7; // need to be able to turn this into power
 
-            double cutoff = 200.0;
+            double cutoff = 500.0;
             if (dist < cutoff)
             {
                 projectileSpeed = (dist / cutoff) * 19.7;
@@ -57,17 +66,22 @@ public class PredictiveGun extends Gun {
 
             double timeSteps = dist / projectileSpeed;
 
+            // initial sub-iter
             this.predVec = this.state.trackingRobot.predictLocation((int)timeSteps + 1, ProjectedBot.TurnBehaviours.keepTurn, ProjectedBot.SpeedBehaviours.keepSpeed);
 
-            double afterDist = Util.getDistance(locX - predVec.getX(), locY - predVec.getY());
-            double afterTimeSteps = afterDist / projectileSpeed;
+            for (int i = 0; i < 1; i++) // number of iterations to perform (you'd think more would make it better, but it's hard to tell)
+            {
+                double afterDist = Util.getDistance(locX - predVec.getX(), locY - predVec.getY());
+                double afterTimeSteps = afterDist / projectileSpeed;
 
-            double adqTimeSteps = (afterTimeSteps * 0.8 + timeSteps * 0.2); // take weighted average
-
-            this.predVec = this.state.trackingRobot.predictLocation((int)adqTimeSteps + 1, ProjectedBot.TurnBehaviours.keepTurn, ProjectedBot.SpeedBehaviours.keepSpeed);
-
+                double adqTimeSteps = ((afterTimeSteps - 1.0) * 0.5 + timeSteps * 0.5); // take weighted average (remove 1st +1 adjustment from afterTimeSteps)
+                timeSteps = afterTimeSteps - 1.0;
+                this.predVec = this.state.trackingRobot.predictLocation((int)adqTimeSteps + 1, ProjectedBot.TurnBehaviours.keepTurn, ProjectedBot.SpeedBehaviours.keepSpeed);
+            }
+            
             double litDir = Util.getAngle(locX - predVec.getX(), locY - predVec.getY());
-
+            expectedGunDir = litDir;
+            
             double rotation = litDir - this.state.owner.getGunHeading(); // relative rotation to gun
             this.rotation = this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
         } else {
