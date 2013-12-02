@@ -60,7 +60,12 @@ public class PredictiveGun extends Gun {
             double cutoff = 500.0;
             if (dist < cutoff)
             {
-                projectileSpeed = (dist / cutoff) * 19.7;
+                projectileSpeed = (dist / cutoff) * Util.firepowerToSpeed(Rules.MAX_BULLET_POWER);
+            }
+            double minSpeed = Util.firepowerToSpeed(Rules.MIN_BULLET_POWER);
+            if (projectileSpeed < minSpeed) // clamp to MIN_VELOCITY
+            {
+                projectileSpeed = minSpeed;
             }
             nextProjectileSpeed = projectileSpeed;
 
