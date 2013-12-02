@@ -74,7 +74,8 @@ public class PredictiveGun extends Gun {
             // initial sub-iter
             this.predVec = this.state.trackingRobot.predictLocation((int)timeSteps + 1, ProjectedBot.TurnBehaviours.keepTurn, ProjectedBot.SpeedBehaviours.keepSpeed);
 
-            for (int i = 0; i < 1; i++) // number of iterations to perform (you'd think more would make it better, but it's hard to tell)
+            // these are adjustment interations for higher accuracy
+            for (int i = 0; i < 3; i++) // number of iterations to perform (you'd think more would make it better, but it's hard to tell)
             {
                 double afterDist = Util.getDistance(locX - predVec.getX(), locY - predVec.getY());
                 double afterTimeSteps = afterDist / projectileSpeed;
