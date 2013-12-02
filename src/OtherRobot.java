@@ -26,7 +26,9 @@ public class OtherRobot implements Comparable<OtherRobot> {
         @Override
         public String toString() {
             return "Tick(time=" + this.time + ", bearing=" + this.bearing
-                + ", distance=" + this.distance + ", energy=" + this.energy + ")";
+                + ", distance=" + this.distance + ", energy=" + this.energy
+                + ", position=" + this.position + ", velocity=" + this.velocity
+                + ", turnRate=" + this.turnRate + ")";
         }
 
         @Override
