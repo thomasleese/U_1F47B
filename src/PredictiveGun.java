@@ -1,5 +1,6 @@
 package bot;
 
+import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import robocode.*;
@@ -13,6 +14,8 @@ public class PredictiveGun extends Gun {
     private double expectedGunDir = 0;
 
     private Vector predVec;
+
+    private ArrayList<Vector> paintPreds = new ArrayList<Vector>();
     private OtherRobot.PresentHistoryDatas phs = OtherRobot.PresentHistoryDatas.none;
 
     public PredictiveGun(State state, double coefficient) {
@@ -22,6 +25,9 @@ public class PredictiveGun extends Gun {
 
     @Override
     public void execute() {
+        // reset drawings
+        this.paintPreds.clear();
+
         // does not use coefficient
         shouldFire = shouldFireNextTick;
         shouldFireNextTick = false;
@@ -73,6 +79,7 @@ public class PredictiveGun extends Gun {
 
             // initial sub-iter
             this.predVec = this.state.trackingRobot.predictLocation((int)timeSteps + 1, ProjectedBot.TurnBehaviours.keepTurn, ProjectedBot.SpeedBehaviours.keepSpeed);
+            this.paintPreds.add(this.predVec);
 
             // these are adjustment interations for higher accuracy
             for (int i = 0; i < 3; i++) // number of iterations to perform (you'd think more would make it better, but it's hard to tell)
@@ -83,6 +90,7 @@ public class PredictiveGun extends Gun {
                 double adqTimeSteps = ((afterTimeSteps - 1.0) * 0.5 + timeSteps * 0.5); // take weighted average (remove 1st +1 adjustment from afterTimeSteps)
                 timeSteps = afterTimeSteps - 1.0;
                 this.predVec = this.state.trackingRobot.predictLocation((int)adqTimeSteps + 1, ProjectedBot.TurnBehaviours.keepTurn, ProjectedBot.SpeedBehaviours.keepSpeed);
+                this.paintPreds.add(this.predVec);
             }
 
             double litDir = Util.getAngle(locX - predVec.getX(), locY - predVec.getY());
@@ -97,21 +105,30 @@ public class PredictiveGun extends Gun {
 
     @Override
     public void onPaint(Graphics2D g) {
+
         if (this.state.trackingRobot != null) {
-            double x = this.predVec.getX();
-            double y = this.predVec.getY();
 
             int a = 36;
 
-            if (phs == OtherRobot.PresentHistoryDatas.none)
-                g.setColor(new Color(255, 0, 0));
-            else if (phs == OtherRobot.PresentHistoryDatas.positionOnly)
-                g.setColor(new Color(255, 85, 0));
-            else if (phs == OtherRobot.PresentHistoryDatas.positionVelocity)
-                g.setColor(new Color(255, 170, 0));
-            else if (phs == OtherRobot.PresentHistoryDatas.positionVelocityTurnRate)
-                g.setColor(new Color(255, 255, 0));
-            g.drawRect((int) x - a/2, (int) y - a/2, a, a);
+            int opacity = 200; // 255 - 200 = 55 is the mininum opacity
+
+            for(Vector vec : this.paintPreds) {
+
+                double x = vec.getX();
+                double y = vec.getY();
+
+                if (phs == OtherRobot.PresentHistoryDatas.none)
+                    g.setColor(new Color(255, 0, 0, 255 - opacity));
+                else if (phs == OtherRobot.PresentHistoryDatas.positionOnly)
+                    g.setColor(new Color(255, 85, 0, 255 - opacity));
+                else if (phs == OtherRobot.PresentHistoryDatas.positionVelocity)
+                    g.setColor(new Color(255, 170, 0, 255 - opacity));
+                else if (phs == OtherRobot.PresentHistoryDatas.positionVelocityTurnRate)
+                    g.setColor(new Color(255, 255, 0, 255 - opacity));
+
+                g.drawRect((int) x - a/2, (int) y - a/2, a, a);
+                opacity -= 200/this.paintPreds.size();
+            }
         }
     }
 
