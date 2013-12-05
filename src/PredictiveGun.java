@@ -8,6 +8,8 @@ import robocode.util.*;
 
 public class PredictiveGun extends Gun {
 
+    private static final double MIN_SHOOT_SPEED = 18.7;
+
     private double coefficient;
     private boolean shouldFireNextTick = false;
     private double nextProjectileSpeed = 19.7;
@@ -71,12 +73,12 @@ public class PredictiveGun extends Gun {
             double locY = this.state.owner.getY() + mvY;
 
             double dist = tick.distance;
-            double projectileSpeed = 19.7; // need to be able to turn this into power
+            double projectileSpeed = MIN_SHOOT_SPEED; // need to be able to turn this into power
 
             double cutoff = 500.0;
             if (dist < cutoff)
             {
-                projectileSpeed = (dist / cutoff) * Util.firepowerToSpeed(Rules.MIN_BULLET_POWER);
+                projectileSpeed = (dist / cutoff) * MIN_SHOOT_SPEED; // Util.firepowerToSpeed(Rules.MIN_BULLET_POWER);
             }
             double minSpeed = Util.firepowerToSpeed(Rules.MAX_BULLET_POWER);
             if (projectileSpeed < minSpeed) // clamp to MIN_VELOCITY
