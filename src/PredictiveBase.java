@@ -73,13 +73,10 @@ public class PredictiveBase extends Base {
             this.rotation = 0;
             this.speed = Double.NEGATIVE_INFINITY;
         } else {
-            double normalAngle = Utils.normalRelativeAngleDegrees(180 - angleDiff);
-            if (Math.abs(angleDiff) < Math.abs(normalAngle)) {
+            if (Math.abs(angleDiff) >= 90)
                 this.rotation = angleDiff;
-            } else {
-                this.rotation = normalAngle;
-            }
-
+            else
+                this.rotation = Utils.normalRelativeAngleDegrees(180 + angleDiff);
             this.speed = 0;
         }
 
