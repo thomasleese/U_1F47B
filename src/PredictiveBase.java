@@ -1,5 +1,6 @@
 package bot;
 
+import java.util.Stack;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import robocode.*;
@@ -7,10 +8,22 @@ import robocode.util.*;
 
 public class PredictiveBase extends Base {
 
+    private class Action {
+        public double speed;
+        public double angle;
+
+        public Action(double speed, double angle) {
+            this.speed = speed;
+            this.angle = angle;
+        }
+    }
+
+    private Stack<Action> actions;
     private Vector destination;
 
     public PredictiveBase(State state) {
         super(state);
+        this.actions = new Stack<Action>();
     }
 
     private double evaluatePosition(Vector position) {
@@ -63,22 +76,28 @@ public class PredictiveBase extends Base {
         Vector position = new Vector(this.state.owner.getX(), this.state.owner.getY());
         Vector diff = this.destination.add(position, -1);
 
-        double destinationAngle = diff.getAngle();
-        double angleDiff = Utils.normalRelativeAngleDegrees(this.state.owner.getHeading() - destinationAngle);
-        
-        if (Math.abs(angleDiff) <= 15) {
-            this.rotation = 0;
-            this.speed = Double.POSITIVE_INFINITY;
-        } else if (Math.abs(angleDiff) >= 165) {
-            this.rotation = 0;
-            this.speed = Double.NEGATIVE_INFINITY;
-        } else {
-            if (Math.abs(angleDiff) >= 90)
-                this.rotation = angleDiff;
-            else
-                this.rotation = Utils.normalRelativeAngleDegrees(180 + angleDiff);
-            this.speed = 0;
+        if (this.actions.size() == 0) {
+
+            double destinationAngle = diff.getAngle();
+            double angleDiff = Utils.normalRelativeAngleDegrees(this.state.owner.getHeading() - destinationAngle);
+
+            if (Math.abs(angleDiff) <= 15) {
+                this.actions.push(new Action(Double.POSITIVE_INFINITY, 0.0));
+
+            } else if (Math.abs(angleDiff) >= 165) {
+                this.actions.push(new Action(Double.NEGATIVE_INFINITY, 0.0));
+
+            } else {
+                if (Math.abs(angleDiff) >= 90)
+                    this.actions.push(new Action(0, angleDiff));
+                else
+                    this.actions.push(new Action(0, Utils.normalRelativeAngleDegrees(180 + angleDiff)));
+            }
         }
+
+        Action action = this.actions.pop();
+        this.rotation = action.angle;
+        this.speed = action.speed;
 
         if (diff.lengthSq() <= 4 * 4) {
             this.destination = null;
