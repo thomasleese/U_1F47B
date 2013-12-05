@@ -1,6 +1,7 @@
 package bot;
 
 import java.util.Random;
+import robocode.util.*;
 
 public class Util {
 
@@ -92,5 +93,15 @@ public class Util {
 
     public static boolean isOutOfBattleField(Vector position, double width, double height) {
         return Util.isOutOfBattleField(position.getX(), position.getY(), width, height);
+    }
+
+    public static double headinglessAngle(double angle) {
+        double normalAngle = Utils.normalRelativeAngleDegrees(angle);
+        double normalAngleReverse = Utils.normalRelativeAngleDegrees(angle + 180);
+        if (Math.abs(normalAngle) < Math.abs(normalAngleReverse)) {
+            return normalAngle;
+        } else {
+            return normalAngleReverse;
+        }
     }
 }
