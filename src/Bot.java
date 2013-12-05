@@ -45,13 +45,13 @@ public class Bot extends RateControlRobot {
             put(Strategy.MELEE, new Bot.StrategyComponents(
                     new PriorityRadar(state),
                     new PredictiveGun(state, 1.0),
-                    new SimpleBase(state, 2.0)
+                    new PredictiveBase(state)
             ));
 
             put(Strategy.ONEVSONE, new Bot.StrategyComponents(
                     new TrackingRadar(state, 2.0),
                     new PredictiveGun(state, 1.0),
-                    new SimpleBase(state, 2.0)
+                    null
             ));
 
         }};
