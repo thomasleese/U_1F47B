@@ -65,14 +65,21 @@ public class PredictiveBase extends Base {
 
         double destinationAngle = diff.getAngle();
         double angleDiff = Utils.normalRelativeAngleDegrees(this.state.owner.getHeading() - destinationAngle);
-        if (Math.abs(angleDiff) <= 10) {
+        
+        if (Math.abs(angleDiff) <= 15) {
             this.rotation = 0;
             this.speed = Double.POSITIVE_INFINITY;
-        } else if (Math.abs(angleDiff) >= 170) {
+        } else if (Math.abs(angleDiff) >= 165) {
             this.rotation = 0;
             this.speed = Double.NEGATIVE_INFINITY;
         } else {
-            this.rotation = angleDiff;
+            double normalAngle = Utils.normalRelativeAngleDegrees(180 - angleDiff);
+            if (Math.abs(angleDiff) < Math.abs(normalAngle)) {
+                this.rotation = angleDiff;
+            } else {
+                this.rotation = normalAngle;
+            }
+
             this.speed = 0;
         }
 
