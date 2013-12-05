@@ -91,20 +91,18 @@ public class PredictiveBase extends Base {
 
     private void generateActions(Vector diff) {
         double destinationAngle = diff.getAngle();
-        double angleDiff = Utils.normalRelativeAngleDegrees(this.state.owner.getHeading() - destinationAngle);
+        double angleDiff = Utils.normalRelativeAngleDegrees(destinationAngle - this.state.owner.getHeading());
 
-        if (Math.abs(angleDiff) <= 15) {
-            this.actions.push(new Action(Double.POSITIVE_INFINITY, 0.0));
+        double anglePerDistance = Util.headinglessAngle(angleDiff) / diff.length();
 
-        } else if (Math.abs(angleDiff) >= 165) {
-            this.actions.push(new Action(Double.NEGATIVE_INFINITY, 0.0));
+        // rearrange rotation rate <-> speed formula, substitute rotation rate with anglePerDistance*speed, rearrange again
+        double requiredSpeed = 40 / (3 + 4 * anglePerDistance);
 
-        } else {
-            if (Math.abs(angleDiff) >= 90)
-                this.actions.push(new Action(0, angleDiff));
-            else
-                this.actions.push(new Action(0, Utils.normalRelativeAngleDegrees(180 + angleDiff)));
+        if (Math.abs(angleDiff) > 90) {
+            requiredSpeed *= -1;
         }
+
+        this.actions.push(new Action(requiredSpeed, Util.headinglessAngle(angleDiff)));
     }
 
     @Override
