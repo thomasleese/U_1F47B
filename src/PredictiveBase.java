@@ -77,22 +77,7 @@ public class PredictiveBase extends Base {
         Vector diff = this.destination.add(position, -1);
 
         if (this.actions.size() == 0) {
-
-            double destinationAngle = diff.getAngle();
-            double angleDiff = Utils.normalRelativeAngleDegrees(this.state.owner.getHeading() - destinationAngle);
-
-            if (Math.abs(angleDiff) <= 15) {
-                this.actions.push(new Action(Double.POSITIVE_INFINITY, 0.0));
-
-            } else if (Math.abs(angleDiff) >= 165) {
-                this.actions.push(new Action(Double.NEGATIVE_INFINITY, 0.0));
-
-            } else {
-                if (Math.abs(angleDiff) >= 90)
-                    this.actions.push(new Action(0, angleDiff));
-                else
-                    this.actions.push(new Action(0, Utils.normalRelativeAngleDegrees(180 + angleDiff)));
-            }
+            this.generateActions(diff);
         }
 
         Action action = this.actions.pop();
@@ -101,6 +86,24 @@ public class PredictiveBase extends Base {
 
         if (diff.lengthSq() <= 4 * 4) {
             this.destination = null;
+        }
+    }
+
+    private void generateActions(Vector diff) {
+        double destinationAngle = diff.getAngle();
+        double angleDiff = Utils.normalRelativeAngleDegrees(this.state.owner.getHeading() - destinationAngle);
+
+        if (Math.abs(angleDiff) <= 15) {
+            this.actions.push(new Action(Double.POSITIVE_INFINITY, 0.0));
+
+        } else if (Math.abs(angleDiff) >= 165) {
+            this.actions.push(new Action(Double.NEGATIVE_INFINITY, 0.0));
+
+        } else {
+            if (Math.abs(angleDiff) >= 90)
+                this.actions.push(new Action(0, angleDiff));
+            else
+                this.actions.push(new Action(0, Utils.normalRelativeAngleDegrees(180 + angleDiff)));
         }
     }
 
