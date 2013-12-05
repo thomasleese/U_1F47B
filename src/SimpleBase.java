@@ -1,12 +1,14 @@
 package bot;
 
 import robocode.*;
+import robocode.util.*;
 
 public class SimpleBase extends Base {
 
     private double userRotation;
     private boolean reverse;
     private boolean wasReversing;
+    private boolean wasTurning;
     private int reversingFor;
 
     public SimpleBase(State state, double rotation) {
@@ -14,6 +16,7 @@ public class SimpleBase extends Base {
         this.userRotation = rotation;
         this.reverse = false;
         this.wasReversing = false;
+        this.wasTurning = false;
         this.reversingFor = 0;
     }
 
@@ -45,8 +48,28 @@ public class SimpleBase extends Base {
             this.wasReversing = false;
         }
 
-        if (Math.random() > 0.99) {
+        if (Math.random() > 0.99 && !this.wasTurning) {
             this.userRotation = -this.userRotation;
+        }
+
+        // take average of bearing to all other robots
+        double avgAngle = 0;
+        for(OtherRobot robot : this.state.otherRobots.values())
+        {
+            OtherRobot.Tick tick = robot.getHistory(-1);
+            avgAngle += tick.bearing;
+        }
+        avgAngle = Utils.normalRelativeAngleDegrees(avgAngle / this.state.otherRobots.size());
+
+        // turn if we're at too steep of an angle, but only if we haven't tried turning
+        if ((avgAngle < 45 && avgAngle > -45) ||
+            (avgAngle > 135 || avgAngle < -135)) {
+            if(!this.wasTurning) {
+                this.userRotation = -this.userRotation;
+                this.wasTurning = true;
+            }
+        } else {
+            this.wasTurning = false;
         }
 
         this.rotation = this.userRotation;
