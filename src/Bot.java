@@ -184,4 +184,9 @@ public class Bot extends RateControlRobot {
         System.out.println("We won! " + e);
     }
 
+    @Override
+    public void onSkippedTurn(SkippedTurnEvent e) {
+        System.out.println("Oh no, we skipped a turn! " + e);
+    }
+
 }
