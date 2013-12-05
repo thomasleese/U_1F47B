@@ -28,6 +28,16 @@ public class PredictiveGun extends Gun {
         // reset drawings
         this.paintPreds.clear();
 
+        double keepDistance = this.state.trackingRobot == null ? Double.POSITIVE_INFINITY :
+                              this.state.trackingRobot.getHistory(-1).distance - 100; // we do this so we don't switch as often
+        for (OtherRobot robot : this.state.otherRobots.values()) {
+            OtherRobot.Tick tick = robot.getHistory(-1);
+            if (tick.distance < keepDistance) {
+                keepDistance = tick.distance;
+                this.state.trackingRobot = robot;
+            }
+        }
+
         // does not use coefficient
         shouldFire = shouldFireNextTick;
         shouldFireNextTick = false;
