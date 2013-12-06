@@ -118,7 +118,7 @@ public class PredictiveBase extends Base {
         this.rotation = action.angle;
         this.speed = action.speed;
 
-        if (diff.lengthSq() <= 4 * 4) {
+        if (diff.lengthSq() <= 16 * 16) {
             this.destination = null;
         }
     }
