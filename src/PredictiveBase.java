@@ -48,27 +48,30 @@ public class PredictiveBase extends Base {
         }
 
         double averageBearing = 0;
-        double minDistance = Double.POSITIVE_INFINITY;
+        double averageDistance = 0;
         for (OtherRobot robot : this.state.otherRobots.values()) {
             OtherRobot.Tick tick = robot.getHistory(-1);
             Vector diff = tick.position.add(position, -1);
-            if (diff.lengthSq() <= minDistance) {
-                minDistance = diff.lengthSq();
-            }
-            averageBearing += diff.getAngle() - angle;
+            averageDistance += diff.lengthSq();
+            averageBearing += Util.headinglessAngle(diff.getAngle() - angle);
         }
 
-        score += minDistance / 1000;
 
         if (this.state.otherRobots.size() != 0) {
+            averageDistance /= this.state.otherRobots.size();
+            score += averageDistance / 5000;
+            System.out.print("d: " + averageDistance / 5000);
+
             averageBearing = Util.headinglessAngle(averageBearing / this.state.otherRobots.size());
-            score += Math.abs(averageBearing / 2);
+            score += Math.abs(averageBearing / 1.5);
+            System.out.print(", b: " + Math.abs(averageBearing / 2));
         }
 
-        System.out.println("Got score of " + score);
         if (score < 0) {
             score = 0;
         }
+
+        System.out.println();
         return score;
     }
 
