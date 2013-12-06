@@ -1,5 +1,6 @@
 package bot;
 
+import java.util.ArrayList;
 import java.util.Stack;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -18,22 +19,35 @@ public class PredictiveBase extends Base {
         }
     }
 
+    private class Destination {
+        public Vector position;
+        public double score;
+
+        public Destination(Vector position, double score) {
+            this.position = position;
+            this.score = score;
+        }
+    }
+
     private Stack<Action> actions;
-    private Vector destination;
+    private ArrayList<Destination> destinations;
+    private Destination destination;
 
     public PredictiveBase(State state) {
         super(state);
         this.actions = new Stack<Action>();
+        this.destinations = new ArrayList<Destination>();
     }
 
     private double evaluatePosition(Vector position) {
-        double score = 0;
+        double score = 1000.0;
 
         // if it is out of bounds return a terrible score
         if (this.isOutOfBattleField(position.getX(), position.getY(), 16)) {
             return Double.NEGATIVE_INFINITY;
         }
 
+        double averageBearing = 0;
         double minDistance = Double.POSITIVE_INFINITY;
         for (OtherRobot robot : this.state.otherRobots.values()) {
             OtherRobot.Tick tick = robot.getHistory(-1);
@@ -41,26 +55,38 @@ public class PredictiveBase extends Base {
             if (diff.lengthSq() <= minDistance) {
                 minDistance = diff.lengthSq();
             }
+            averageBearing += diff.getAngle();
         }
 
-        score = minDistance;
-
+        score += minDistance;
+        if (this.state.otherRobots.size() != 0) {
+            averageBearing = Util.headinglessAngle(averageBearing / this.state.otherRobots.size());
+            score -= Math.abs(90 - Math.abs(averageBearing));
+        }
+        System.out.println("Got score of " + score);
+        if (score < 0) {
+            score = 0;
+        }
         return score;
     }
 
-    private Vector pickBestPosition() {
+    private Destination pickBestPosition() {
         Vector origin = new Vector(this.state.owner.getX(), this.state.owner.getY());
-        Vector radius = new Vector(0, 50);
+        Vector radius = new Vector(0, 100);
 
-        Vector currentDestination = null;
+        Destination currentDestination = null;
         double currentScore = Double.NEGATIVE_INFINITY;
+
+        this.destinations.clear();
 
         for (int angle = 0; angle < 360; angle += 45) {
             Vector destination = origin.add(radius.rotate(angle, Vector.ZERO), 1);
             double score = evaluatePosition(destination);
+            Destination d = new Destination(destination, score);
+            this.destinations.add(d);
             if (score > currentScore) {
                 currentScore = score;
-                currentDestination = destination;
+                currentDestination = d;
             }
         }
 
@@ -74,7 +100,7 @@ public class PredictiveBase extends Base {
         }
 
         Vector position = new Vector(this.state.owner.getX(), this.state.owner.getY());
-        Vector diff = this.destination.add(position, -1);
+        Vector diff = this.destination.position.add(position, -1);
 
         if (this.actions.size() == 0) {
             this.generateActions(diff);
