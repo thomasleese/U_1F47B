@@ -83,11 +83,11 @@ public class PredictiveBase extends Base {
 
         this.destinations.clear();
 
-        for (int i = 75; i <= 150; i += 75)
+        for (int i = 75; i <= 225; i += 75)
         {
             Vector radius = new Vector(0, i * Math.random());
 
-            for (int angle = 0; angle < 360; angle += 20) {
+            for (int angle = 0; angle < 360; angle += 10) {
                 Vector pointGenerator = radius.rotate(angle, Vector.ZERO);
                 Vector destination = origin.add(pointGenerator, 1);
 
