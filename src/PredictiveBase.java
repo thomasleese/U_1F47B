@@ -85,7 +85,7 @@ public class PredictiveBase extends Base {
 
         for (int i = 75; i <= 150; i += 75)
         {
-            Vector radius = new Vector(0, i);
+            Vector radius = new Vector(0, i * Math.random());
 
             for (int angle = 0; angle < 360; angle += 20) {
                 Vector pointGenerator = radius.rotate(angle, Vector.ZERO);
