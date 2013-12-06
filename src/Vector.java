@@ -1,4 +1,4 @@
-package bot;
+package U_1F47B;
 
 import java.awt.geom.Point2D;
 

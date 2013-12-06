@@ -1,4 +1,4 @@
-package bot;
+package U_1F47B;
 
 import robocode.*;
 import robocode.util.*;

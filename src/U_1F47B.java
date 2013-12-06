@@ -1,4 +1,4 @@
-package bot;
+package U_1F47B;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import robocode.*;
 
-public class Bot extends RateControlRobot {
+public class U_1F47B extends RateControlRobot {
 
     private class StrategyComponents {
         public Radar radar;
@@ -25,7 +25,7 @@ public class Bot extends RateControlRobot {
         MELEE, ONEVSONE
     }
 
-    private Map<Strategy, Bot.StrategyComponents> strategyMap;
+    private Map<Strategy, U_1F47B.StrategyComponents> strategyMap;
 
     private State state;
     // TODO: set these at some point
@@ -33,22 +33,22 @@ public class Bot extends RateControlRobot {
     private Gun gun;
     private Base base;
 
-    public Bot() {
+    public U_1F47B() {
         this.state = new State(this);
         this.initStrategies(this.state);
         this.updateStrategy(Strategy.MELEE);
     }
 
     private void initStrategies(final State state) {
-        this.strategyMap = new HashMap<Strategy, Bot.StrategyComponents>() {{
+        this.strategyMap = new HashMap<Strategy, U_1F47B.StrategyComponents>() {{
 
-            put(Strategy.MELEE, new Bot.StrategyComponents(
+            put(Strategy.MELEE, new U_1F47B.StrategyComponents(
                     new PriorityRadar(state),
                     new PredictiveGun(state, 1.0),
                     new PredictiveBase(state)
             ));
 
-            put(Strategy.ONEVSONE, new Bot.StrategyComponents(
+            put(Strategy.ONEVSONE, new U_1F47B.StrategyComponents(
                     new TrackingRadar(state, 2.0),
                     new PredictiveGun(state, 1.0),
                     null
@@ -58,7 +58,7 @@ public class Bot extends RateControlRobot {
     }
 
     public void updateStrategy(Strategy strategy) {
-        Bot.StrategyComponents components = this.strategyMap.get(strategy);
+        U_1F47B.StrategyComponents components = this.strategyMap.get(strategy);
 
         if (components.radar != null)
             this.radar = components.radar;
