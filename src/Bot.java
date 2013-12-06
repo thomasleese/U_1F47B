@@ -73,6 +73,7 @@ public class Bot extends RateControlRobot {
         setColors(new Color(0, 40, 43),
                   new Color(0, 96, 102),
                   new Color(0, 120, 128));
+        setBulletColor(new Color(70, 77, 106));
 
         // we want to control the radar manually
         this.setAdjustRadarForRobotTurn(true);
