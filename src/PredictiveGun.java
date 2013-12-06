@@ -144,4 +144,15 @@ public class PredictiveGun extends Gun {
         }
     }
 
+    @Override
+    public void onHitRobot(HitRobotEvent e) {
+        this.state.trackingRobot = this.state.otherRobots.get(e.getName());
+    }
+
+    // probably not a good idea
+    /*@Override
+    public void onHitByBullet(HitByBulletEvent e) {
+        this.state.trackingRobot = this.state.otherRobots.get(e.getName());
+    }*/
+
 }

@@ -49,9 +49,4 @@ public class PriorityRadar extends Radar {
         this.rotation = reverse ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY;
     }
 
-    @Override
-    public void onHitRobot(HitRobotEvent e) {
-        this.state.trackingRobot = this.state.otherRobots.get(e.getName());
-    }
-
 }
