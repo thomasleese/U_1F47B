@@ -111,7 +111,7 @@ public class PredictiveGun extends Gun {
             double rotation = litDir - this.state.owner.getGunHeading(); // relative rotation to gun
             this.rotation = this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
         } else {
-            // leave the rotation as it is allready
+            this.rotation = Double.POSITIVE_INFINITY;
         }
     }
 

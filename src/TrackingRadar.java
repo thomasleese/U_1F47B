@@ -17,9 +17,13 @@ public class TrackingRadar extends Radar {
     public void execute() {
         if (this.state.trackingRobot != null) {
             OtherRobot.Tick tick = this.state.trackingRobot.getHistory(-1);
-            double rotation = tick.bearing + this.state.owner.getHeading() - // absolute rotation to enemy
-                              this.state.owner.getRadarHeading();   // relative rotation to gun
-            this.rotation = this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
+            if (this.state.owner.getTime() - tick.time > 2) {
+                this.rotation = Double.POSITIVE_INFINITY;
+            } else {
+                double rotation = tick.bearing + this.state.owner.getHeading() - // absolute rotation to enemy
+                                  this.state.owner.getRadarHeading();   // relative rotation to gun
+                this.rotation = this.coefficient * Utils.normalRelativeAngleDegrees(rotation); // normalise
+            }
         } else {
             this.rotation = Double.POSITIVE_INFINITY;
         }
