@@ -141,7 +141,7 @@ public class PredictiveBase extends Base {
 
     @Override
     public void onHitRobot(HitRobotEvent e) {
-
+        this.destination = null;
     }
 
     @Override
