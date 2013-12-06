@@ -39,8 +39,8 @@ public class PredictiveBase extends Base {
         this.destinations = new ArrayList<Destination>();
     }
 
-    private double evaluatePosition(Vector position) {
-        double score = 1000.0;
+    private double evaluatePosition(Vector position, double angle) {
+        double score = 0.0;
 
         // if it is out of bounds return a terrible score
         if (this.isOutOfBattleField(position.getX(), position.getY(), 16)) {
@@ -55,14 +55,16 @@ public class PredictiveBase extends Base {
             if (diff.lengthSq() <= minDistance) {
                 minDistance = diff.lengthSq();
             }
-            averageBearing += diff.getAngle();
+            averageBearing += diff.getAngle() - angle;
         }
 
-        score += minDistance;
+        score += minDistance / 1000;
+
         if (this.state.otherRobots.size() != 0) {
             averageBearing = Util.headinglessAngle(averageBearing / this.state.otherRobots.size());
-            score -= Math.abs(90 - Math.abs(averageBearing));
+            score += Math.abs(averageBearing / 2);
         }
+
         System.out.println("Got score of " + score);
         if (score < 0) {
             score = 0;
