@@ -154,7 +154,6 @@ public class PredictiveBase extends Base {
             if (this.destinations.size() != 0) {
                 for (Destination d : this.destinations) {
                     int score = (int)Util.clamp((d.score/this.destination.score) * 255, 0, 255);
-                    System.out.println(score);
                     g.setColor(new Color(128, 128, 128, score));
                     g.drawRect((int)d.position.getX() - 5, (int)d.position.getY() - 5, 10, 10);
                 }
