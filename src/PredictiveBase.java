@@ -74,21 +74,27 @@ public class PredictiveBase extends Base {
 
     private Destination pickBestPosition() {
         Vector origin = new Vector(this.state.owner.getX(), this.state.owner.getY());
-        Vector radius = new Vector(0, 100);
 
         Destination currentDestination = null;
         double currentScore = Double.NEGATIVE_INFINITY;
 
         this.destinations.clear();
 
-        for (int angle = 0; angle < 360; angle += 45) {
-            Vector destination = origin.add(radius.rotate(angle, Vector.ZERO), 1);
-            double score = evaluatePosition(destination);
-            Destination d = new Destination(destination, score);
-            this.destinations.add(d);
-            if (score > currentScore) {
-                currentScore = score;
-                currentDestination = d;
+        for (int i = 75; i <= 150; i += 75)
+        {
+            Vector radius = new Vector(0, i);
+
+            for (int angle = 0; angle < 360; angle += 20) {
+                Vector pointGenerator = radius.rotate(angle, Vector.ZERO);
+                Vector destination = origin.add(pointGenerator, 1);
+
+                double score = evaluatePosition(destination, pointGenerator.getAngle());
+                Destination d = new Destination(destination, score);
+                this.destinations.add(d);
+                if (score > currentScore) {
+                    currentScore = score;
+                    currentDestination = d;
+                }
             }
         }
 
