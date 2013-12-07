@@ -59,8 +59,8 @@ public class PredictiveBase extends Base {
 
         if (this.state.otherRobots.size() != 0) {
             averageDistance /= this.state.otherRobots.size();
-            score += averageDistance / 5000;
-            System.out.print("d: " + averageDistance / 5000);
+            score += Math.sqrt(averageDistance) / 5;
+            System.out.print("d: " + Math.sqrt(averageDistance) / 5);
 
             averageBearing = Util.headinglessAngle(averageBearing / this.state.otherRobots.size());
             score += Math.abs(averageBearing / 1.5);
