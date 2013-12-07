@@ -33,6 +33,8 @@ public class PredictiveBase extends Base {
     private ArrayList<Destination> destinations;
     private Destination destination;
 
+    private double lastEnemyBearing;
+
     public PredictiveBase(State state) {
         super(state);
         this.actions = new Stack<Action>();
@@ -49,13 +51,21 @@ public class PredictiveBase extends Base {
 
         double averageBearing = 0;
         double averageDistance = 0;
+        double averageEnemyBearing = 0;
+        int numberOfAverageEnemyBearing = 0;
         for (OtherRobot robot : this.state.otherRobots.values()) {
             OtherRobot.Tick tick = robot.getHistory(-1);
             Vector diff = tick.position.add(position, -1);
             averageDistance += diff.lengthSq();
             averageBearing += Util.headinglessAngle(diff.getAngle() - angle);
+            OtherRobot.Tick previous = robot.getHistory(-2);
+            Vector currentPositionRounded  = tick.position.round(3);
+            Vector previousPositionRounded = previous.position.round(3);
+            if (!currentPositionRounded.equals(previousPositionRounded)) {
+                averageEnemyBearing += currentPositionRounded.add(previousPositionRounded, -1).getAngle() - diff.getAngle();
+                numberOfAverageEnemyBearing++;
+            }
         }
-
 
         if (this.state.otherRobots.size() != 0) {
             averageDistance /= this.state.otherRobots.size();
@@ -64,7 +74,13 @@ public class PredictiveBase extends Base {
 
             averageBearing = Util.headinglessAngle(averageBearing / this.state.otherRobots.size());
             score += Math.abs(averageBearing / 1.5);
-            System.out.print(", b: " + Math.abs(averageBearing / 2));
+            System.out.print(", b: " + Math.abs(averageBearing / 1.5));
+
+            if (numberOfAverageEnemyBearing > 0) {
+                this.lastEnemyBearing = averageEnemyBearing / numberOfAverageEnemyBearing;
+            }
+            score += Math.abs(Util.headinglessAngle(this.lastEnemyBearing + 90) / 1.5);
+            System.out.print(", h: " + Math.abs(Util.headinglessAngle(this.lastEnemyBearing + 90)));
         }
 
         if (score < 0) {
