@@ -70,9 +70,6 @@ public class U_1F47B extends RateControlRobot {
 
     @Override
     public void run() {
-        setColors(new Color(0, 40, 43),
-                  new Color(0, 96, 102),
-                  new Color(0, 120, 128));
         setBulletColor(new Color(70, 77, 106));
 
         // we want to control the radar manually
@@ -80,7 +77,15 @@ public class U_1F47B extends RateControlRobot {
         this.setAdjustGunForRobotTurn(true);
         this.setAdjustRadarForGunTurn(true);
 
+        int i = 0;
         while (true) {
+            switch (i) {
+                case 0: setColors(Color.RED, Color.GREEN, Color.BLUE); break;
+                case 1: setColors(Color.BLUE, Color.RED, Color.GREEN); break;
+                case 2: setColors(Color.GREEN, Color.BLUE, Color.RED); break;
+            }
+            i = (i + 1) % 3;
+
             // switch to 1vs1 Components when only one other is left
             if (this.getOthers() == 1) {
                 this.updateStrategy(Strategy.ONEVSONE);
