@@ -63,4 +63,12 @@ public class Vector extends Point2D.Double {
     public String toString() {
         return "Vector(" + this.getX() + ", " + this.getY() +")";
     }
+
+    public boolean equals(Vector v) {
+        return this.getX() == v.getX() && this.getY() == v.getY();
+    }
+
+    public Vector round(int n) {
+        return new Vector(Util.round(this.getX(), n), Util.round(this.getY(), n));
+    }
 }
