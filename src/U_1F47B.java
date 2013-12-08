@@ -100,7 +100,8 @@ public class U_1F47B extends RateControlRobot {
             this.setVelocityRate(this.base.getSpeed());
 
             if (this.gun.getShouldFire() && this.getGunHeat() == 0) {
-                this.setFireBullet(this.gun.getBulletPower());
+                Bullet bullet = this.setFireBullet(this.gun.getBulletPower());
+                this.state.ourBullets.add(bullet);
             }
 
             this.execute();

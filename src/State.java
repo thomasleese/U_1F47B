@@ -1,5 +1,6 @@
 package U_1F47B;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -13,6 +14,7 @@ public class State {
     Map<String, OtherRobot> otherRobots;
     OtherRobot latestRobot;
     OtherRobot trackingRobot;
+    ArrayList<Bullet> ourBullets;
 
     java.util.Vector<BulletHitEvent> bulletHitEvents = new java.util.Vector<BulletHitEvent>();
     java.util.Vector<HitRobotEvent> hitRobotEvents = new java.util.Vector<HitRobotEvent>();
@@ -21,13 +23,13 @@ public class State {
         this.owner = robot;
         this.otherRobots = new HashMap<String, OtherRobot>();
         this.latestRobot = null;
+        this.ourBullets = new ArrayList<Bullet>();
     }
 
     public void advance() {
         for (OtherRobot robot : this.otherRobots.values()) {
             robot.advance();
         }
-
         this.bulletHitEvents.clear();
         this.hitRobotEvents.clear();
     }
