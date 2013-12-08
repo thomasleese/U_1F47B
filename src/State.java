@@ -14,7 +14,7 @@ public class State {
     Map<String, OtherRobot> otherRobots;
     OtherRobot latestRobot;
     OtherRobot trackingRobot;
-    ArrayList<Bullet> ourBullets;
+    ArrayList<TrackedBullet> ourBullets;
 
     java.util.Vector<BulletHitEvent> bulletHitEvents = new java.util.Vector<BulletHitEvent>();
     java.util.Vector<HitRobotEvent> hitRobotEvents = new java.util.Vector<HitRobotEvent>();
@@ -23,7 +23,7 @@ public class State {
         this.owner = robot;
         this.otherRobots = new HashMap<String, OtherRobot>();
         this.latestRobot = null;
-        this.ourBullets = new ArrayList<Bullet>();
+        this.ourBullets = new ArrayList<TrackedBullet>();
     }
 
     public void advance() {
