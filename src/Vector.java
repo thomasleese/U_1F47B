@@ -71,4 +71,8 @@ public class Vector extends Point2D.Double {
     public Vector round(int n) {
         return new Vector(Util.round(this.getX(), n), Util.round(this.getY(), n));
     }
+
+    public Vector bound(double xMin, double xMax, double yMin, double yMax) {
+        return new Vector(Util.clamp(this.getX(), xMin, xMax), Util.clamp(this.getY(), yMin, yMax));
+    }
 }
