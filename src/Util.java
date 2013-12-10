@@ -54,7 +54,7 @@ public class Util {
         return -90 - Math.toDegrees(Math.atan2(dy, dx));
     }
 
-    public double getDistance(double ax, double ay, double bx, double by)
+    public static double getDistance(double ax, double ay, double bx, double by)
     {
         double x = ax - bx;
         double y = ay - by;
@@ -64,11 +64,11 @@ public class Util {
     /**
      * a is origin
      */
-    public double getAngle(double ax, double ay, double bx, double by)
+    public static double getAngle(double ax, double ay, double bx, double by)
     {
         double x = ax - bx;
         double y = ay - by;
-        return getAngle(y, x);
+        return getAngle(x, y);
     }
 
     public static boolean isOutOfBattleField(double x, double y, double width, double height,

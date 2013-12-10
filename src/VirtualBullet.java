@@ -8,10 +8,10 @@ public class VirtualBullet {
     private Vector velocity;
     private long flightTime;
 
-    public VirtualBullet(double positionX, double positionY, double power, double angleD) {
+    public VirtualBullet(Vector position, double power, double angleD) {
         double angleR = Math.toRadians(angleD);
         double speed = Util.firepowerToSpeed(power);
-        this.position = new Vector(positionX, positionY);
+        this.position = new Vector(position);
         this.velocity = new Vector(Math.sin(angleR) * speed, Math.cos(angleR) * speed);
         this.flightTime = 0;
     }

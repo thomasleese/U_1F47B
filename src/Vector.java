@@ -10,6 +10,10 @@ public class Vector extends Point2D.Double {
         super(x, y);
     }
 
+    public Vector(Vector copy) {
+        super(copy.getX(), copy.getY());
+    }
+
     public double length() {
         return Math.sqrt(this.lengthSq());
     }
