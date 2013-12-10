@@ -82,7 +82,7 @@ public class ProjectedBot
                     if (speed >= -8.0)
                     {
                         if (speed <= 0)
-                            speed += 1.0;
+                            speed -= 1.0;
                         else
                         {
                             speed -= 2.0;
@@ -106,6 +106,11 @@ public class ProjectedBot
                     }
                     break;
             }
+            
+            if (speed > 8.0)
+                speed = 8.0;
+            if (speed < -8.0)
+                speed = -8.0;
 
             switch (tb)
             {
