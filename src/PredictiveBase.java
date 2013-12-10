@@ -64,7 +64,7 @@ public class PredictiveBase extends Base {
             }
 
             for (BulletWave wave : robot.getAllBullets()) {
-                averageBulletPosition += tick.position.add(wave.getAveragePosition(), -1).lengthSq();
+                averageBulletPosition += position.add(wave.getAveragePosition(), -1).lengthSq();
                 numberOfAverageBulletPosition++;
             }
         }
@@ -87,8 +87,8 @@ public class PredictiveBase extends Base {
 
         if (numberOfAverageBulletPosition != 0) {
             averageBulletPosition /= numberOfAverageBulletPosition;
-            score += Math.sqrt(averageBulletPosition);
-            System.out.print(", b: " + Math.sqrt(averageBulletPosition));
+            score += Math.sqrt(averageBulletPosition) / 2;
+            System.out.print(", b: " + Math.sqrt(averageBulletPosition) / 2);
         }
 
         if (score < 0) {
@@ -107,7 +107,7 @@ public class PredictiveBase extends Base {
 
         this.destinations.clear();
 
-        for (int i = 100; i <= 150; i += 25)
+        for (int i = 150; i <= 400; i += 50)
         {
             Vector radius = new Vector(0, i * Math.random());
 
