@@ -101,7 +101,9 @@ public class U_1F47B extends RateControlRobot {
 
             if (this.gun.getShouldFire() && this.getGunHeat() == 0) {
                 Bullet bullet = this.setFireBullet(this.gun.getBulletPower());
-                this.state.ourBullets.add(new TrackedBullet(bullet));
+                TrackedBullet tb = new TrackedBullet(bullet);
+                this.gun.firedBullet(tb);
+                this.state.ourBullets.add(tb);
             }
             this.execute();
         }
@@ -116,6 +118,15 @@ public class U_1F47B extends RateControlRobot {
     public void onBulletHit(BulletHitEvent e) {
         System.out.println("Out bullet hit a robot: " + e);
         this.state.bulletHitEvents.add(e);
+        
+        for (TrackedBullet tb: this.state.ourBullets)
+        {
+            if (tb.getBullet() == e.getBullet())
+            {
+                this.gun.bulletHit(tb);
+                return;
+            }
+        }
     }
 
     @Override
@@ -126,6 +137,15 @@ public class U_1F47B extends RateControlRobot {
     @Override
     public void onBulletMissed(BulletMissedEvent e) {
         System.out.println("Our bullet missed: " + e);
+        
+        for (TrackedBullet tb: this.state.ourBullets)
+        {
+            if (tb.getBullet() == e.getBullet())
+            {
+                this.gun.bulletMissed(tb);
+                return;
+            }
+        }
     }
 
     @Override

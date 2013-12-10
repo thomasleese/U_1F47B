@@ -22,4 +22,16 @@ public abstract class Gun extends Component {
         return this.shouldFire;
     }
 
+    public void firedBullet(TrackedBullet tb) {
+        // no default behaviour
+    }
+
+    public void bulletHit(TrackedBullet tb) {
+        // no default behaviour
+    }
+
+    public void bulletMissed(TrackedBullet tb) {
+        // no default behaviour
+    }
+
 }

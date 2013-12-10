@@ -19,6 +19,7 @@ public class PredictiveGun extends Gun {
 
     private ArrayList<Vector> paintPreds = new ArrayList<Vector>();
     private OtherRobot.PresentHistoryDatas phs = OtherRobot.PresentHistoryDatas.none;
+    private PredictionData pd = null;
 
     public PredictiveGun(State state, double coefficient) {
         super(state);
@@ -89,8 +90,12 @@ public class PredictiveGun extends Gun {
 
             double timeSteps = dist / projectileSpeed;
 
+            // decide on prediction
+            ProjectedBot.TurnBehaviours tb = ProjectedBot.TurnBehaviours.keepTurn;
+            ProjectedBot.SpeedBehaviours sb = ProjectedBot.SpeedBehaviours.keepSpeed;
+
             // initial sub-iter
-            this.predVec = this.state.trackingRobot.predictLocation((int)timeSteps + 1, ProjectedBot.TurnBehaviours.keepTurn, ProjectedBot.SpeedBehaviours.keepSpeed);
+            this.predVec = this.state.trackingRobot.predictLocation((int)timeSteps + 1, tb, sb);
             this.paintPreds.add(this.predVec);
 
             // these are adjustment interations for higher accuracy
@@ -101,9 +106,11 @@ public class PredictiveGun extends Gun {
 
                 double adqTimeSteps = ((afterTimeSteps - 1.0) * 0.5 + timeSteps * 0.5); // take weighted average (remove 1st +1 adjustment from afterTimeSteps)
                 timeSteps = afterTimeSteps - 1.0;
-                this.predVec = this.state.trackingRobot.predictLocation((int)adqTimeSteps + 1, ProjectedBot.TurnBehaviours.keepTurn, ProjectedBot.SpeedBehaviours.keepSpeed);
+                this.predVec = this.state.trackingRobot.predictLocation((int)adqTimeSteps + 1, tb, sb);
                 this.paintPreds.add(this.predVec);
             }
+            
+            pd = new PredictionData(phs, tb, sb, (int)timeSteps + 1);
 
             double litDir = Util.getAngle(locX - predVec.getX(), locY - predVec.getY());
             expectedGunDir = litDir;
@@ -113,6 +120,21 @@ public class PredictiveGun extends Gun {
         } else {
             this.rotation = Double.POSITIVE_INFINITY;
         }
+    }
+
+    @Override
+    public void firedBullet(TrackedBullet tb) {
+        tb.setData(pd);
+    }
+
+    @Override
+    public void bulletHit(TrackedBullet tb) {
+        // do something
+    }
+
+    @Override
+    public void bulletMissed(TrackedBullet tb) {
+        // do something
     }
 
     @Override
