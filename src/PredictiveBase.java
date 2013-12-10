@@ -53,6 +53,8 @@ public class PredictiveBase extends Base {
         double averageDistance = 0;
         double averageEnemyBearing = 0;
         int numberOfAverageEnemyBearing = 0;
+        double averageBulletPosition = 0;
+        int numberOfAverageBulletPosition = 0;
         for (OtherRobot robot : this.state.otherRobots.values()) {
             OtherRobot.Tick tick = robot.getHistory(-1);
             Vector diff = tick.position.add(position, -1);
@@ -64,6 +66,11 @@ public class PredictiveBase extends Base {
             if (!currentPositionRounded.equals(previousPositionRounded)) {
                 averageEnemyBearing += currentPositionRounded.add(previousPositionRounded, -1).getAngle() - diff.getAngle();
                 numberOfAverageEnemyBearing++;
+            }
+
+            for (BulletWave wave : robot.getAllBullets()) {
+                averageBulletPosition += tick.position.add(wave.getAveragePosition(), -1).lengthSq();
+                numberOfAverageBulletPosition++;
             }
         }
 
@@ -83,6 +90,12 @@ public class PredictiveBase extends Base {
             System.out.print(", h: " + Math.abs(Util.headinglessAngle(this.lastEnemyBearing + 90)));
         }
 
+        if (numberOfAverageBulletPosition != 0) {
+            averageBulletPosition /= numberOfAverageBulletPosition;
+            score += Math.sqrt(averageBulletPosition);
+            System.out.print(", b: " + Math.sqrt(averageBulletPosition));
+        }
+
         if (score < 0) {
             score = 0;
         }
@@ -99,7 +112,7 @@ public class PredictiveBase extends Base {
 
         this.destinations.clear();
 
-        for (int i = 75; i <= 225; i += 75)
+        for (int i = 100; i <= 150; i += 25)
         {
             Vector radius = new Vector(0, i * Math.random());
 
