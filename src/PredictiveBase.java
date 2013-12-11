@@ -44,6 +44,11 @@ public class PredictiveBase extends Base {
     private double evaluatePosition(Vector position, double angle) {
         double score = 0.0;
 
+        // if it is out of bounds return a terrible score
+        if (this.isOutOfBattleField(position.getX(), position.getY(), 0)) {
+            return Double.NEGATIVE_INFINITY;
+        }
+
         double averageBearing = 0;
         double averageDistance = 0;
         double averageEnemyBearing = 0;
@@ -127,13 +132,13 @@ public class PredictiveBase extends Base {
 
         this.destinations.clear();
 
-        for (int i = 150; i <= 400; i += 50)
+        for (int i = 150; i <= 250; i += 50)
         {
-            Vector radius = new Vector(0, i * Math.random());
+            Vector radius = new Vector(0, i * Math.random() + 20);
 
             for (int angle = 0; angle < 360; angle += 10) {
                 Vector pointGenerator = radius.rotate(angle, Vector.ZERO);
-                Vector destination = origin.add(pointGenerator, 1).bound(16, 784, 16, 584);
+                Vector destination = origin.add(pointGenerator, 1).bound(0, 800, 0, 600);
 
                 double score = evaluatePosition(destination, pointGenerator.getAngle());
                 Destination d = new Destination(destination.bound(32, 768, 32, 568), score);
