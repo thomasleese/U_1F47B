@@ -104,6 +104,7 @@ public class U_1F47B extends RateControlRobot {
                 TrackedBullet tb = new TrackedBullet(bullet);
                 this.gun.firedBullet(tb);
                 this.state.ourBullets.add(tb);
+                System.out.println("addbull");
             }
             this.execute();
         }
@@ -119,11 +120,14 @@ public class U_1F47B extends RateControlRobot {
         System.out.println("Out bullet hit a robot: " + e);
         this.state.bulletHitEvents.add(e);
         
-        for (TrackedBullet tb: this.state.ourBullets)
+        //for (TrackedBullet tb: this.state.ourBullets)
+        for (int i = this.state.ourBullets.size() - 1; i >= 0; i--)
         {
-            if (tb.getBullet() == e.getBullet())
+            TrackedBullet tb = this.state.ourBullets.get(i);
+            if (tb.getBullet().hashCode() == e.getBullet().hashCode())
             {
                 this.gun.bulletHit(tb);
+                this.state.ourBullets.remove(i);
                 return;
             }
         }
@@ -132,17 +136,30 @@ public class U_1F47B extends RateControlRobot {
     @Override
     public void onBulletHitBullet(BulletHitBulletEvent e) {
         System.out.println("Our bullet hit another: " + e);
+        
+        //for (TrackedBullet tb: this.state.ourBullets)
+        for (int i = this.state.ourBullets.size() - 1; i >= 0; i--)
+        {
+            TrackedBullet tb = this.state.ourBullets.get(i);
+            if (tb.getBullet().hashCode() == e.getBullet().hashCode())
+            {
+                this.state.ourBullets.remove(i);
+                return;
+            }
+        }
     }
 
     @Override
     public void onBulletMissed(BulletMissedEvent e) {
         System.out.println("Our bullet missed: " + e);
         
-        for (TrackedBullet tb: this.state.ourBullets)
+        for (int i = this.state.ourBullets.size() - 1; i >= 0; i--)
         {
-            if (tb.getBullet() == e.getBullet())
+            TrackedBullet tb = this.state.ourBullets.get(i);
+            if (tb.getBullet().hashCode() == e.getBullet().hashCode())
             {
                 this.gun.bulletMissed(tb);
+                this.state.ourBullets.remove(i);
                 return;
             }
         }

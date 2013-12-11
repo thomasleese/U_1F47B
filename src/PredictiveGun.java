@@ -20,6 +20,10 @@ public class PredictiveGun extends Gun {
     private ArrayList<Vector> paintPreds = new ArrayList<Vector>();
     private OtherRobot.PresentHistoryDatas phs = OtherRobot.PresentHistoryDatas.none;
     private PredictionData pd = null;
+    
+    private int missCount = 0;
+    private int predCycle = 0;
+    private int maxPredCycle = 1;
 
     public PredictiveGun(State state, double coefficient) {
         super(state);
@@ -91,8 +95,14 @@ public class PredictiveGun extends Gun {
             double timeSteps = dist / projectileSpeed;
 
             // decide on prediction
-            ProjectedBot.TurnBehaviours tb = ProjectedBot.TurnBehaviours.keepTurn;
+            ProjectedBot.TurnBehaviours tb = ProjectedBot.TurnBehaviours.keepTurn; // defaults
             ProjectedBot.SpeedBehaviours sb = ProjectedBot.SpeedBehaviours.keepSpeed;
+
+            if (predCycle == 1)
+            {
+                tb = ProjectedBot.TurnBehaviours.keepTurn;
+                sb = ProjectedBot.SpeedBehaviours.reverse;
+            }
 
             // initial sub-iter
             this.predVec = this.state.trackingRobot.predictLocation((int)timeSteps + 1, tb, sb);
@@ -129,12 +139,23 @@ public class PredictiveGun extends Gun {
 
     @Override
     public void bulletHit(TrackedBullet tb) {
-        // do something
+        missCount = 0;
     }
 
     @Override
     public void bulletMissed(TrackedBullet tb) {
-        // do something
+        missCount++;
+        if (missCount >= 5)
+        {
+            //predCycle++; // disabled for testing
+            if (predCycle > maxPredCycle)
+                predCycle = 0;
+            
+            missCount = 0;
+            
+            System.out.println("Switch to pred " + predCycle);
+            this.state.owner.setBulletColor(new Color(255, 0, 0));
+        }
     }
 
     @Override
