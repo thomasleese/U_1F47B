@@ -50,6 +50,7 @@ public class PredictiveBase extends Base {
         int numberOfAverageEnemyBearing = 0;
         double averageBulletPosition = 0;
         int numberOfAverageBulletPosition = 0;
+        ArrayList<OtherRobot> closestRobots = new ArrayList<OtherRobot>(this.state.otherRobots.size());
         for (OtherRobot robot : this.state.otherRobots.values()) {
             OtherRobot.Tick tick = robot.getHistory(-1);
             Vector diff = tick.position.add(position, -1);
@@ -67,28 +68,47 @@ public class PredictiveBase extends Base {
                 averageBulletPosition += position.add(wave.getAveragePosition(), -1).lengthSq();
                 numberOfAverageBulletPosition++;
             }
+
+            double diffLength = diff.lengthSq();
+            boolean closerFound = false;
+            for (OtherRobot otherRobot : this.state.otherRobots.values()) {
+                if (robot == otherRobot) {
+                    continue;
+                }
+                if (tick.position.add(otherRobot.getHistory(-1).position, -1).lengthSq() < diffLength) {
+                    closerFound = true;
+                    break;
+                }
+            }
+            if (!closerFound) {
+                closestRobots.add(robot);
+            }
+        }
+
+        if (numberOfAverageBulletPosition != 0) {
+            averageBulletPosition /= numberOfAverageBulletPosition;
+            score += Math.sqrt(averageBulletPosition) / 20;
+            System.out.print("b: " + Math.sqrt(averageBulletPosition) / 20);
         }
 
         if (this.state.otherRobots.size() != 0) {
             averageDistance /= this.state.otherRobots.size();
             score += Math.sqrt(averageDistance) / 5;
-            System.out.print("d: " + Math.sqrt(averageDistance) / 5);
+            System.out.print(", d: " + Math.sqrt(averageDistance) / 5);
 
             averageBearing = Util.headinglessAngle(averageBearing / this.state.otherRobots.size());
-            score += Math.abs(averageBearing / 1.5);
-            System.out.print(", b: " + Math.abs(averageBearing / 1.5));
+            score += Math.abs(averageBearing);
+            System.out.print(", b: " + Math.abs(averageBearing));
 
             if (numberOfAverageEnemyBearing > 0) {
                 this.lastEnemyBearing = averageEnemyBearing / numberOfAverageEnemyBearing;
             }
             score += Math.abs(Util.headinglessAngle(this.lastEnemyBearing + 90) / 1.5);
             System.out.print(", h: " + Math.abs(Util.headinglessAngle(this.lastEnemyBearing + 90)));
-        }
 
-        if (numberOfAverageBulletPosition != 0) {
-            averageBulletPosition /= numberOfAverageBulletPosition;
-            score += Math.sqrt(averageBulletPosition) / 2;
-            System.out.print(", b: " + Math.sqrt(averageBulletPosition) / 2);
+            double pScore = score;
+            score += (this.state.otherRobots.size() - closestRobots.size()) * 100 / this.state.otherRobots.size();
+            System.out.print(", f: " + (score - pScore));
         }
 
         if (score < 0) {
