@@ -153,8 +153,8 @@ public class PredictiveGun extends Gun {
             
             missCount = 0;
             
-            System.out.println("Switch to pred " + predCycle);
-            this.state.owner.setBulletColor(new Color(255, 0, 0));
+            //System.out.println("Switch to pred " + predCycle);
+            //this.state.owner.setBulletColor(new Color(255, 0, 0));
         }
     }
 
