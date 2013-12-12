@@ -123,10 +123,10 @@ public class PredictiveBase extends Base {
 
             if (this.state.otherRobots.size() > 1) {
                 Vector[] gravity = new Vector[4];
-                gravity[0] = new Vector(this.state.battleWidth*0.8, this.state.battleHeight/2);
-                gravity[1] = new Vector(this.state.battleWidth*0.2, this.state.battleHeight/2);
-                gravity[2] = new Vector(this.state.battleWidth/2, this.state.battleHeight*0.8);
-                gravity[3] = new Vector(this.state.battleWidth/2, this.state.battleHeight*0.2);
+                gravity[0] = new Vector(this.state.battleWidth*0.875, this.state.battleHeight/2);
+                gravity[1] = new Vector(this.state.battleWidth*0.125, this.state.battleHeight/2);
+                gravity[2] = new Vector(this.state.battleWidth/2, this.state.battleHeight*0.875);
+                gravity[3] = new Vector(this.state.battleWidth/2, this.state.battleHeight*0.125);
                 pScore = score;
                 for (Vector v : gravity) {
                     score += (300 / v.add(position, -1).length());
