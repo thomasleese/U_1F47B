@@ -77,9 +77,9 @@ public class PredictiveBase extends Base {
                 closestRobots.add(robot);
             }
 
-            averageDistance += diffLength * (tick.energy/this.state.owner.getEnergy());
+            averageDistance += diffLength * ((tick.energy+10)/this.state.owner.getEnergy());
             for (int i = 0; (closerFound ? i < 1 : i < 2); i++) {
-                averageBearing += Util.headinglessAngle(diff.getAngle() - angle);
+                averageBearing += Util.headinglessAngle(diff.getAngle() - angle) * (10.0/Math.sqrt(diff.length()));
                 numberOfAverageBearing++;
             }
             OtherRobot.Tick previous = robot.getHistory(-2);
