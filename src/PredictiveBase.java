@@ -160,7 +160,7 @@ public class PredictiveBase extends Base {
         this.destinations.clear();
 
         int base = 250;
-        int max  = 400;
+        int max  = 550;
         int step = 75;
         if (this.state.owner.getOthers() == 1) {
             base = 200;
