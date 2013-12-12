@@ -80,6 +80,9 @@ public class U_1F47B extends RateControlRobot {
         this.setAdjustGunForRobotTurn(true);
         this.setAdjustRadarForGunTurn(true);
 
+        this.state.battleWidth  = this.getBattleFieldWidth();
+        this.state.battleHeight = this.getBattleFieldHeight();
+
         while (true) {
             // switch to 1vs1 Components when only one other is left
             if (this.getOthers() == 1) {

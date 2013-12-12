@@ -19,6 +19,9 @@ public class State {
     java.util.Vector<BulletHitEvent> bulletHitEvents = new java.util.Vector<BulletHitEvent>();
     java.util.Vector<HitRobotEvent> hitRobotEvents = new java.util.Vector<HitRobotEvent>();
 
+    double battleWidth;
+    double battleHeight;
+
     public State(AdvancedRobot robot) {
         this.owner = robot;
         this.otherRobots = new HashMap<String, OtherRobot>();

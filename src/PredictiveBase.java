@@ -123,10 +123,10 @@ public class PredictiveBase extends Base {
 
             if (this.state.otherRobots.size() > 1) {
                 Vector[] gravity = new Vector[4];
-                gravity[0] = new Vector(100, 300);
-                gravity[1] = new Vector(700, 300);
-                gravity[2] = new Vector(400, 100);
-                gravity[3] = new Vector(400, 500);
+                gravity[0] = new Vector(this.state.battleWidth*0.8, this.state.battleHeight/2);
+                gravity[1] = new Vector(this.state.battleWidth*0.2, this.state.battleHeight/2);
+                gravity[2] = new Vector(this.state.battleWidth/2, this.state.battleHeight*0.8);
+                gravity[3] = new Vector(this.state.battleWidth/2, this.state.battleHeight*0.2);
                 pScore = score;
                 for (Vector v : gravity) {
                     score += (300 / v.add(position, -1).length());
@@ -160,7 +160,7 @@ public class PredictiveBase extends Base {
         this.destinations.clear();
 
         int base = 250;
-        int max  = 550;
+        int max  = 400;
         int step = 75;
         if (this.state.owner.getOthers() == 1) {
             base = 200;
@@ -174,10 +174,10 @@ public class PredictiveBase extends Base {
 
             for (int angle = 0; angle < 360; angle += 10) {
                 Vector pointGenerator = radius.rotate(angle, Vector.ZERO);
-                Vector destination = origin.add(pointGenerator, 1).bound(0, 800, 0, 600);
+                Vector destination = origin.add(pointGenerator, 1).bound(0, this.state.battleWidth, 0, this.state.battleHeight);
 
                 double score = evaluatePosition(destination, pointGenerator.getAngle());
-                Destination d = new Destination(destination.bound(32, 768, 32, 568), score);
+                Destination d = new Destination(destination.bound(32, this.state.battleWidth - 32, 32, this.state.battleHeight - 32), score);
                 this.destinations.add(d);
                 if (score > currentScore) {
                     currentScore = score;
