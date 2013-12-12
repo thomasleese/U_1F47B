@@ -104,10 +104,10 @@ public class OtherRobot implements Comparable<OtherRobot> {
         return (1 + (lastBullet.getPower()/5)) - (0.1 * lastBullet.getFlightTime());
     }
 
-    public Vector predictLocation(int timeFrame, ProjectedBot.TurnBehaviours tb, ProjectedBot.SpeedBehaviours sb)
+    public Vector predictLocation(int timeFrame, ProjectedBot.TurnBehaviours tb, ProjectedBot.SpeedBehaviours sb, State state)
     {
         ProjectedBot pb = new ProjectedBot(getHistory(-1));
-        pb.project(timeFrame, tb, sb);
+        pb.project(timeFrame, tb, sb, state);
         return pb.getPosition();
     }
 

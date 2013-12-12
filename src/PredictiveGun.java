@@ -105,7 +105,7 @@ public class PredictiveGun extends Gun {
             }
 
             // initial sub-iter
-            this.predVec = this.state.trackingRobot.predictLocation((int)timeSteps + 1, tb, sb);
+            this.predVec = this.state.trackingRobot.predictLocation((int)timeSteps + 1, tb, sb, this.state);
             this.paintPreds.add(this.predVec);
 
             // these are adjustment interations for higher accuracy
@@ -116,7 +116,7 @@ public class PredictiveGun extends Gun {
 
                 double adqTimeSteps = ((afterTimeSteps - 1.0) * 0.5 + timeSteps * 0.5); // take weighted average (remove 1st +1 adjustment from afterTimeSteps)
                 timeSteps = afterTimeSteps - 1.0;
-                this.predVec = this.state.trackingRobot.predictLocation((int)adqTimeSteps + 1, tb, sb);
+                this.predVec = this.state.trackingRobot.predictLocation((int)adqTimeSteps + 1, tb, sb, this.state);
                 this.paintPreds.add(this.predVec);
             }
             

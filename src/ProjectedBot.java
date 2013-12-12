@@ -57,7 +57,7 @@ public class ProjectedBot
         return new ProjectedBot(locX, locY, dir, speed, turnRate);
     }
 
-    public void project(int timeFrame, TurnBehaviours tb, SpeedBehaviours sb)
+    public void project(int timeFrame, TurnBehaviours tb, SpeedBehaviours sb, State state)
     {
         for (int i = 0; i < timeFrame; i++)
         {
@@ -138,7 +138,7 @@ public class ProjectedBot
                 locX = 16;
                 speed = 0;
             }
-            if (locX > 800/*width of arena*/)
+            if (locX > state.battleWidth - 16/*width of arena*/)
             {
                 locX = 800 - 16;
                 speed = 0;
@@ -148,7 +148,7 @@ public class ProjectedBot
                 locY = 16;
                 speed = 0;
             }
-            if (locY > 600/*height of arena*/)
+            if (locY > state.battleHeight - 16 /*height of arena*/)
             {
                 locY = 600 - 16;
                 speed = 0;
