@@ -32,6 +32,7 @@ public class PredictiveBase extends Base {
     private Stack<Action> actions;
     private ArrayList<Destination> destinations;
     private Destination destination;
+    private Destination lastDestination;
 
     private double lastEnemyBearing;
 
@@ -49,8 +50,9 @@ public class PredictiveBase extends Base {
             return Double.NEGATIVE_INFINITY;
         }
 
-        double averageBearing = 0;
         double averageDistance = 0;
+        double averageBearing = 0;
+        int numberOfAverageBearing = 0;
         double averageEnemyBearing = 0;
         int numberOfAverageEnemyBearing = 0;
         double averageBulletPosition = 0;
@@ -59,20 +61,6 @@ public class PredictiveBase extends Base {
         for (OtherRobot robot : this.state.otherRobots.values()) {
             OtherRobot.Tick tick = robot.getHistory(-1);
             Vector diff = tick.position.add(position, -1);
-            averageDistance += diff.lengthSq();
-            averageBearing += Util.headinglessAngle(diff.getAngle() - angle);
-            OtherRobot.Tick previous = robot.getHistory(-2);
-            Vector currentPositionRounded  = tick.position.round(3);
-            Vector previousPositionRounded = previous.position.round(3);
-            if (!currentPositionRounded.equals(previousPositionRounded)) {
-                averageEnemyBearing += currentPositionRounded.add(previousPositionRounded, -1).getAngle() - diff.getAngle();
-                numberOfAverageEnemyBearing++;
-            }
-
-            for (BulletWave wave : robot.getAllBullets()) {
-                averageBulletPosition += position.add(wave.getAveragePosition(), -1).lengthSq();
-                numberOfAverageBulletPosition++;
-            }
 
             double diffLength = diff.lengthSq();
             boolean closerFound = false;
@@ -88,6 +76,24 @@ public class PredictiveBase extends Base {
             if (!closerFound) {
                 closestRobots.add(robot);
             }
+
+            averageDistance += diffLength * (tick.energy/this.state.owner.getEnergy());
+            for (int i = 0; (closerFound ? i < 1 : i < 2); i++) {
+                averageBearing += Util.headinglessAngle(diff.getAngle() - angle);
+                numberOfAverageBearing++;
+            }
+            OtherRobot.Tick previous = robot.getHistory(-2);
+            Vector currentPositionRounded  = tick.position.round(3);
+            Vector previousPositionRounded = previous.position.round(3);
+            if (!currentPositionRounded.equals(previousPositionRounded)) {
+                averageEnemyBearing += currentPositionRounded.add(previousPositionRounded, -1).getAngle() - diff.getAngle();
+                numberOfAverageEnemyBearing++;
+            }
+
+            for (BulletWave wave : robot.getAllBullets()) {
+                averageBulletPosition += position.add(wave.getAveragePosition(), -1).lengthSq();
+                numberOfAverageBulletPosition++;
+            }
         }
 
         if (numberOfAverageBulletPosition != 0) {
@@ -98,23 +104,44 @@ public class PredictiveBase extends Base {
 
         if (this.state.otherRobots.size() != 0) {
             averageDistance /= this.state.otherRobots.size();
-            score += Math.sqrt(averageDistance) / 5;
-            System.out.print(", d: " + Math.sqrt(averageDistance) / 5);
+            score += Math.sqrt(averageDistance) / 10;
+            System.out.print(", d: " + Math.sqrt(averageDistance) / 10);
 
-            averageBearing = Util.headinglessAngle(averageBearing / this.state.otherRobots.size());
+            averageBearing = Util.headinglessAngle(averageBearing / numberOfAverageBearing);
             score += Math.abs(averageBearing);
             System.out.print(", b: " + Math.abs(averageBearing));
 
             if (numberOfAverageEnemyBearing > 0) {
                 this.lastEnemyBearing = averageEnemyBearing / numberOfAverageEnemyBearing;
             }
-            score += Math.abs(Util.headinglessAngle(this.lastEnemyBearing + 90) / 1.5);
+            score += Math.abs(Util.headinglessAngle(this.lastEnemyBearing + 90) / 3);
             System.out.print(", h: " + Math.abs(Util.headinglessAngle(this.lastEnemyBearing + 90)));
 
             double pScore = score;
             score += (this.state.otherRobots.size() - closestRobots.size()) * 100 / this.state.otherRobots.size();
             System.out.print(", f: " + (score - pScore));
+
+            if (this.state.otherRobots.size() > 1) {
+                Vector[] gravity = new Vector[4];
+                gravity[0] = new Vector(100, 300);
+                gravity[1] = new Vector(700, 300);
+                gravity[2] = new Vector(400, 100);
+                gravity[3] = new Vector(400, 500);
+                pScore = score;
+                for (Vector v : gravity) {
+                    score += (300 / v.add(position, -1).length());
+                }
+                System.out.print(", r: " + (score - pScore));
+            }
+
         }
+
+        if (this.lastDestination != null) {
+            double pScore = score;
+            score += this.lastDestination.position.add(position, -1).length() / 10;
+            System.out.print(", l: " + (score - pScore));
+        }
+
 
         if (score < 0) {
             score = 0;
@@ -132,9 +159,18 @@ public class PredictiveBase extends Base {
 
         this.destinations.clear();
 
-        for (int i = 150; i <= 250; i += 50)
+        int base = 250;
+        int max  = 550;
+        int step = 75;
+        if (this.state.owner.getOthers() == 1) {
+            base = 200;
+            max = 250;
+            step = 25;
+        }
+
+        for (int i = base; i <= max; i += step)
         {
-            Vector radius = new Vector(0, i * Math.random() + 20);
+            Vector radius = new Vector(0, i * Math.random()+32);
 
             for (int angle = 0; angle < 360; angle += 10) {
                 Vector pointGenerator = radius.rotate(angle, Vector.ZERO);
@@ -171,6 +207,7 @@ public class PredictiveBase extends Base {
         this.speed = action.speed;
 
         if (diff.lengthSq() <= 16 * 16) {
+            this.lastDestination = this.destination;
             this.destination = null;
         }
     }
@@ -212,5 +249,4 @@ public class PredictiveBase extends Base {
             g.drawRect((int) this.destination.position.getX() - 5, (int) this.destination.position.getY() - 5, 10, 10);
         }
     }
-
 }
