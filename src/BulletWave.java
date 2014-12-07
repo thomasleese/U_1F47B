@@ -13,12 +13,12 @@ public class BulletWave {
 	private double power;
 	private double confidence;
 
-	public BulletWave(Vector position, double power, int startAngle, int endAngle, double confidence) {
+	public BulletWave(Vector position, double power, int startAngle, int endAngle, double confidence, State state) {
 		this.power = power;
 		this.confidence = confidence;
 		this.bullets = new ArrayList<VirtualBullet>();
 		for(int i = startAngle; i < endAngle; i++) {
-			this.bullets.add(new VirtualBullet(position, this.power, Utils.normalAbsoluteAngleDegrees(i)));
+			this.bullets.add(new VirtualBullet(position, this.power, Utils.normalAbsoluteAngleDegrees(i), state));
 		}
 		this.advance();
 	}

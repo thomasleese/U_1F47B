@@ -7,19 +7,21 @@ public class VirtualBullet {
     private Vector position;
     private Vector velocity;
     private long flightTime;
+    private State state;
 
-    public VirtualBullet(Vector position, double power, double angleD) {
+    public VirtualBullet(Vector position, double power, double angleD, State state) {
         double angleR = Math.toRadians(angleD);
         double speed = Util.firepowerToSpeed(power);
         this.position = new Vector(position);
         this.velocity = new Vector(Math.sin(angleR) * speed, Math.cos(angleR) * speed);
         this.flightTime = 0;
+        this.state = state;
     }
 
     public boolean advance() {
         this.flightTime++;
         this.position = this.position.add(this.velocity);
-        if (Util.isOutOfBattleField(this.position.getX(), this.position.getY(), 800, 600)) {
+        if (Util.isOutOfBattleField(this.position.getX(), this.position.getY(), state.battleWidth, state.battleHeight)) {
             return false;
         }
         return true;

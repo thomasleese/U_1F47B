@@ -193,7 +193,7 @@ public class OtherRobot implements Comparable<OtherRobot> {
         // assume the robot was aiming at us
         int angle = (int) Util.getAngle(previous.position.getX(), previous.position.getY(),
                                         state.owner.getX(), state.owner.getY());
-        this.bulletWaves.add(new BulletWave(previous.position, power, angle - 10, angle + 10, confidence));
+        this.bulletWaves.add(new BulletWave(previous.position, power, angle - 10, angle + 10, confidence, state));
 
         return true;
     }

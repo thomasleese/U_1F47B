@@ -140,7 +140,7 @@ public class ProjectedBot
             }
             if (locX > state.battleWidth - 16/*width of arena*/)
             {
-                locX = 800 - 16;
+                locX = state.battleWidth - 16;
                 speed = 0;
             }
             if (locY < 16)
@@ -150,7 +150,7 @@ public class ProjectedBot
             }
             if (locY > state.battleHeight - 16 /*height of arena*/)
             {
-                locY = 600 - 16;
+                locY = state.battleHeight - 16;
                 speed = 0;
             }
         }
