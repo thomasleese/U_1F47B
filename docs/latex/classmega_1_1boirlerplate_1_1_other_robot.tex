@@ -1,0 +1,436 @@
+\hypertarget{classmega_1_1boirlerplate_1_1_other_robot}{}\section{mega.\+boirlerplate.\+Other\+Robot Class Reference}
+\label{classmega_1_1boirlerplate_1_1_other_robot}\index{mega.\+boirlerplate.\+Other\+Robot@{mega.\+boirlerplate.\+Other\+Robot}}
+
+
+Inheritance diagram for mega.\+boirlerplate.\+Other\+Robot\+:
+% FIG 0
+
+
+Collaboration diagram for mega.\+boirlerplate.\+Other\+Robot\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{enummega_1_1boirlerplate_1_1_other_robot_1_1_present_history_datas}{Present\+History\+Datas}
+\item 
+class {\bfseries Tick}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_other_robot_a7fd120d31a5e16fd77e29a26d9473051}{Other\+Robot} (String \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_ac6f8d81032357e6a08992ddb2dc84cb4}{name})
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_a9307f6dac109b513c76c8dc6b64837ba}{advance} ()
+\item 
+int \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_a8cdfdab759605fde60c407fb831e00ef}{compare\+To} (\hyperlink{classmega_1_1boirlerplate_1_1_other_robot}{Other\+Robot} robot)
+\item 
+List$<$ Tick $>$ \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_a583b11b6b1dfa1286f708aaa29db105b}{get\+All\+History} ()
+\item 
+Tick \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_ab1926ef85af1666797e0236ef9a9ca71}{get\+History} (int index)
+\item 
+int \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_a68bd829755128ad948aae09221c9e9b0}{get\+History\+Size} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_afb0b9c0e155efff23815e16901a5f310}{push\+History} (Tick tick)
+\item 
+List$<$ \hyperlink{classmega_1_1boirlerplate_1_1_wave_bullet}{Wave\+Bullet} $>$ \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_a81838897cfc98e26f34a63d6fe857878}{get\+All\+Bullets} ()
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_wave_bullet}{Wave\+Bullet} \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_ae6bc50add089f4020e8e21cc771a5d53}{get\+Bullet} (int index)
+\item 
+String \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_af03b8dad14cd72302d3d3edfb6d0fce6}{get\+Name} ()
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_aaee402de2957910ecb3cdb73261b1178}{get\+Gun\+Heat} (long time)
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_ae9390960c468e04c84be7d0e09b90b59}{predict\+Location} (int time\+Frame, Projected\+Bot.\+Turn\+Behaviours tb, Projected\+Bot.\+Speed\+Behaviours sb, \hyperlink{classmega_1_1boirlerplate_1_1_state}{State} state)
+\item 
+\hyperlink{enummega_1_1boirlerplate_1_1_other_robot_1_1_present_history_datas}{Present\+History\+Datas} \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_ab54d46bcbd65a37cd3e755eefc21250d}{available\+Present\+History\+Data} (long time)
+\item 
+boolean \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_a41146518d02943fb92e8b469d4d070ca}{predict\+Bullet\+Shot} (long time, \hyperlink{classmega_1_1boirlerplate_1_1_state}{State} state)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_a483011f9f4a11f78ee29e26b29e9d377}{on\+Paint} (Graphics2D g, long time)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_ac6f8d81032357e6a08992ddb2dc84cb4}{name}
+\item 
+Array\+List$<$ Tick $>$ \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_a41d199da2bfe68124c73c6b78abd3fe9}{history} = new Array\+List$<$Tick$>$(10000)
+\item 
+Array\+List$<$ \hyperlink{classmega_1_1boirlerplate_1_1_wave_bullet}{Wave\+Bullet} $>$ \hyperlink{classmega_1_1boirlerplate_1_1_other_robot_a5c6ab319f3f8a0a356705be5bf222a82}{bullet\+Waves} = new Array\+List$<$\hyperlink{classmega_1_1boirlerplate_1_1_wave_bullet}{Wave\+Bullet}$>$()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Gates 
+\end{DoxyAuthor}
+
+
+Definition at line 14 of file Other\+Robot.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_a7fd120d31a5e16fd77e29a26d9473051}\label{classmega_1_1boirlerplate_1_1_other_robot_a7fd120d31a5e16fd77e29a26d9473051}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!Other\+Robot@{Other\+Robot}}
+\index{Other\+Robot@{Other\+Robot}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{Other\+Robot()}{OtherRobot()}}
+{\footnotesize\ttfamily mega.\+boirlerplate.\+Other\+Robot.\+Other\+Robot (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Other\+Robot.\+name.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_a9307f6dac109b513c76c8dc6b64837ba}\label{classmega_1_1boirlerplate_1_1_other_robot_a9307f6dac109b513c76c8dc6b64837ba}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!advance@{advance}}
+\index{advance@{advance}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{advance()}{advance()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Other\+Robot.\+advance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file Other\+Robot.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_ab54d46bcbd65a37cd3e755eefc21250d}\label{classmega_1_1boirlerplate_1_1_other_robot_ab54d46bcbd65a37cd3e755eefc21250d}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!available\+Present\+History\+Data@{available\+Present\+History\+Data}}
+\index{available\+Present\+History\+Data@{available\+Present\+History\+Data}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{available\+Present\+History\+Data()}{availablePresentHistoryData()}}
+{\footnotesize\ttfamily \hyperlink{enummega_1_1boirlerplate_1_1_other_robot_1_1_present_history_datas}{Present\+History\+Datas} mega.\+boirlerplate.\+Other\+Robot.\+available\+Present\+History\+Data (\begin{DoxyParamCaption}\item[{long}]{time }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 205 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Other\+Robot.\+get\+History(), mega.\+boirlerplate.\+Other\+Robot.\+Present\+History\+Datas.\+none, mega.\+boirlerplate.\+Other\+Robot.\+Present\+History\+Datas.\+position\+Only, mega.\+boirlerplate.\+Other\+Robot.\+Present\+History\+Datas.\+position\+Velocity, and mega.\+boirlerplate.\+Other\+Robot.\+Present\+History\+Datas.\+position\+Velocity\+Turn\+Rate.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+execute().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_a8cdfdab759605fde60c407fb831e00ef}\label{classmega_1_1boirlerplate_1_1_other_robot_a8cdfdab759605fde60c407fb831e00ef}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!compare\+To@{compare\+To}}
+\index{compare\+To@{compare\+To}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{compare\+To()}{compareTo()}}
+{\footnotesize\ttfamily int mega.\+boirlerplate.\+Other\+Robot.\+compare\+To (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_other_robot}{Other\+Robot}}]{robot }\end{DoxyParamCaption})}
+
+
+
+Definition at line 91 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Other\+Robot.\+get\+History().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_a81838897cfc98e26f34a63d6fe857878}\label{classmega_1_1boirlerplate_1_1_other_robot_a81838897cfc98e26f34a63d6fe857878}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!get\+All\+Bullets@{get\+All\+Bullets}}
+\index{get\+All\+Bullets@{get\+All\+Bullets}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{get\+All\+Bullets()}{getAllBullets()}}
+{\footnotesize\ttfamily List$<$\hyperlink{classmega_1_1boirlerplate_1_1_wave_bullet}{Wave\+Bullet}$>$ mega.\+boirlerplate.\+Other\+Robot.\+get\+All\+Bullets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 135 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Other\+Robot.\+bullet\+Waves.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_a583b11b6b1dfa1286f708aaa29db105b}\label{classmega_1_1boirlerplate_1_1_other_robot_a583b11b6b1dfa1286f708aaa29db105b}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!get\+All\+History@{get\+All\+History}}
+\index{get\+All\+History@{get\+All\+History}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{get\+All\+History()}{getAllHistory()}}
+{\footnotesize\ttfamily List$<$Tick$>$ mega.\+boirlerplate.\+Other\+Robot.\+get\+All\+History (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 99 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Other\+Robot.\+history.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_ae6bc50add089f4020e8e21cc771a5d53}\label{classmega_1_1boirlerplate_1_1_other_robot_ae6bc50add089f4020e8e21cc771a5d53}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!get\+Bullet@{get\+Bullet}}
+\index{get\+Bullet@{get\+Bullet}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{get\+Bullet()}{getBullet()}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_wave_bullet}{Wave\+Bullet} mega.\+boirlerplate.\+Other\+Robot.\+get\+Bullet (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 144 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Util.\+modulo().
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+get\+Gun\+Heat().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_aaee402de2957910ecb3cdb73261b1178}\label{classmega_1_1boirlerplate_1_1_other_robot_aaee402de2957910ecb3cdb73261b1178}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!get\+Gun\+Heat@{get\+Gun\+Heat}}
+\index{get\+Gun\+Heat@{get\+Gun\+Heat}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{get\+Gun\+Heat()}{getGunHeat()}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Other\+Robot.\+get\+Gun\+Heat (\begin{DoxyParamCaption}\item[{long}]{time }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 164 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Other\+Robot.\+get\+Bullet(), mega.\+boirlerplate.\+Wave\+Bullet.\+get\+Flight\+Time(), and mega.\+boirlerplate.\+Wave\+Bullet.\+get\+Power().
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+predict\+Bullet\+Shot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_ab1926ef85af1666797e0236ef9a9ca71}\label{classmega_1_1boirlerplate_1_1_other_robot_ab1926ef85af1666797e0236ef9a9ca71}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!get\+History@{get\+History}}
+\index{get\+History@{get\+History}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{get\+History()}{getHistory()}}
+{\footnotesize\ttfamily Tick mega.\+boirlerplate.\+Other\+Robot.\+get\+History (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 108 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Util.\+modulo().
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+available\+Present\+History\+Data(), mega.\+boirlerplate.\+Other\+Robot.\+compare\+To(), mega.\+boirlerplate.\+Radar\+Priority.\+execute(), mega.\+boirlerplate.\+Radar\+Tracking.\+execute(), mega.\+boirlerplate.\+Gun\+Simple.\+execute(), mega.\+boirlerplate.\+Gun\+Predictive.\+execute(), mega.\+boirlerplate.\+State.\+on\+Scanned\+Robot(), mega.\+boirlerplate.\+Other\+Robot.\+predict\+Bullet\+Shot(), and mega.\+boirlerplate.\+Other\+Robot.\+predict\+Location().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_a68bd829755128ad948aae09221c9e9b0}\label{classmega_1_1boirlerplate_1_1_other_robot_a68bd829755128ad948aae09221c9e9b0}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!get\+History\+Size@{get\+History\+Size}}
+\index{get\+History\+Size@{get\+History\+Size}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{get\+History\+Size()}{getHistorySize()}}
+{\footnotesize\ttfamily int mega.\+boirlerplate.\+Other\+Robot.\+get\+History\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 119 of file Other\+Robot.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_af03b8dad14cd72302d3d3edfb6d0fce6}\label{classmega_1_1boirlerplate_1_1_other_robot_af03b8dad14cd72302d3d3edfb6d0fce6}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily String mega.\+boirlerplate.\+Other\+Robot.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 155 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Other\+Robot.\+name.
+
+
+
+Referenced by mega.\+boirlerplate.\+State.\+on\+Robot\+Death().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_a483011f9f4a11f78ee29e26b29e9d377}\label{classmega_1_1boirlerplate_1_1_other_robot_a483011f9f4a11f78ee29e26b29e9d377}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!on\+Paint@{on\+Paint}}
+\index{on\+Paint@{on\+Paint}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{on\+Paint()}{onPaint()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Other\+Robot.\+on\+Paint (\begin{DoxyParamCaption}\item[{Graphics2D}]{g,  }\item[{long}]{time }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+{\em time} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 295 of file Other\+Robot.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_a41146518d02943fb92e8b469d4d070ca}\label{classmega_1_1boirlerplate_1_1_other_robot_a41146518d02943fb92e8b469d4d070ca}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!predict\+Bullet\+Shot@{predict\+Bullet\+Shot}}
+\index{predict\+Bullet\+Shot@{predict\+Bullet\+Shot}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{predict\+Bullet\+Shot()}{predictBulletShot()}}
+{\footnotesize\ttfamily boolean mega.\+boirlerplate.\+Other\+Robot.\+predict\+Bullet\+Shot (\begin{DoxyParamCaption}\item[{long}]{time,  }\item[{\hyperlink{classmega_1_1boirlerplate_1_1_state}{State}}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+{\em state} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 223 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Util.\+get\+Angle(), mega.\+boirlerplate.\+Other\+Robot.\+get\+Gun\+Heat(), mega.\+boirlerplate.\+Other\+Robot.\+get\+History(), mega.\+boirlerplate.\+Util.\+is\+Out\+Of\+Battle\+Field(), mega.\+boirlerplate.\+Util.\+R\+O\+B\+O\+T\+\_\+\+H\+E\+I\+G\+HT, mega.\+boirlerplate.\+Util.\+R\+O\+B\+O\+T\+\_\+\+W\+I\+D\+TH, and mega.\+boirlerplate.\+Util.\+round\+To1().
+
+
+
+Referenced by mega.\+boirlerplate.\+State.\+on\+Scanned\+Robot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_ae9390960c468e04c84be7d0e09b90b59}\label{classmega_1_1boirlerplate_1_1_other_robot_ae9390960c468e04c84be7d0e09b90b59}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!predict\+Location@{predict\+Location}}
+\index{predict\+Location@{predict\+Location}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{predict\+Location()}{predictLocation()}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} mega.\+boirlerplate.\+Other\+Robot.\+predict\+Location (\begin{DoxyParamCaption}\item[{int}]{time\+Frame,  }\item[{Projected\+Bot.\+Turn\+Behaviours}]{tb,  }\item[{Projected\+Bot.\+Speed\+Behaviours}]{sb,  }\item[{\hyperlink{classmega_1_1boirlerplate_1_1_state}{State}}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+Frame} & \\
+\hline
+{\em tb} & \\
+\hline
+{\em sb} & \\
+\hline
+{\em state} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 180 of file Other\+Robot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Other\+Robot.\+get\+History(), mega.\+boirlerplate.\+Projected\+Bot.\+get\+Position(), and mega.\+boirlerplate.\+Projected\+Bot.\+project().
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+execute().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_afb0b9c0e155efff23815e16901a5f310}\label{classmega_1_1boirlerplate_1_1_other_robot_afb0b9c0e155efff23815e16901a5f310}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!push\+History@{push\+History}}
+\index{push\+History@{push\+History}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{push\+History()}{pushHistory()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Other\+Robot.\+push\+History (\begin{DoxyParamCaption}\item[{Tick}]{tick }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em tick} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 127 of file Other\+Robot.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+State.\+on\+Scanned\+Robot().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_a5c6ab319f3f8a0a356705be5bf222a82}\label{classmega_1_1boirlerplate_1_1_other_robot_a5c6ab319f3f8a0a356705be5bf222a82}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!bullet\+Waves@{bullet\+Waves}}
+\index{bullet\+Waves@{bullet\+Waves}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{bullet\+Waves}{bulletWaves}}
+{\footnotesize\ttfamily Array\+List$<$\hyperlink{classmega_1_1boirlerplate_1_1_wave_bullet}{Wave\+Bullet}$>$ mega.\+boirlerplate.\+Other\+Robot.\+bullet\+Waves = new Array\+List$<$\hyperlink{classmega_1_1boirlerplate_1_1_wave_bullet}{Wave\+Bullet}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 65 of file Other\+Robot.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+get\+All\+Bullets().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_a41d199da2bfe68124c73c6b78abd3fe9}\label{classmega_1_1boirlerplate_1_1_other_robot_a41d199da2bfe68124c73c6b78abd3fe9}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!history@{history}}
+\index{history@{history}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{history}{history}}
+{\footnotesize\ttfamily Array\+List$<$Tick$>$ mega.\+boirlerplate.\+Other\+Robot.\+history = new Array\+List$<$Tick$>$(10000)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 64 of file Other\+Robot.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+get\+All\+History().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_other_robot_ac6f8d81032357e6a08992ddb2dc84cb4}\label{classmega_1_1boirlerplate_1_1_other_robot_ac6f8d81032357e6a08992ddb2dc84cb4}} 
+\index{mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}!name@{name}}
+\index{name@{name}!mega\+::boirlerplate\+::\+Other\+Robot@{mega\+::boirlerplate\+::\+Other\+Robot}}
+\subsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily String mega.\+boirlerplate.\+Other\+Robot.\+name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 63 of file Other\+Robot.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+get\+Name(), and mega.\+boirlerplate.\+Other\+Robot.\+Other\+Robot().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cloud/\+One\+Drive/\+Dev/eclipse-\/workspace/\+Rainbow\+Surf/src/mega/boirlerplate/\hyperlink{_other_robot_8java}{Other\+Robot.\+java}\end{DoxyCompactItemize}

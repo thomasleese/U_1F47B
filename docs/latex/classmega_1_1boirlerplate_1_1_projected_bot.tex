@@ -1,0 +1,215 @@
+\hypertarget{classmega_1_1boirlerplate_1_1_projected_bot}{}\section{mega.\+boirlerplate.\+Projected\+Bot Class Reference}
+\label{classmega_1_1boirlerplate_1_1_projected_bot}\index{mega.\+boirlerplate.\+Projected\+Bot@{mega.\+boirlerplate.\+Projected\+Bot}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{enummega_1_1boirlerplate_1_1_projected_bot_1_1_speed_behaviours}{Speed\+Behaviours}
+\item 
+enum \hyperlink{enummega_1_1boirlerplate_1_1_projected_bot_1_1_turn_behaviours}{Turn\+Behaviours}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_projected_bot_af1ec5b4d0031d1df15965b168e4e1db2}{Projected\+Bot} (Other\+Robot.\+Tick tick)
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_projected_bot_a3e4bf3f307391c9dbd03c253e631ad0a}{Projected\+Bot} (double loc\+XN, double loc\+YN, double dirN, double speedN, double turn\+RateN)
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_projected_bot}{Projected\+Bot} \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot_a9a1bdfc9bb9c18555e5c38110a4dfae8}{clone} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot_a57c37c5aba55fa5c9ebe7bb2ca845756}{project} (int time\+Frame, \hyperlink{enummega_1_1boirlerplate_1_1_projected_bot_1_1_turn_behaviours}{Turn\+Behaviours} tb, \hyperlink{enummega_1_1boirlerplate_1_1_projected_bot_1_1_speed_behaviours}{Speed\+Behaviours} sb, \hyperlink{classmega_1_1boirlerplate_1_1_state}{State} state)
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot_af4c577e26dc5cb14bd06ecff0ee8d708}{get\+Position} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot_a8ade4f00fcf9d3f12bdc94b2d6771c37}{locX}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot_a6023cf4c541167bd274854d38b845df5}{locY}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot_a6e56d1177cea43ba6fc3159d7bee57a0}{dir}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot_ad283244a356fecb209afdffb9db98d63}{speed}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot_af8779f0a2c73029ae591f841dab2feea}{turn\+Rate}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Gates 
+\end{DoxyAuthor}
+
+
+Definition at line 8 of file Projected\+Bot.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_projected_bot_af1ec5b4d0031d1df15965b168e4e1db2}\label{classmega_1_1boirlerplate_1_1_projected_bot_af1ec5b4d0031d1df15965b168e4e1db2}} 
+\index{mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}!Projected\+Bot@{Projected\+Bot}}
+\index{Projected\+Bot@{Projected\+Bot}!mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}}
+\subsubsection{\texorpdfstring{Projected\+Bot()}{ProjectedBot()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily mega.\+boirlerplate.\+Projected\+Bot.\+Projected\+Bot (\begin{DoxyParamCaption}\item[{Other\+Robot.\+Tick}]{tick }\end{DoxyParamCaption})}
+
+init a \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot}{Projected\+Bot} from a tick
+
+
+\begin{DoxyParams}{Parameters}
+{\em tick} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file Projected\+Bot.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Projected\+Bot.\+clone().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_projected_bot_a3e4bf3f307391c9dbd03c253e631ad0a}\label{classmega_1_1boirlerplate_1_1_projected_bot_a3e4bf3f307391c9dbd03c253e631ad0a}} 
+\index{mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}!Projected\+Bot@{Projected\+Bot}}
+\index{Projected\+Bot@{Projected\+Bot}!mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}}
+\subsubsection{\texorpdfstring{Projected\+Bot()}{ProjectedBot()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily mega.\+boirlerplate.\+Projected\+Bot.\+Projected\+Bot (\begin{DoxyParamCaption}\item[{double}]{loc\+XN,  }\item[{double}]{loc\+YN,  }\item[{double}]{dirN,  }\item[{double}]{speedN,  }\item[{double}]{turn\+RateN }\end{DoxyParamCaption})}
+
+init a \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot}{Projected\+Bot} from values
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc\+XN} & \\
+\hline
+{\em loc\+YN} & \\
+\hline
+{\em dirN} & \\
+\hline
+{\em speedN} & \\
+\hline
+{\em turn\+RateN} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file Projected\+Bot.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_projected_bot_a9a1bdfc9bb9c18555e5c38110a4dfae8}\label{classmega_1_1boirlerplate_1_1_projected_bot_a9a1bdfc9bb9c18555e5c38110a4dfae8}} 
+\index{mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}!clone@{clone}}
+\index{clone@{clone}!mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}}
+\subsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_projected_bot}{Projected\+Bot} mega.\+boirlerplate.\+Projected\+Bot.\+clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 85 of file Projected\+Bot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Projected\+Bot.\+Projected\+Bot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_projected_bot_af4c577e26dc5cb14bd06ecff0ee8d708}\label{classmega_1_1boirlerplate_1_1_projected_bot_af4c577e26dc5cb14bd06ecff0ee8d708}} 
+\index{mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}}
+\subsubsection{\texorpdfstring{get\+Position()}{getPosition()}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} mega.\+boirlerplate.\+Projected\+Bot.\+get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 200 of file Projected\+Bot.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+predict\+Location().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_projected_bot_a57c37c5aba55fa5c9ebe7bb2ca845756}\label{classmega_1_1boirlerplate_1_1_projected_bot_a57c37c5aba55fa5c9ebe7bb2ca845756}} 
+\index{mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}!project@{project}}
+\index{project@{project}!mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}}
+\subsubsection{\texorpdfstring{project()}{project()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Projected\+Bot.\+project (\begin{DoxyParamCaption}\item[{int}]{time\+Frame,  }\item[{\hyperlink{enummega_1_1boirlerplate_1_1_projected_bot_1_1_turn_behaviours}{Turn\+Behaviours}}]{tb,  }\item[{\hyperlink{enummega_1_1boirlerplate_1_1_projected_bot_1_1_speed_behaviours}{Speed\+Behaviours}}]{sb,  }\item[{\hyperlink{classmega_1_1boirlerplate_1_1_state}{State}}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+Frame} & \\
+\hline
+{\em tb} & \\
+\hline
+{\em sb} & \\
+\hline
+{\em state} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 97 of file Projected\+Bot.\+java.
+
+
+
+References mega.\+boirlerplate.\+Util.\+clamp(), and mega.\+boirlerplate.\+Util.\+speed\+To\+Max\+Turn\+Rate().
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+predict\+Location().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_projected_bot_a6e56d1177cea43ba6fc3159d7bee57a0}\label{classmega_1_1boirlerplate_1_1_projected_bot_a6e56d1177cea43ba6fc3159d7bee57a0}} 
+\index{mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}!dir@{dir}}
+\index{dir@{dir}!mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}}
+\subsubsection{\texorpdfstring{dir}{dir}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Projected\+Bot.\+dir\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 40 of file Projected\+Bot.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_projected_bot_a8ade4f00fcf9d3f12bdc94b2d6771c37}\label{classmega_1_1boirlerplate_1_1_projected_bot_a8ade4f00fcf9d3f12bdc94b2d6771c37}} 
+\index{mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}!locX@{locX}}
+\index{locX@{locX}!mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}}
+\subsubsection{\texorpdfstring{locX}{locX}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Projected\+Bot.\+locX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 37 of file Projected\+Bot.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_projected_bot_a6023cf4c541167bd274854d38b845df5}\label{classmega_1_1boirlerplate_1_1_projected_bot_a6023cf4c541167bd274854d38b845df5}} 
+\index{mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}!locY@{locY}}
+\index{locY@{locY}!mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}}
+\subsubsection{\texorpdfstring{locY}{locY}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Projected\+Bot.\+locY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 38 of file Projected\+Bot.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_projected_bot_ad283244a356fecb209afdffb9db98d63}\label{classmega_1_1boirlerplate_1_1_projected_bot_ad283244a356fecb209afdffb9db98d63}} 
+\index{mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}!speed@{speed}}
+\index{speed@{speed}!mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}}
+\subsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Projected\+Bot.\+speed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 41 of file Projected\+Bot.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_projected_bot_af8779f0a2c73029ae591f841dab2feea}\label{classmega_1_1boirlerplate_1_1_projected_bot_af8779f0a2c73029ae591f841dab2feea}} 
+\index{mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}!turn\+Rate@{turn\+Rate}}
+\index{turn\+Rate@{turn\+Rate}!mega\+::boirlerplate\+::\+Projected\+Bot@{mega\+::boirlerplate\+::\+Projected\+Bot}}
+\subsubsection{\texorpdfstring{turn\+Rate}{turnRate}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Projected\+Bot.\+turn\+Rate\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 42 of file Projected\+Bot.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cloud/\+One\+Drive/\+Dev/eclipse-\/workspace/\+Rainbow\+Surf/src/mega/boirlerplate/\hyperlink{_projected_bot_8java}{Projected\+Bot.\+java}\end{DoxyCompactItemize}

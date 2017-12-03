@@ -1,0 +1,35 @@
+digraph "mega.boirlerplate.MovementSpin"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node3 [label="mega.boirlerplate.MovementSpin",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="mega.boirlerplate.Movement",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_movement.html"];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="mega.boirlerplate.Component",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_component.html"];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" state" ,fontname="Helvetica"];
+  Node6 [label="mega.boirlerplate.State",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_state.html"];
+  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" hitRobotEvents" ,fontname="Helvetica"];
+  Node7 [label="mega.boirlerplate.Vector\l\< HitRobotEvent \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_vector.html"];
+  Node8 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ZERO" ,fontname="Helvetica"];
+  Node8 [label="mega.boirlerplate.Vector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_vector.html"];
+  Node9 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Point2D::Double",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ZERO" ,fontname="Helvetica"];
+  Node10 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" latestRobot\ntrackingRobot" ,fontname="Helvetica"];
+  Node10 [label="mega.boirlerplate.OtherRobot",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_other_robot.html"];
+  Node11 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Comparable\< OtherRobot \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node12 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bulletWaves" ,fontname="Helvetica"];
+  Node12 [label="ArrayList\< mega.boirlerplate.\lWaveBullet \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node13 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" history" ,fontname="Helvetica"];
+  Node13 [label="ArrayList\< Tick \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node14 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ourBullets" ,fontname="Helvetica"];
+  Node14 [label="ArrayList\< mega.boirlerplate.\lBulletTracked \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node15 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" otherRobots" ,fontname="Helvetica"];
+  Node15 [label="Map\< String, mega.boirlerplate.\lOtherRobot \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node16 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bulletHitEvents" ,fontname="Helvetica"];
+  Node16 [label="mega.boirlerplate.Vector\l\< BulletHitEvent \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_vector.html"];
+  Node8 -> Node16 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ZERO" ,fontname="Helvetica"];
+}

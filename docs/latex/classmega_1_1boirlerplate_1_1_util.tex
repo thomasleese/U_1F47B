@@ -1,0 +1,533 @@
+\hypertarget{classmega_1_1boirlerplate_1_1_util}{}\section{mega.\+boirlerplate.\+Util Class Reference}
+\label{classmega_1_1boirlerplate_1_1_util}\index{mega.\+boirlerplate.\+Util@{mega.\+boirlerplate.\+Util}}
+
+
+Collaboration diagram for mega.\+boirlerplate.\+Util\+:
+% FIG 0
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classmega_1_1boirlerplate_1_1_util_acaa157e0a60ec0b1ea5e9fcb0dd61e4d}{modulo} (int c, int mod)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_a85f19029e7c0d7d4f294508d6879f3dc}{clamp} (double val, double lower, double upper)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_a255c3c9ecd1af27e6566822f4eeb83e7}{round} (double d, int digits)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_af268ebc7c028bce1824d7ba883c0af7c}{round\+To1} (double d)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_a87b170f43206b1f1560fcea48cd51876}{firepower\+To\+Speed} (double firepower)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_a66f5757c5ac6ab4614fa72cc9174e7c7}{speed\+To\+Firepower} (double speed)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_a4b64841d046d559840b1f7a0096e6e9c}{speed\+To\+Max\+Turn\+Rate} (double speed)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_a4cda52df9b898c808599f03fd63b88d4}{get\+Distance} (double dx, double dy)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_a2990805eef3f1de7aa2856009d714358}{get\+Angle} (double dx, double dy)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_a5a29f4d77f349eb00f4d2b8ed9b86860}{get\+Distance} (double ax, double ay, double bx, double by)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_a5cd5f72724bc1543b09bfc0211474987}{get\+Angle} (double ax, double ay, double bx, double by)
+\item 
+static boolean \hyperlink{classmega_1_1boirlerplate_1_1_util_ac2047924cc697d5f4a3a70a5951b5173}{is\+Out\+Of\+Battle\+Field} (double x, double y, double width, double height, double margin\+Left, double margin\+Top, double margin\+Right, double margin\+Bottom)
+\item 
+static boolean \hyperlink{classmega_1_1boirlerplate_1_1_util_aadc05c7a6a9a8ba4fb66080846fa41f3}{is\+Out\+Of\+Battle\+Field} (\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} position, double width, double height, double margin\+Left, double margin\+Top, double margin\+Right, double margin\+Bottom)
+\item 
+static boolean \hyperlink{classmega_1_1boirlerplate_1_1_util_a4f558cc6aaefd091e819e4a5edb22e38}{is\+Out\+Of\+Battle\+Field} (double x, double y, double width, double height)
+\item 
+static boolean \hyperlink{classmega_1_1boirlerplate_1_1_util_a75b259563829a3f2351f6d0e25c3a59b}{is\+Out\+Of\+Battle\+Field} (\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} position, double width, double height)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_util_ade61761e2023c7defc758e8aaaf15e06}{headingless\+Angle} (double angle)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final Random \hyperlink{classmega_1_1boirlerplate_1_1_util_a73e0b59edb9b6d335b2407aaa7989d39}{R\+A\+N\+D\+OM} = new Random()
+\item 
+static final int \hyperlink{classmega_1_1boirlerplate_1_1_util_aa71f5f5fffc472da7ab047be834ae531}{R\+O\+B\+O\+T\+\_\+\+W\+I\+D\+TH} = 48
+\item 
+static final int \hyperlink{classmega_1_1boirlerplate_1_1_util_ad8d3444f57297eec764c0aabf42c6c85}{R\+O\+B\+O\+T\+\_\+\+H\+E\+I\+G\+HT} = 48
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains the collections framework, event model, utility classes and miscellaneous
+
+\begin{DoxyAuthor}{Author}
+Visual\+Melon 
+
+thomasleese 
+
+Cyanogenoid 
+\end{DoxyAuthor}
+
+
+Definition at line 13 of file Util.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a85f19029e7c0d7d4f294508d6879f3dc}\label{classmega_1_1boirlerplate_1_1_util_a85f19029e7c0d7d4f294508d6879f3dc}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!clamp@{clamp}}
+\index{clamp@{clamp}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{clamp()}{clamp()}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+clamp (\begin{DoxyParamCaption}\item[{double}]{val,  }\item[{double}]{lower,  }\item[{double}]{upper }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & \\
+\hline
+{\em lower} & \\
+\hline
+{\em upper} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Vector$<$ Hit\+Robot\+Event $>$.\+bound(), mega.\+boirlerplate.\+Movement\+Predictive.\+on\+Paint(), and mega.\+boirlerplate.\+Projected\+Bot.\+project().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a87b170f43206b1f1560fcea48cd51876}\label{classmega_1_1boirlerplate_1_1_util_a87b170f43206b1f1560fcea48cd51876}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!firepower\+To\+Speed@{firepower\+To\+Speed}}
+\index{firepower\+To\+Speed@{firepower\+To\+Speed}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{firepower\+To\+Speed()}{firepowerToSpeed()}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+firepower\+To\+Speed (\begin{DoxyParamCaption}\item[{double}]{firepower }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em firepower} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 70 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Bullet\+Virtual.\+Bullet\+Virtual(), and mega.\+boirlerplate.\+Gun\+Predictive.\+execute().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a2990805eef3f1de7aa2856009d714358}\label{classmega_1_1boirlerplate_1_1_util_a2990805eef3f1de7aa2856009d714358}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!get\+Angle@{get\+Angle}}
+\index{get\+Angle@{get\+Angle}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{get\+Angle()}{getAngle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+get\+Angle (\begin{DoxyParamCaption}\item[{double}]{dx,  }\item[{double}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dx} & \\
+\hline
+{\em dy} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 110 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+execute(), mega.\+boirlerplate.\+Vector$<$ Hit\+Robot\+Event $>$.\+get\+Angle(), mega.\+boirlerplate.\+Util.\+get\+Angle(), and mega.\+boirlerplate.\+Other\+Robot.\+predict\+Bullet\+Shot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a5cd5f72724bc1543b09bfc0211474987}\label{classmega_1_1boirlerplate_1_1_util_a5cd5f72724bc1543b09bfc0211474987}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!get\+Angle@{get\+Angle}}
+\index{get\+Angle@{get\+Angle}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{get\+Angle()}{getAngle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+get\+Angle (\begin{DoxyParamCaption}\item[{double}]{ax,  }\item[{double}]{ay,  }\item[{double}]{bx,  }\item[{double}]{by }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+a is origin
+
+
+\begin{DoxyParams}{Parameters}
+{\em ax} & \\
+\hline
+{\em ay} & \\
+\hline
+{\em bx} & \\
+\hline
+{\em by} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 138 of file Util.\+java.
+
+
+
+References mega.\+boirlerplate.\+Util.\+get\+Angle().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a4cda52df9b898c808599f03fd63b88d4}\label{classmega_1_1boirlerplate_1_1_util_a4cda52df9b898c808599f03fd63b88d4}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!get\+Distance@{get\+Distance}}
+\index{get\+Distance@{get\+Distance}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{get\+Distance()}{getDistance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+get\+Distance (\begin{DoxyParamCaption}\item[{double}]{dx,  }\item[{double}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dx} & \\
+\hline
+{\em dy} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 99 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+execute(), and mega.\+boirlerplate.\+Util.\+get\+Distance().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a5a29f4d77f349eb00f4d2b8ed9b86860}\label{classmega_1_1boirlerplate_1_1_util_a5a29f4d77f349eb00f4d2b8ed9b86860}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!get\+Distance@{get\+Distance}}
+\index{get\+Distance@{get\+Distance}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{get\+Distance()}{getDistance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+get\+Distance (\begin{DoxyParamCaption}\item[{double}]{ax,  }\item[{double}]{ay,  }\item[{double}]{bx,  }\item[{double}]{by }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ax} & \\
+\hline
+{\em ay} & \\
+\hline
+{\em bx} & \\
+\hline
+{\em by} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 123 of file Util.\+java.
+
+
+
+References mega.\+boirlerplate.\+Util.\+get\+Distance().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_ade61761e2023c7defc758e8aaaf15e06}\label{classmega_1_1boirlerplate_1_1_util_ade61761e2023c7defc758e8aaaf15e06}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!headingless\+Angle@{headingless\+Angle}}
+\index{headingless\+Angle@{headingless\+Angle}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{headingless\+Angle()}{headinglessAngle()}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+headingless\+Angle (\begin{DoxyParamCaption}\item[{double}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 212 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Movement\+Predictive.\+evaluate\+Position(), and mega.\+boirlerplate.\+Movement\+Predictive.\+generate\+Actions().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_ac2047924cc697d5f4a3a70a5951b5173}\label{classmega_1_1boirlerplate_1_1_util_ac2047924cc697d5f4a3a70a5951b5173}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!is\+Out\+Of\+Battle\+Field@{is\+Out\+Of\+Battle\+Field}}
+\index{is\+Out\+Of\+Battle\+Field@{is\+Out\+Of\+Battle\+Field}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{is\+Out\+Of\+Battle\+Field()}{isOutOfBattleField()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily static boolean mega.\+boirlerplate.\+Util.\+is\+Out\+Of\+Battle\+Field (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{width,  }\item[{double}]{height,  }\item[{double}]{margin\+Left,  }\item[{double}]{margin\+Top,  }\item[{double}]{margin\+Right,  }\item[{double}]{margin\+Bottom }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+{\em margin\+Left} & \\
+\hline
+{\em margin\+Top} & \\
+\hline
+{\em margin\+Right} & \\
+\hline
+{\em margin\+Bottom} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 157 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Bullet\+Virtual.\+advance(), mega.\+boirlerplate.\+Movement.\+is\+Out\+Of\+Battle\+Field(), mega.\+boirlerplate.\+Util.\+is\+Out\+Of\+Battle\+Field(), and mega.\+boirlerplate.\+Other\+Robot.\+predict\+Bullet\+Shot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_aadc05c7a6a9a8ba4fb66080846fa41f3}\label{classmega_1_1boirlerplate_1_1_util_aadc05c7a6a9a8ba4fb66080846fa41f3}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!is\+Out\+Of\+Battle\+Field@{is\+Out\+Of\+Battle\+Field}}
+\index{is\+Out\+Of\+Battle\+Field@{is\+Out\+Of\+Battle\+Field}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{is\+Out\+Of\+Battle\+Field()}{isOutOfBattleField()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily static boolean mega.\+boirlerplate.\+Util.\+is\+Out\+Of\+Battle\+Field (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}}]{position,  }\item[{double}]{width,  }\item[{double}]{height,  }\item[{double}]{margin\+Left,  }\item[{double}]{margin\+Top,  }\item[{double}]{margin\+Right,  }\item[{double}]{margin\+Bottom }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+{\em margin\+Left} & \\
+\hline
+{\em margin\+Top} & \\
+\hline
+{\em margin\+Right} & \\
+\hline
+{\em margin\+Bottom} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 177 of file Util.\+java.
+
+
+
+References mega.\+boirlerplate.\+Util.\+is\+Out\+Of\+Battle\+Field().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a4f558cc6aaefd091e819e4a5edb22e38}\label{classmega_1_1boirlerplate_1_1_util_a4f558cc6aaefd091e819e4a5edb22e38}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!is\+Out\+Of\+Battle\+Field@{is\+Out\+Of\+Battle\+Field}}
+\index{is\+Out\+Of\+Battle\+Field@{is\+Out\+Of\+Battle\+Field}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{is\+Out\+Of\+Battle\+Field()}{isOutOfBattleField()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily static boolean mega.\+boirlerplate.\+Util.\+is\+Out\+Of\+Battle\+Field (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{width,  }\item[{double}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 192 of file Util.\+java.
+
+
+
+References mega.\+boirlerplate.\+Util.\+is\+Out\+Of\+Battle\+Field().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a75b259563829a3f2351f6d0e25c3a59b}\label{classmega_1_1boirlerplate_1_1_util_a75b259563829a3f2351f6d0e25c3a59b}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!is\+Out\+Of\+Battle\+Field@{is\+Out\+Of\+Battle\+Field}}
+\index{is\+Out\+Of\+Battle\+Field@{is\+Out\+Of\+Battle\+Field}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{is\+Out\+Of\+Battle\+Field()}{isOutOfBattleField()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily static boolean mega.\+boirlerplate.\+Util.\+is\+Out\+Of\+Battle\+Field (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}}]{position,  }\item[{double}]{width,  }\item[{double}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 203 of file Util.\+java.
+
+
+
+References mega.\+boirlerplate.\+Util.\+is\+Out\+Of\+Battle\+Field().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_acaa157e0a60ec0b1ea5e9fcb0dd61e4d}\label{classmega_1_1boirlerplate_1_1_util_acaa157e0a60ec0b1ea5e9fcb0dd61e4d}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!modulo@{modulo}}
+\index{modulo@{modulo}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{modulo()}{modulo()}}
+{\footnotesize\ttfamily static int mega.\+boirlerplate.\+Util.\+modulo (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int}]{mod }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+{\em mod} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 25 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+get\+Bullet(), and mega.\+boirlerplate.\+Other\+Robot.\+get\+History().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a255c3c9ecd1af27e6566822f4eeb83e7}\label{classmega_1_1boirlerplate_1_1_util_a255c3c9ecd1af27e6566822f4eeb83e7}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!round@{round}}
+\index{round@{round}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{round()}{round()}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+round (\begin{DoxyParamCaption}\item[{double}]{d,  }\item[{int}]{digits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \\
+\hline
+{\em digits} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 51 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Vector$<$ Hit\+Robot\+Event $>$.\+round().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_af268ebc7c028bce1824d7ba883c0af7c}\label{classmega_1_1boirlerplate_1_1_util_af268ebc7c028bce1824d7ba883c0af7c}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!round\+To1@{round\+To1}}
+\index{round\+To1@{round\+To1}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{round\+To1()}{roundTo1()}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+round\+To1 (\begin{DoxyParamCaption}\item[{double}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 61 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+predict\+Bullet\+Shot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a66f5757c5ac6ab4614fa72cc9174e7c7}\label{classmega_1_1boirlerplate_1_1_util_a66f5757c5ac6ab4614fa72cc9174e7c7}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!speed\+To\+Firepower@{speed\+To\+Firepower}}
+\index{speed\+To\+Firepower@{speed\+To\+Firepower}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{speed\+To\+Firepower()}{speedToFirepower()}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+speed\+To\+Firepower (\begin{DoxyParamCaption}\item[{double}]{speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 79 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+execute().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a4b64841d046d559840b1f7a0096e6e9c}\label{classmega_1_1boirlerplate_1_1_util_a4b64841d046d559840b1f7a0096e6e9c}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!speed\+To\+Max\+Turn\+Rate@{speed\+To\+Max\+Turn\+Rate}}
+\index{speed\+To\+Max\+Turn\+Rate@{speed\+To\+Max\+Turn\+Rate}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{speed\+To\+Max\+Turn\+Rate()}{speedToMaxTurnRate()}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+Util.\+speed\+To\+Max\+Turn\+Rate (\begin{DoxyParamCaption}\item[{double}]{speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 89 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Projected\+Bot.\+project().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_a73e0b59edb9b6d335b2407aaa7989d39}\label{classmega_1_1boirlerplate_1_1_util_a73e0b59edb9b6d335b2407aaa7989d39}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!R\+A\+N\+D\+OM@{R\+A\+N\+D\+OM}}
+\index{R\+A\+N\+D\+OM@{R\+A\+N\+D\+OM}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{R\+A\+N\+D\+OM}{RANDOM}}
+{\footnotesize\ttfamily final Random mega.\+boirlerplate.\+Util.\+R\+A\+N\+D\+OM = new Random()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 15 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Radar\+Priority.\+execute().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_ad8d3444f57297eec764c0aabf42c6c85}\label{classmega_1_1boirlerplate_1_1_util_ad8d3444f57297eec764c0aabf42c6c85}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!R\+O\+B\+O\+T\+\_\+\+H\+E\+I\+G\+HT@{R\+O\+B\+O\+T\+\_\+\+H\+E\+I\+G\+HT}}
+\index{R\+O\+B\+O\+T\+\_\+\+H\+E\+I\+G\+HT@{R\+O\+B\+O\+T\+\_\+\+H\+E\+I\+G\+HT}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{R\+O\+B\+O\+T\+\_\+\+H\+E\+I\+G\+HT}{ROBOT\_HEIGHT}}
+{\footnotesize\ttfamily final int mega.\+boirlerplate.\+Util.\+R\+O\+B\+O\+T\+\_\+\+H\+E\+I\+G\+HT = 48\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 17 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+predict\+Bullet\+Shot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_util_aa71f5f5fffc472da7ab047be834ae531}\label{classmega_1_1boirlerplate_1_1_util_aa71f5f5fffc472da7ab047be834ae531}} 
+\index{mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}!R\+O\+B\+O\+T\+\_\+\+W\+I\+D\+TH@{R\+O\+B\+O\+T\+\_\+\+W\+I\+D\+TH}}
+\index{R\+O\+B\+O\+T\+\_\+\+W\+I\+D\+TH@{R\+O\+B\+O\+T\+\_\+\+W\+I\+D\+TH}!mega\+::boirlerplate\+::\+Util@{mega\+::boirlerplate\+::\+Util}}
+\subsubsection{\texorpdfstring{R\+O\+B\+O\+T\+\_\+\+W\+I\+D\+TH}{ROBOT\_WIDTH}}
+{\footnotesize\ttfamily final int mega.\+boirlerplate.\+Util.\+R\+O\+B\+O\+T\+\_\+\+W\+I\+D\+TH = 48\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 16 of file Util.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Other\+Robot.\+predict\+Bullet\+Shot().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cloud/\+One\+Drive/\+Dev/eclipse-\/workspace/\+Rainbow\+Surf/src/mega/boirlerplate/\hyperlink{_util_8java}{Util.\+java}\end{DoxyCompactItemize}

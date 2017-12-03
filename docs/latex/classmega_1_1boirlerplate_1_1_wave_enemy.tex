@@ -1,0 +1,205 @@
+\hypertarget{classmega_1_1boirlerplate_1_1_wave_enemy}{}\section{mega.\+boirlerplate.\+Wave\+Enemy Class Reference}
+\label{classmega_1_1boirlerplate_1_1_wave_enemy}\index{mega.\+boirlerplate.\+Wave\+Enemy@{mega.\+boirlerplate.\+Wave\+Enemy}}
+
+
+Collaboration diagram for mega.\+boirlerplate.\+Wave\+Enemy\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_a63877837a306a5c22aed83990ef1e5ca}{Wave\+Enemy} (\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} position, double \hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_a64bdfd045bdda668cebc13d1c53c8efc}{power}, int start\+Angle, int end\+Angle, double \hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_a40ee79e9eb970f417776521d89a64c82}{confidence}, \hyperlink{classmega_1_1boirlerplate_1_1_state}{State} state)
+\item 
+boolean \hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_a049cfed9f952e92a40ca1676312dcf71}{advance} ()
+\item 
+long \hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_ae77d428fc69cc10d79e94cca3f8f1eba}{get\+Flight\+Time} ()
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_a8100fd097abd774c5a0690e5896629ba}{get\+Power} ()
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} \hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_a81411d993e5045444806b27339a87286}{get\+Average\+Position} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_ab9c8931b661bfa995f124272462537a5}{on\+Paint} (Graphics2D g)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Array\+List$<$ \hyperlink{classmega_1_1boirlerplate_1_1_bullet_virtual}{Bullet\+Virtual} $>$ \hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_a982e59e80347fce37d93c286dd44b6bf}{bullets}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_a64bdfd045bdda668cebc13d1c53c8efc}{power}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_wave_enemy_a40ee79e9eb970f417776521d89a64c82}{confidence}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Wave\+Enemy.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_wave_enemy_a63877837a306a5c22aed83990ef1e5ca}\label{classmega_1_1boirlerplate_1_1_wave_enemy_a63877837a306a5c22aed83990ef1e5ca}} 
+\index{mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}!Wave\+Enemy@{Wave\+Enemy}}
+\index{Wave\+Enemy@{Wave\+Enemy}!mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}}
+\subsubsection{\texorpdfstring{Wave\+Enemy()}{WaveEnemy()}}
+{\footnotesize\ttfamily mega.\+boirlerplate.\+Wave\+Enemy.\+Wave\+Enemy (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}}]{position,  }\item[{double}]{power,  }\item[{int}]{start\+Angle,  }\item[{int}]{end\+Angle,  }\item[{double}]{confidence,  }\item[{\hyperlink{classmega_1_1boirlerplate_1_1_state}{State}}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em power} & \\
+\hline
+{\em start\+Angle} & \\
+\hline
+{\em end\+Angle} & \\
+\hline
+{\em confidence} & \\
+\hline
+{\em state} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file Wave\+Enemy.\+java.
+
+
+
+References mega.\+boirlerplate.\+Wave\+Enemy.\+advance(), mega.\+boirlerplate.\+Wave\+Enemy.\+confidence, and mega.\+boirlerplate.\+Wave\+Enemy.\+power.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_wave_enemy_a049cfed9f952e92a40ca1676312dcf71}\label{classmega_1_1boirlerplate_1_1_wave_enemy_a049cfed9f952e92a40ca1676312dcf71}} 
+\index{mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}!advance@{advance}}
+\index{advance@{advance}!mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}}
+\subsubsection{\texorpdfstring{advance()}{advance()}}
+{\footnotesize\ttfamily boolean mega.\+boirlerplate.\+Wave\+Enemy.\+advance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 42 of file Wave\+Enemy.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Wave\+Enemy.\+Wave\+Enemy().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_wave_enemy_a81411d993e5045444806b27339a87286}\label{classmega_1_1boirlerplate_1_1_wave_enemy_a81411d993e5045444806b27339a87286}} 
+\index{mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}!get\+Average\+Position@{get\+Average\+Position}}
+\index{get\+Average\+Position@{get\+Average\+Position}!mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}}
+\subsubsection{\texorpdfstring{get\+Average\+Position()}{getAveragePosition()}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} mega.\+boirlerplate.\+Wave\+Enemy.\+get\+Average\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 75 of file Wave\+Enemy.\+java.
+
+
+
+References mega.\+boirlerplate.\+Vector.\+add(), and mega.\+boirlerplate.\+Vector.\+div().
+
+
+
+Referenced by mega.\+boirlerplate.\+Wave\+Enemy.\+on\+Paint().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_wave_enemy_ae77d428fc69cc10d79e94cca3f8f1eba}\label{classmega_1_1boirlerplate_1_1_wave_enemy_ae77d428fc69cc10d79e94cca3f8f1eba}} 
+\index{mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}!get\+Flight\+Time@{get\+Flight\+Time}}
+\index{get\+Flight\+Time@{get\+Flight\+Time}!mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}}
+\subsubsection{\texorpdfstring{get\+Flight\+Time()}{getFlightTime()}}
+{\footnotesize\ttfamily long mega.\+boirlerplate.\+Wave\+Enemy.\+get\+Flight\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 59 of file Wave\+Enemy.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_wave_enemy_a8100fd097abd774c5a0690e5896629ba}\label{classmega_1_1boirlerplate_1_1_wave_enemy_a8100fd097abd774c5a0690e5896629ba}} 
+\index{mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}!get\+Power@{get\+Power}}
+\index{get\+Power@{get\+Power}!mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}}
+\subsubsection{\texorpdfstring{get\+Power()}{getPower()}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Wave\+Enemy.\+get\+Power (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 67 of file Wave\+Enemy.\+java.
+
+
+
+References mega.\+boirlerplate.\+Wave\+Enemy.\+power.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_wave_enemy_ab9c8931b661bfa995f124272462537a5}\label{classmega_1_1boirlerplate_1_1_wave_enemy_ab9c8931b661bfa995f124272462537a5}} 
+\index{mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}!on\+Paint@{on\+Paint}}
+\index{on\+Paint@{on\+Paint}!mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}}
+\subsubsection{\texorpdfstring{on\+Paint()}{onPaint()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Wave\+Enemy.\+on\+Paint (\begin{DoxyParamCaption}\item[{Graphics2D}]{g }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 88 of file Wave\+Enemy.\+java.
+
+
+
+References mega.\+boirlerplate.\+Wave\+Enemy.\+get\+Average\+Position().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_wave_enemy_a982e59e80347fce37d93c286dd44b6bf}\label{classmega_1_1boirlerplate_1_1_wave_enemy_a982e59e80347fce37d93c286dd44b6bf}} 
+\index{mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}!bullets@{bullets}}
+\index{bullets@{bullets}!mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}}
+\subsubsection{\texorpdfstring{bullets}{bullets}}
+{\footnotesize\ttfamily Array\+List$<$\hyperlink{classmega_1_1boirlerplate_1_1_bullet_virtual}{Bullet\+Virtual}$>$ mega.\+boirlerplate.\+Wave\+Enemy.\+bullets\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 15 of file Wave\+Enemy.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_wave_enemy_a40ee79e9eb970f417776521d89a64c82}\label{classmega_1_1boirlerplate_1_1_wave_enemy_a40ee79e9eb970f417776521d89a64c82}} 
+\index{mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}!confidence@{confidence}}
+\index{confidence@{confidence}!mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}}
+\subsubsection{\texorpdfstring{confidence}{confidence}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Wave\+Enemy.\+confidence\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 17 of file Wave\+Enemy.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Wave\+Enemy.\+Wave\+Enemy().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_wave_enemy_a64bdfd045bdda668cebc13d1c53c8efc}\label{classmega_1_1boirlerplate_1_1_wave_enemy_a64bdfd045bdda668cebc13d1c53c8efc}} 
+\index{mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}!power@{power}}
+\index{power@{power}!mega\+::boirlerplate\+::\+Wave\+Enemy@{mega\+::boirlerplate\+::\+Wave\+Enemy}}
+\subsubsection{\texorpdfstring{power}{power}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Wave\+Enemy.\+power\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 16 of file Wave\+Enemy.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Wave\+Enemy.\+get\+Power(), and mega.\+boirlerplate.\+Wave\+Enemy.\+Wave\+Enemy().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cloud/\+One\+Drive/\+Dev/eclipse-\/workspace/\+Rainbow\+Surf/src/mega/boirlerplate/\hyperlink{_wave_enemy_8java}{Wave\+Enemy.\+java}\end{DoxyCompactItemize}

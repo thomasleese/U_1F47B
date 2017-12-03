@@ -1,0 +1,428 @@
+\hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf}{}\section{mega.\+boirlerplate.\+Rainbow\+Surf Class Reference}
+\label{classmega_1_1boirlerplate_1_1_rainbow_surf}\index{mega.\+boirlerplate.\+Rainbow\+Surf@{mega.\+boirlerplate.\+Rainbow\+Surf}}
+
+
+Inheritance diagram for mega.\+boirlerplate.\+Rainbow\+Surf\+:
+% FIG 0
+
+
+Collaboration diagram for mega.\+boirlerplate.\+Rainbow\+Surf\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Strategy}
+\item 
+class \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_1_1_strategy_components}{Strategy\+Components}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_ac796f78a606c23cc5d868106e7ff2e25}{Rainbow\+Surf} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_aea60c20e73fd0d6a9c9f03aedb629691}{update\+Strategy} (Strategy strategy)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a41d9a00a7815f330e689cfe289f8900d}{get\+Strategy} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a88781c384a36b2bfde150cd613211911}{run} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a0767bf09dcfb8a5a210e8fb4d514a24f}{on\+Battle\+Ended} (Battle\+Ended\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a616040bd54522fd284b42015bac73e19}{on\+Bullet\+Hit} (Bullet\+Hit\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a66199cea8d92d0e41a2dddd9c9bd6ce6}{on\+Bullet\+Hit\+Bullet} (Bullet\+Hit\+Bullet\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_acf66c0564f62a1d8bcc3e4e341eaeb38}{on\+Bullet\+Missed} (Bullet\+Missed\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_ac9b0d368c6ec4d29349d7b1cd8250a97}{on\+Death} (Death\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a0ce5247ce635fc4a1bdf0a8273e63bb1}{on\+Hit\+By\+Bullet} (Hit\+By\+Bullet\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_aa0d41311ee9ff27eb5b288d158ed20b2}{on\+Hit\+Robot} (Hit\+Robot\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a6b1050af9104547456cc16e965af4d1f}{on\+Hit\+Wall} (Hit\+Wall\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a822b53015b423e18738e9d6f32d41e38}{on\+Paint} (Graphics2D g)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a97d9c9167912991354219f216293fcb5}{on\+Robot\+Death} (Robot\+Death\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a94160d0f2eff2c07681c433c14b9790c}{on\+Round\+Ended} (Round\+Ended\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_ab7ea05d81b452a5c1ed1fce2c64e807d}{on\+Scanned\+Robot} (Scanned\+Robot\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_abee1b179e390d1a1127acf576d311f39}{on\+Win} (Win\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a1e3d82e11b76132839d766a4e2f3a808}{on\+Skipped\+Turn} (Skipped\+Turn\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a8621b164b044c49190923f851d0dceba}{paint\+Robot} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_ad4cef06e05fa5e2455028414b99b1eda}{init\+Strategies} (final \hyperlink{classmega_1_1boirlerplate_1_1_state}{State} \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a13df5a9da5b4480df14c02d36c8a21cb}{state})
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Map$<$ Strategy, Rainbow\+Surf.\+Strategy\+Components $>$ \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a2581b1a2d2965d9def227a8f8eb410d3}{strategy\+Map}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_state}{State} \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a13df5a9da5b4480df14c02d36c8a21cb}{state}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_radar}{Radar} \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_abb5310cdb4086dcbf43b4a0c51055ba2}{radar}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_gun}{Gun} \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_a5d5324e094dc3d566c8125280299853f}{gun}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_movement}{Movement} \hyperlink{classmega_1_1boirlerplate_1_1_rainbow_surf_ac2a284ce071f11b1eb3e6433f7e74d4b}{movement}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Gates 
+\end{DoxyAuthor}
+
+
+Definition at line 16 of file Rainbow\+Surf.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_ac796f78a606c23cc5d868106e7ff2e25}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_ac796f78a606c23cc5d868106e7ff2e25}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!Rainbow\+Surf@{Rainbow\+Surf}}
+\index{Rainbow\+Surf@{Rainbow\+Surf}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{Rainbow\+Surf()}{RainbowSurf()}}
+{\footnotesize\ttfamily mega.\+boirlerplate.\+Rainbow\+Surf.\+Rainbow\+Surf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 61 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+Rainbow\+Surf.\+init\+Strategies(), and mega.\+boirlerplate.\+Rainbow\+Surf.\+update\+Strategy().
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a41d9a00a7815f330e689cfe289f8900d}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a41d9a00a7815f330e689cfe289f8900d}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!get\+Strategy@{get\+Strategy}}
+\index{get\+Strategy@{get\+Strategy}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{get\+Strategy()}{getStrategy()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+get\+Strategy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 119 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+Rainbow\+Surf.\+update\+Strategy().
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+run().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_ad4cef06e05fa5e2455028414b99b1eda}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_ad4cef06e05fa5e2455028414b99b1eda}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!init\+Strategies@{init\+Strategies}}
+\index{init\+Strategies@{init\+Strategies}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{init\+Strategies()}{initStrategies()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+init\+Strategies (\begin{DoxyParamCaption}\item[{final \hyperlink{classmega_1_1boirlerplate_1_1_state}{State}}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+Rainbow\+Surf.\+strategy\+Map.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+Rainbow\+Surf().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a0767bf09dcfb8a5a210e8fb4d514a24f}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a0767bf09dcfb8a5a210e8fb4d514a24f}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Battle\+Ended@{on\+Battle\+Ended}}
+\index{on\+Battle\+Ended@{on\+Battle\+Ended}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Battle\+Ended()}{onBattleEnded()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Battle\+Ended (\begin{DoxyParamCaption}\item[{Battle\+Ended\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 182 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a616040bd54522fd284b42015bac73e19}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a616040bd54522fd284b42015bac73e19}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Bullet\+Hit@{on\+Bullet\+Hit}}
+\index{on\+Bullet\+Hit@{on\+Bullet\+Hit}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Bullet\+Hit()}{onBulletHit()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Bullet\+Hit (\begin{DoxyParamCaption}\item[{Bullet\+Hit\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 190 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+Vector.\+add(), mega.\+boirlerplate.\+Gun.\+bullet\+Hit(), and mega.\+boirlerplate.\+Bullet\+Tracked.\+get\+Bullet().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a66199cea8d92d0e41a2dddd9c9bd6ce6}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a66199cea8d92d0e41a2dddd9c9bd6ce6}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Bullet\+Hit\+Bullet@{on\+Bullet\+Hit\+Bullet}}
+\index{on\+Bullet\+Hit\+Bullet@{on\+Bullet\+Hit\+Bullet}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Bullet\+Hit\+Bullet()}{onBulletHitBullet()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Bullet\+Hit\+Bullet (\begin{DoxyParamCaption}\item[{Bullet\+Hit\+Bullet\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 211 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+Bullet\+Tracked.\+get\+Bullet().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_acf66c0564f62a1d8bcc3e4e341eaeb38}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_acf66c0564f62a1d8bcc3e4e341eaeb38}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Bullet\+Missed@{on\+Bullet\+Missed}}
+\index{on\+Bullet\+Missed@{on\+Bullet\+Missed}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Bullet\+Missed()}{onBulletMissed()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Bullet\+Missed (\begin{DoxyParamCaption}\item[{Bullet\+Missed\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 230 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+Gun.\+bullet\+Missed(), and mega.\+boirlerplate.\+Bullet\+Tracked.\+get\+Bullet().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_ac9b0d368c6ec4d29349d7b1cd8250a97}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_ac9b0d368c6ec4d29349d7b1cd8250a97}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Death@{on\+Death}}
+\index{on\+Death@{on\+Death}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Death()}{onDeath()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Death (\begin{DoxyParamCaption}\item[{Death\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 249 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a0ce5247ce635fc4a1bdf0a8273e63bb1}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a0ce5247ce635fc4a1bdf0a8273e63bb1}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Hit\+By\+Bullet@{on\+Hit\+By\+Bullet}}
+\index{on\+Hit\+By\+Bullet@{on\+Hit\+By\+Bullet}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Hit\+By\+Bullet()}{onHitByBullet()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Hit\+By\+Bullet (\begin{DoxyParamCaption}\item[{Hit\+By\+Bullet\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 257 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_aa0d41311ee9ff27eb5b288d158ed20b2}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_aa0d41311ee9ff27eb5b288d158ed20b2}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Hit\+Robot@{on\+Hit\+Robot}}
+\index{on\+Hit\+Robot@{on\+Hit\+Robot}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Hit\+Robot()}{onHitRobot()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Hit\+Robot (\begin{DoxyParamCaption}\item[{Hit\+Robot\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 265 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+Vector.\+add(), and mega.\+boirlerplate.\+Component.\+on\+Hit\+Robot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a6b1050af9104547456cc16e965af4d1f}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a6b1050af9104547456cc16e965af4d1f}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Hit\+Wall@{on\+Hit\+Wall}}
+\index{on\+Hit\+Wall@{on\+Hit\+Wall}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Hit\+Wall()}{onHitWall()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Hit\+Wall (\begin{DoxyParamCaption}\item[{Hit\+Wall\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 277 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a822b53015b423e18738e9d6f32d41e38}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a822b53015b423e18738e9d6f32d41e38}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Paint@{on\+Paint}}
+\index{on\+Paint@{on\+Paint}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Paint()}{onPaint()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Paint (\begin{DoxyParamCaption}\item[{Graphics2D}]{g }\end{DoxyParamCaption})}
+
+
+
+Definition at line 285 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+Component.\+on\+Paint().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a97d9c9167912991354219f216293fcb5}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a97d9c9167912991354219f216293fcb5}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Robot\+Death@{on\+Robot\+Death}}
+\index{on\+Robot\+Death@{on\+Robot\+Death}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Robot\+Death()}{onRobotDeath()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Robot\+Death (\begin{DoxyParamCaption}\item[{Robot\+Death\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 301 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+State.\+on\+Robot\+Death().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a94160d0f2eff2c07681c433c14b9790c}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a94160d0f2eff2c07681c433c14b9790c}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Round\+Ended@{on\+Round\+Ended}}
+\index{on\+Round\+Ended@{on\+Round\+Ended}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Round\+Ended()}{onRoundEnded()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Round\+Ended (\begin{DoxyParamCaption}\item[{Round\+Ended\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 306 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_ab7ea05d81b452a5c1ed1fce2c64e807d}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_ab7ea05d81b452a5c1ed1fce2c64e807d}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Scanned\+Robot@{on\+Scanned\+Robot}}
+\index{on\+Scanned\+Robot@{on\+Scanned\+Robot}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Scanned\+Robot()}{onScannedRobot()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Scanned\+Robot (\begin{DoxyParamCaption}\item[{Scanned\+Robot\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 314 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+State.\+on\+Scanned\+Robot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a1e3d82e11b76132839d766a4e2f3a808}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a1e3d82e11b76132839d766a4e2f3a808}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Skipped\+Turn@{on\+Skipped\+Turn}}
+\index{on\+Skipped\+Turn@{on\+Skipped\+Turn}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Skipped\+Turn()}{onSkippedTurn()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Skipped\+Turn (\begin{DoxyParamCaption}\item[{Skipped\+Turn\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 335 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_abee1b179e390d1a1127acf576d311f39}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_abee1b179e390d1a1127acf576d311f39}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!on\+Win@{on\+Win}}
+\index{on\+Win@{on\+Win}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{on\+Win()}{onWin()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Win (\begin{DoxyParamCaption}\item[{Win\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 322 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a8621b164b044c49190923f851d0dceba}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a8621b164b044c49190923f851d0dceba}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!paint\+Robot@{paint\+Robot}}
+\index{paint\+Robot@{paint\+Robot}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{paint\+Robot()}{paintRobot()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+paint\+Robot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 342 of file Rainbow\+Surf.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+run().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a88781c384a36b2bfde150cd613211911}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a88781c384a36b2bfde150cd613211911}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!run@{run}}
+\index{run@{run}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 132 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+State.\+advance(), mega.\+boirlerplate.\+Component.\+execute(), mega.\+boirlerplate.\+Gun.\+fired\+Bullet(), mega.\+boirlerplate.\+Gun.\+get\+Bullet\+Power(), mega.\+boirlerplate.\+Radar.\+get\+Rotation(), mega.\+boirlerplate.\+Gun.\+get\+Rotation(), mega.\+boirlerplate.\+Movement.\+get\+Rotation(), mega.\+boirlerplate.\+Gun.\+get\+Should\+Fire(), mega.\+boirlerplate.\+Movement.\+get\+Speed(), mega.\+boirlerplate.\+Rainbow\+Surf.\+get\+Strategy(), and mega.\+boirlerplate.\+Rainbow\+Surf.\+paint\+Robot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_aea60c20e73fd0d6a9c9f03aedb629691}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_aea60c20e73fd0d6a9c9f03aedb629691}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!update\+Strategy@{update\+Strategy}}
+\index{update\+Strategy@{update\+Strategy}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{update\+Strategy()}{updateStrategy()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Rainbow\+Surf.\+update\+Strategy (\begin{DoxyParamCaption}\item[{Strategy}]{strategy }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em strategy} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file Rainbow\+Surf.\+java.
+
+
+
+References mega.\+boirlerplate.\+Rainbow\+Surf.\+strategy\+Map.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+get\+Strategy(), and mega.\+boirlerplate.\+Rainbow\+Surf.\+Rainbow\+Surf().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a5d5324e094dc3d566c8125280299853f}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a5d5324e094dc3d566c8125280299853f}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!gun@{gun}}
+\index{gun@{gun}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{gun}{gun}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_gun}{Gun} mega.\+boirlerplate.\+Rainbow\+Surf.\+gun\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 55 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_ac2a284ce071f11b1eb3e6433f7e74d4b}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_ac2a284ce071f11b1eb3e6433f7e74d4b}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!movement@{movement}}
+\index{movement@{movement}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{movement}{movement}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_movement}{Movement} mega.\+boirlerplate.\+Rainbow\+Surf.\+movement\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 56 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_abb5310cdb4086dcbf43b4a0c51055ba2}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_abb5310cdb4086dcbf43b4a0c51055ba2}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!radar@{radar}}
+\index{radar@{radar}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{radar}{radar}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_radar}{Radar} mega.\+boirlerplate.\+Rainbow\+Surf.\+radar\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 54 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a13df5a9da5b4480df14c02d36c8a21cb}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a13df5a9da5b4480df14c02d36c8a21cb}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!state@{state}}
+\index{state@{state}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_state}{State} mega.\+boirlerplate.\+Rainbow\+Surf.\+state\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 52 of file Rainbow\+Surf.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_rainbow_surf_a2581b1a2d2965d9def227a8f8eb410d3}\label{classmega_1_1boirlerplate_1_1_rainbow_surf_a2581b1a2d2965d9def227a8f8eb410d3}} 
+\index{mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}!strategy\+Map@{strategy\+Map}}
+\index{strategy\+Map@{strategy\+Map}!mega\+::boirlerplate\+::\+Rainbow\+Surf@{mega\+::boirlerplate\+::\+Rainbow\+Surf}}
+\subsubsection{\texorpdfstring{strategy\+Map}{strategyMap}}
+{\footnotesize\ttfamily Map$<$Strategy, Rainbow\+Surf.\+Strategy\+Components$>$ mega.\+boirlerplate.\+Rainbow\+Surf.\+strategy\+Map\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 50 of file Rainbow\+Surf.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+init\+Strategies(), and mega.\+boirlerplate.\+Rainbow\+Surf.\+update\+Strategy().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cloud/\+One\+Drive/\+Dev/eclipse-\/workspace/\+Rainbow\+Surf/src/mega/boirlerplate/\hyperlink{_rainbow_surf_8java}{Rainbow\+Surf.\+java}\end{DoxyCompactItemize}

@@ -1,0 +1,315 @@
+\hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive}{}\section{mega.\+boirlerplate.\+Gun\+Predictive Class Reference}
+\label{classmega_1_1boirlerplate_1_1_gun_predictive}\index{mega.\+boirlerplate.\+Gun\+Predictive@{mega.\+boirlerplate.\+Gun\+Predictive}}
+
+
+Inheritance diagram for mega.\+boirlerplate.\+Gun\+Predictive\+:
+% FIG 0
+
+
+Collaboration diagram for mega.\+boirlerplate.\+Gun\+Predictive\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_a8e8379f079e74bebc7328ebfc07998b3}{Gun\+Predictive} (\hyperlink{classmega_1_1boirlerplate_1_1_state}{State} \hyperlink{classmega_1_1boirlerplate_1_1_component_a87b0d70f323b5fee60a200e07c9c20fd}{state}, double \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_adb89d8361c33446c988ec16765cab95f}{coefficient})
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_ad21caa3ccb0d1b00d728140302aa4a85}{execute} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_a5bbabbb6466f8d0fbd48b82f7524e59f}{fired\+Bullet} (\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked} tb)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_a55ad510962363718b3f8b44dcda046b7}{bullet\+Hit} (\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked} tb)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_acf9a79922365c5aab5e5d97afd743877}{bullet\+Missed} (\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked} tb)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_a43f6f25bd8c0e030ce01154a2491a049}{on\+Paint} (Graphics2D g)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_ac6e77d2d414fda91759b067a3dd1013b}{on\+Hit\+Robot} (Hit\+Robot\+Event e)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_adb89d8361c33446c988ec16765cab95f}{coefficient}
+\item 
+boolean \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_afe969b433ba483c7a6334799599b7cff}{should\+Fire\+Next\+Tick} = false
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_adc36b046a5e31ee5d2664cfb4fea369f}{next\+Projectile\+Speed} = 19.\+7
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_a4a0b2e418a667179cf2c45bbceedc85a}{expected\+Gun\+Dir} = 0
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_aacfa7c3d0fc4977c5154cbc3d2365ded}{pred\+Vec}
+\item 
+Array\+List$<$ \hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} $>$ \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_aa66bd4fc69ac06e20126c49af21ba460}{paint\+Preds} = new Array\+List$<$\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}$>$()
+\item 
+Other\+Robot.\+Present\+History\+Datas \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_a74b25aefd3b3eaa8fc0d5d0714f90172}{phs} = \hyperlink{enummega_1_1boirlerplate_1_1_other_robot_1_1_present_history_datas_a8ddada05524af32249f4a38284dc0de8}{Other\+Robot.\+Present\+History\+Datas.\+none}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_prediction_data}{Prediction\+Data} \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_ad3c63543d31fc50f31e40871c78ee4d4}{pd} = null
+\item 
+int \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_aefc4364e0799c5ca57922c9ddb56b82a}{miss\+Count} = 0
+\item 
+int \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_a306e9864f6e2fa7665a2f58518f997fc}{pred\+Cycle} = 0
+\item 
+int \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_a36474df070e6133cd3f64e1f6e6dd177}{max\+Pred\+Cycle} = 1
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final double \hyperlink{classmega_1_1boirlerplate_1_1_gun_predictive_abf62a5296b23883713c3e5684befe449}{M\+I\+N\+\_\+\+S\+H\+O\+O\+T\+\_\+\+S\+P\+E\+ED} = 18.\+7
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Gates 
+\end{DoxyAuthor}
+
+
+Definition at line 14 of file Gun\+Predictive.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_a8e8379f079e74bebc7328ebfc07998b3}\label{classmega_1_1boirlerplate_1_1_gun_predictive_a8e8379f079e74bebc7328ebfc07998b3}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!Gun\+Predictive@{Gun\+Predictive}}
+\index{Gun\+Predictive@{Gun\+Predictive}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{Gun\+Predictive()}{GunPredictive()}}
+{\footnotesize\ttfamily mega.\+boirlerplate.\+Gun\+Predictive.\+Gun\+Predictive (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_state}{State}}]{state,  }\item[{double}]{coefficient }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \\
+\hline
+{\em coefficient} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file Gun\+Predictive.\+java.
+
+
+
+References mega.\+boirlerplate.\+Gun\+Predictive.\+coefficient.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_a55ad510962363718b3f8b44dcda046b7}\label{classmega_1_1boirlerplate_1_1_gun_predictive_a55ad510962363718b3f8b44dcda046b7}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!bullet\+Hit@{bullet\+Hit}}
+\index{bullet\+Hit@{bullet\+Hit}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{bullet\+Hit()}{bulletHit()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Gun\+Predictive.\+bullet\+Hit (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked}}]{tb }\end{DoxyParamCaption})}
+
+
+
+Definition at line 154 of file Gun\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_acf9a79922365c5aab5e5d97afd743877}\label{classmega_1_1boirlerplate_1_1_gun_predictive_acf9a79922365c5aab5e5d97afd743877}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!bullet\+Missed@{bullet\+Missed}}
+\index{bullet\+Missed@{bullet\+Missed}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{bullet\+Missed()}{bulletMissed()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Gun\+Predictive.\+bullet\+Missed (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked}}]{tb }\end{DoxyParamCaption})}
+
+
+
+Definition at line 159 of file Gun\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_ad21caa3ccb0d1b00d728140302aa4a85}\label{classmega_1_1boirlerplate_1_1_gun_predictive_ad21caa3ccb0d1b00d728140302aa4a85}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!execute@{execute}}
+\index{execute@{execute}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Gun\+Predictive.\+execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file Gun\+Predictive.\+java.
+
+
+
+References mega.\+boirlerplate.\+Vector.\+add(), mega.\+boirlerplate.\+Other\+Robot.\+available\+Present\+History\+Data(), mega.\+boirlerplate.\+Gun.\+bullet\+Power, mega.\+boirlerplate.\+Util.\+firepower\+To\+Speed(), mega.\+boirlerplate.\+Util.\+get\+Angle(), mega.\+boirlerplate.\+Util.\+get\+Distance(), mega.\+boirlerplate.\+Other\+Robot.\+get\+History(), mega.\+boirlerplate.\+Projected\+Bot.\+Speed\+Behaviours.\+keep\+Speed, mega.\+boirlerplate.\+Projected\+Bot.\+Turn\+Behaviours.\+keep\+Turn, mega.\+boirlerplate.\+Gun\+Predictive.\+M\+I\+N\+\_\+\+S\+H\+O\+O\+T\+\_\+\+S\+P\+E\+ED, mega.\+boirlerplate.\+Gun\+Predictive.\+phs, mega.\+boirlerplate.\+Other\+Robot.\+Present\+History\+Datas.\+position\+Velocity, mega.\+boirlerplate.\+Other\+Robot.\+Present\+History\+Datas.\+position\+Velocity\+Turn\+Rate, mega.\+boirlerplate.\+Other\+Robot.\+predict\+Location(), mega.\+boirlerplate.\+Projected\+Bot.\+Speed\+Behaviours.\+reverse, mega.\+boirlerplate.\+Gun.\+rotation, mega.\+boirlerplate.\+Gun.\+should\+Fire, mega.\+boirlerplate.\+Gun\+Predictive.\+should\+Fire\+Next\+Tick, mega.\+boirlerplate.\+Util.\+speed\+To\+Firepower(), and mega.\+boirlerplate.\+Component.\+state.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_a5bbabbb6466f8d0fbd48b82f7524e59f}\label{classmega_1_1boirlerplate_1_1_gun_predictive_a5bbabbb6466f8d0fbd48b82f7524e59f}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!fired\+Bullet@{fired\+Bullet}}
+\index{fired\+Bullet@{fired\+Bullet}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{fired\+Bullet()}{firedBullet()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Gun\+Predictive.\+fired\+Bullet (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked}}]{tb }\end{DoxyParamCaption})}
+
+
+
+Definition at line 149 of file Gun\+Predictive.\+java.
+
+
+
+References mega.\+boirlerplate.\+Bullet\+Tracked.\+set\+Data().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_ac6e77d2d414fda91759b067a3dd1013b}\label{classmega_1_1boirlerplate_1_1_gun_predictive_ac6e77d2d414fda91759b067a3dd1013b}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!on\+Hit\+Robot@{on\+Hit\+Robot}}
+\index{on\+Hit\+Robot@{on\+Hit\+Robot}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{on\+Hit\+Robot()}{onHitRobot()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Gun\+Predictive.\+on\+Hit\+Robot (\begin{DoxyParamCaption}\item[{Hit\+Robot\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 204 of file Gun\+Predictive.\+java.
+
+
+
+References mega.\+boirlerplate.\+Component.\+state.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_a43f6f25bd8c0e030ce01154a2491a049}\label{classmega_1_1boirlerplate_1_1_gun_predictive_a43f6f25bd8c0e030ce01154a2491a049}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!on\+Paint@{on\+Paint}}
+\index{on\+Paint@{on\+Paint}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{on\+Paint()}{onPaint()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Gun\+Predictive.\+on\+Paint (\begin{DoxyParamCaption}\item[{Graphics2D}]{g }\end{DoxyParamCaption})}
+
+
+
+Definition at line 175 of file Gun\+Predictive.\+java.
+
+
+
+References mega.\+boirlerplate.\+Other\+Robot.\+Present\+History\+Datas.\+none, mega.\+boirlerplate.\+Gun\+Predictive.\+phs, mega.\+boirlerplate.\+Other\+Robot.\+Present\+History\+Datas.\+position\+Only, mega.\+boirlerplate.\+Other\+Robot.\+Present\+History\+Datas.\+position\+Velocity, mega.\+boirlerplate.\+Other\+Robot.\+Present\+History\+Datas.\+position\+Velocity\+Turn\+Rate, and mega.\+boirlerplate.\+Component.\+state.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_adb89d8361c33446c988ec16765cab95f}\label{classmega_1_1boirlerplate_1_1_gun_predictive_adb89d8361c33446c988ec16765cab95f}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!coefficient@{coefficient}}
+\index{coefficient@{coefficient}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{coefficient}{coefficient}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Gun\+Predictive.\+coefficient\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 18 of file Gun\+Predictive.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+Gun\+Predictive().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_a4a0b2e418a667179cf2c45bbceedc85a}\label{classmega_1_1boirlerplate_1_1_gun_predictive_a4a0b2e418a667179cf2c45bbceedc85a}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!expected\+Gun\+Dir@{expected\+Gun\+Dir}}
+\index{expected\+Gun\+Dir@{expected\+Gun\+Dir}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{expected\+Gun\+Dir}{expectedGunDir}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Gun\+Predictive.\+expected\+Gun\+Dir = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 21 of file Gun\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_a36474df070e6133cd3f64e1f6e6dd177}\label{classmega_1_1boirlerplate_1_1_gun_predictive_a36474df070e6133cd3f64e1f6e6dd177}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!max\+Pred\+Cycle@{max\+Pred\+Cycle}}
+\index{max\+Pred\+Cycle@{max\+Pred\+Cycle}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{max\+Pred\+Cycle}{maxPredCycle}}
+{\footnotesize\ttfamily int mega.\+boirlerplate.\+Gun\+Predictive.\+max\+Pred\+Cycle = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 31 of file Gun\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_abf62a5296b23883713c3e5684befe449}\label{classmega_1_1boirlerplate_1_1_gun_predictive_abf62a5296b23883713c3e5684befe449}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!M\+I\+N\+\_\+\+S\+H\+O\+O\+T\+\_\+\+S\+P\+E\+ED@{M\+I\+N\+\_\+\+S\+H\+O\+O\+T\+\_\+\+S\+P\+E\+ED}}
+\index{M\+I\+N\+\_\+\+S\+H\+O\+O\+T\+\_\+\+S\+P\+E\+ED@{M\+I\+N\+\_\+\+S\+H\+O\+O\+T\+\_\+\+S\+P\+E\+ED}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{M\+I\+N\+\_\+\+S\+H\+O\+O\+T\+\_\+\+S\+P\+E\+ED}{MIN\_SHOOT\_SPEED}}
+{\footnotesize\ttfamily final double mega.\+boirlerplate.\+Gun\+Predictive.\+M\+I\+N\+\_\+\+S\+H\+O\+O\+T\+\_\+\+S\+P\+E\+ED = 18.\+7\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line 16 of file Gun\+Predictive.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+execute().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_aefc4364e0799c5ca57922c9ddb56b82a}\label{classmega_1_1boirlerplate_1_1_gun_predictive_aefc4364e0799c5ca57922c9ddb56b82a}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!miss\+Count@{miss\+Count}}
+\index{miss\+Count@{miss\+Count}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{miss\+Count}{missCount}}
+{\footnotesize\ttfamily int mega.\+boirlerplate.\+Gun\+Predictive.\+miss\+Count = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 29 of file Gun\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_adc36b046a5e31ee5d2664cfb4fea369f}\label{classmega_1_1boirlerplate_1_1_gun_predictive_adc36b046a5e31ee5d2664cfb4fea369f}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!next\+Projectile\+Speed@{next\+Projectile\+Speed}}
+\index{next\+Projectile\+Speed@{next\+Projectile\+Speed}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{next\+Projectile\+Speed}{nextProjectileSpeed}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Gun\+Predictive.\+next\+Projectile\+Speed = 19.\+7\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 20 of file Gun\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_aa66bd4fc69ac06e20126c49af21ba460}\label{classmega_1_1boirlerplate_1_1_gun_predictive_aa66bd4fc69ac06e20126c49af21ba460}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!paint\+Preds@{paint\+Preds}}
+\index{paint\+Preds@{paint\+Preds}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{paint\+Preds}{paintPreds}}
+{\footnotesize\ttfamily Array\+List$<$\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}$>$ mega.\+boirlerplate.\+Gun\+Predictive.\+paint\+Preds = new Array\+List$<$\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 25 of file Gun\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_ad3c63543d31fc50f31e40871c78ee4d4}\label{classmega_1_1boirlerplate_1_1_gun_predictive_ad3c63543d31fc50f31e40871c78ee4d4}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!pd@{pd}}
+\index{pd@{pd}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{pd}{pd}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_prediction_data}{Prediction\+Data} mega.\+boirlerplate.\+Gun\+Predictive.\+pd = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 27 of file Gun\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_a74b25aefd3b3eaa8fc0d5d0714f90172}\label{classmega_1_1boirlerplate_1_1_gun_predictive_a74b25aefd3b3eaa8fc0d5d0714f90172}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!phs@{phs}}
+\index{phs@{phs}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{phs}{phs}}
+{\footnotesize\ttfamily Other\+Robot.\+Present\+History\+Datas mega.\+boirlerplate.\+Gun\+Predictive.\+phs = \hyperlink{enummega_1_1boirlerplate_1_1_other_robot_1_1_present_history_datas_a8ddada05524af32249f4a38284dc0de8}{Other\+Robot.\+Present\+History\+Datas.\+none}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 26 of file Gun\+Predictive.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+execute(), and mega.\+boirlerplate.\+Gun\+Predictive.\+on\+Paint().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_a306e9864f6e2fa7665a2f58518f997fc}\label{classmega_1_1boirlerplate_1_1_gun_predictive_a306e9864f6e2fa7665a2f58518f997fc}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!pred\+Cycle@{pred\+Cycle}}
+\index{pred\+Cycle@{pred\+Cycle}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{pred\+Cycle}{predCycle}}
+{\footnotesize\ttfamily int mega.\+boirlerplate.\+Gun\+Predictive.\+pred\+Cycle = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 30 of file Gun\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_aacfa7c3d0fc4977c5154cbc3d2365ded}\label{classmega_1_1boirlerplate_1_1_gun_predictive_aacfa7c3d0fc4977c5154cbc3d2365ded}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!pred\+Vec@{pred\+Vec}}
+\index{pred\+Vec@{pred\+Vec}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{pred\+Vec}{predVec}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} mega.\+boirlerplate.\+Gun\+Predictive.\+pred\+Vec\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 23 of file Gun\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_predictive_afe969b433ba483c7a6334799599b7cff}\label{classmega_1_1boirlerplate_1_1_gun_predictive_afe969b433ba483c7a6334799599b7cff}} 
+\index{mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}!should\+Fire\+Next\+Tick@{should\+Fire\+Next\+Tick}}
+\index{should\+Fire\+Next\+Tick@{should\+Fire\+Next\+Tick}!mega\+::boirlerplate\+::\+Gun\+Predictive@{mega\+::boirlerplate\+::\+Gun\+Predictive}}
+\subsubsection{\texorpdfstring{should\+Fire\+Next\+Tick}{shouldFireNextTick}}
+{\footnotesize\ttfamily boolean mega.\+boirlerplate.\+Gun\+Predictive.\+should\+Fire\+Next\+Tick = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 19 of file Gun\+Predictive.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+execute().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cloud/\+One\+Drive/\+Dev/eclipse-\/workspace/\+Rainbow\+Surf/src/mega/boirlerplate/\hyperlink{_gun_predictive_8java}{Gun\+Predictive.\+java}\end{DoxyCompactItemize}

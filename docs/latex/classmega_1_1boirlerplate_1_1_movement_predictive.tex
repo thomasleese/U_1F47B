@@ -1,0 +1,254 @@
+\hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive}{}\section{mega.\+boirlerplate.\+Movement\+Predictive Class Reference}
+\label{classmega_1_1boirlerplate_1_1_movement_predictive}\index{mega.\+boirlerplate.\+Movement\+Predictive@{mega.\+boirlerplate.\+Movement\+Predictive}}
+
+
+Inheritance diagram for mega.\+boirlerplate.\+Movement\+Predictive\+:
+% FIG 0
+
+
+Collaboration diagram for mega.\+boirlerplate.\+Movement\+Predictive\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_action}{Action}
+\item 
+class \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_destination}{Destination}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_aae1acaef2fb2c79e275c8cb120c9a6fb}{Movement\+Predictive} (\hyperlink{classmega_1_1boirlerplate_1_1_state}{State} \hyperlink{classmega_1_1boirlerplate_1_1_component_a87b0d70f323b5fee60a200e07c9c20fd}{state})
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_a853ee3e04ab6da678f29c371f5b76e1a}{execute} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_a3b3a2c4256943bbe51a3808882674410}{on\+Hit\+Robot} (Hit\+Robot\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_a2d58dda821300bc125d89824910f4ced}{on\+Paint} (Graphics2D g)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_a2dca88b9a008815e15976c654cb6c1c1}{evaluate\+Position} (\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} position, double angle)
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_destination}{Destination} \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_a43a4ae4a71d9e3a36313d316f7ae537f}{pick\+Best\+Position} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_a71f4b152fc0a396c65b0af8bd9ede736}{generate\+Actions} (\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} diff)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Stack$<$ \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_action}{Action} $>$ \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_a65e6ad38f9fb6062584415126f356b29}{actions}
+\item 
+Array\+List$<$ \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_destination}{Destination} $>$ \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_a73ba3ddff4eb6cfc7119ab67065bbc1a}{destinations}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_destination}{Destination} \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_a5cf7cc310d1712671dc59eb40f7ad191}{destination}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_destination}{Destination} \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_a4192d3dde44bf7604c1e5aa42e0799cb}{last\+Destination}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_ae2b44f98d4bf2f87abd4a8c136792aa4}{last\+Enemy\+Bearing}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Gates 
+\end{DoxyAuthor}
+
+
+Definition at line 15 of file Movement\+Predictive.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_aae1acaef2fb2c79e275c8cb120c9a6fb}\label{classmega_1_1boirlerplate_1_1_movement_predictive_aae1acaef2fb2c79e275c8cb120c9a6fb}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!Movement\+Predictive@{Movement\+Predictive}}
+\index{Movement\+Predictive@{Movement\+Predictive}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{Movement\+Predictive()}{MovementPredictive()}}
+{\footnotesize\ttfamily mega.\+boirlerplate.\+Movement\+Predictive.\+Movement\+Predictive (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_state}{State}}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 68 of file Movement\+Predictive.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_a2dca88b9a008815e15976c654cb6c1c1}\label{classmega_1_1boirlerplate_1_1_movement_predictive_a2dca88b9a008815e15976c654cb6c1c1}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!evaluate\+Position@{evaluate\+Position}}
+\index{evaluate\+Position@{evaluate\+Position}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{evaluate\+Position()}{evaluatePosition()}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Movement\+Predictive.\+evaluate\+Position (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}}]{position,  }\item[{double}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 80 of file Movement\+Predictive.\+java.
+
+
+
+References mega.\+boirlerplate.\+Vector.\+add(), mega.\+boirlerplate.\+Movement\+Predictive.\+Action.\+angle, mega.\+boirlerplate.\+Vector.\+equals(), mega.\+boirlerplate.\+Vector.\+get\+Angle(), mega.\+boirlerplate.\+Util.\+headingless\+Angle(), mega.\+boirlerplate.\+Movement.\+is\+Out\+Of\+Battle\+Field(), mega.\+boirlerplate.\+Vector.\+length(), mega.\+boirlerplate.\+Vector.\+length\+Sq(), mega.\+boirlerplate.\+Movement\+Predictive.\+Destination.\+position, mega.\+boirlerplate.\+Vector.\+round(), and mega.\+boirlerplate.\+Component.\+state.
+
+
+
+Referenced by mega.\+boirlerplate.\+Movement\+Predictive.\+pick\+Best\+Position().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_a853ee3e04ab6da678f29c371f5b76e1a}\label{classmega_1_1boirlerplate_1_1_movement_predictive_a853ee3e04ab6da678f29c371f5b76e1a}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!execute@{execute}}
+\index{execute@{execute}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Movement\+Predictive.\+execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 235 of file Movement\+Predictive.\+java.
+
+
+
+References mega.\+boirlerplate.\+Vector.\+add(), mega.\+boirlerplate.\+Movement\+Predictive.\+Action.\+angle, mega.\+boirlerplate.\+Movement\+Predictive.\+destination, mega.\+boirlerplate.\+Movement\+Predictive.\+generate\+Actions(), mega.\+boirlerplate.\+Movement\+Predictive.\+pick\+Best\+Position(), mega.\+boirlerplate.\+Movement\+Predictive.\+Destination.\+position, mega.\+boirlerplate.\+Movement.\+rotation, mega.\+boirlerplate.\+Movement\+Predictive.\+Action.\+speed, and mega.\+boirlerplate.\+Component.\+state.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_a71f4b152fc0a396c65b0af8bd9ede736}\label{classmega_1_1boirlerplate_1_1_movement_predictive_a71f4b152fc0a396c65b0af8bd9ede736}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!generate\+Actions@{generate\+Actions}}
+\index{generate\+Actions@{generate\+Actions}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{generate\+Actions()}{generateActions()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Movement\+Predictive.\+generate\+Actions (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}}]{diff }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em diff} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 261 of file Movement\+Predictive.\+java.
+
+
+
+References mega.\+boirlerplate.\+Movement\+Predictive.\+Action.\+Action(), mega.\+boirlerplate.\+Vector.\+get\+Angle(), mega.\+boirlerplate.\+Util.\+headingless\+Angle(), mega.\+boirlerplate.\+Vector.\+length(), and mega.\+boirlerplate.\+Component.\+state.
+
+
+
+Referenced by mega.\+boirlerplate.\+Movement\+Predictive.\+execute().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_a3b3a2c4256943bbe51a3808882674410}\label{classmega_1_1boirlerplate_1_1_movement_predictive_a3b3a2c4256943bbe51a3808882674410}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!on\+Hit\+Robot@{on\+Hit\+Robot}}
+\index{on\+Hit\+Robot@{on\+Hit\+Robot}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{on\+Hit\+Robot()}{onHitRobot()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Movement\+Predictive.\+on\+Hit\+Robot (\begin{DoxyParamCaption}\item[{Hit\+Robot\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line 281 of file Movement\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_a2d58dda821300bc125d89824910f4ced}\label{classmega_1_1boirlerplate_1_1_movement_predictive_a2d58dda821300bc125d89824910f4ced}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!on\+Paint@{on\+Paint}}
+\index{on\+Paint@{on\+Paint}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{on\+Paint()}{onPaint()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Movement\+Predictive.\+on\+Paint (\begin{DoxyParamCaption}\item[{Graphics2D}]{g }\end{DoxyParamCaption})}
+
+
+
+Definition at line 289 of file Movement\+Predictive.\+java.
+
+
+
+References mega.\+boirlerplate.\+Util.\+clamp(), and mega.\+boirlerplate.\+Movement\+Predictive.\+Destination.\+position.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_a43a4ae4a71d9e3a36313d316f7ae537f}\label{classmega_1_1boirlerplate_1_1_movement_predictive_a43a4ae4a71d9e3a36313d316f7ae537f}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!pick\+Best\+Position@{pick\+Best\+Position}}
+\index{pick\+Best\+Position@{pick\+Best\+Position}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{pick\+Best\+Position()}{pickBestPosition()}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_destination}{Destination} mega.\+boirlerplate.\+Movement\+Predictive.\+pick\+Best\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 193 of file Movement\+Predictive.\+java.
+
+
+
+References mega.\+boirlerplate.\+Vector.\+add(), mega.\+boirlerplate.\+Movement\+Predictive.\+Action.\+angle, mega.\+boirlerplate.\+Vector.\+bound(), mega.\+boirlerplate.\+Movement\+Predictive.\+evaluate\+Position(), mega.\+boirlerplate.\+Vector.\+get\+Angle(), mega.\+boirlerplate.\+Vector.\+rotate(), mega.\+boirlerplate.\+Component.\+state, and mega.\+boirlerplate.\+Vector.\+Z\+E\+RO.
+
+
+
+Referenced by mega.\+boirlerplate.\+Movement\+Predictive.\+execute().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_a65e6ad38f9fb6062584415126f356b29}\label{classmega_1_1boirlerplate_1_1_movement_predictive_a65e6ad38f9fb6062584415126f356b29}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!actions@{actions}}
+\index{actions@{actions}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{actions}{actions}}
+{\footnotesize\ttfamily Stack$<$\hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_action}{Action}$>$ mega.\+boirlerplate.\+Movement\+Predictive.\+actions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 57 of file Movement\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_a5cf7cc310d1712671dc59eb40f7ad191}\label{classmega_1_1boirlerplate_1_1_movement_predictive_a5cf7cc310d1712671dc59eb40f7ad191}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!destination@{destination}}
+\index{destination@{destination}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{destination}{destination}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_destination}{Destination} mega.\+boirlerplate.\+Movement\+Predictive.\+destination\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 59 of file Movement\+Predictive.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Movement\+Predictive.\+execute().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_a73ba3ddff4eb6cfc7119ab67065bbc1a}\label{classmega_1_1boirlerplate_1_1_movement_predictive_a73ba3ddff4eb6cfc7119ab67065bbc1a}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!destinations@{destinations}}
+\index{destinations@{destinations}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{destinations}{destinations}}
+{\footnotesize\ttfamily Array\+List$<$\hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_destination}{Destination}$>$ mega.\+boirlerplate.\+Movement\+Predictive.\+destinations\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 58 of file Movement\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_a4192d3dde44bf7604c1e5aa42e0799cb}\label{classmega_1_1boirlerplate_1_1_movement_predictive_a4192d3dde44bf7604c1e5aa42e0799cb}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!last\+Destination@{last\+Destination}}
+\index{last\+Destination@{last\+Destination}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{last\+Destination}{lastDestination}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_movement_predictive_1_1_destination}{Destination} mega.\+boirlerplate.\+Movement\+Predictive.\+last\+Destination\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 60 of file Movement\+Predictive.\+java.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_movement_predictive_ae2b44f98d4bf2f87abd4a8c136792aa4}\label{classmega_1_1boirlerplate_1_1_movement_predictive_ae2b44f98d4bf2f87abd4a8c136792aa4}} 
+\index{mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}!last\+Enemy\+Bearing@{last\+Enemy\+Bearing}}
+\index{last\+Enemy\+Bearing@{last\+Enemy\+Bearing}!mega\+::boirlerplate\+::\+Movement\+Predictive@{mega\+::boirlerplate\+::\+Movement\+Predictive}}
+\subsubsection{\texorpdfstring{last\+Enemy\+Bearing}{lastEnemyBearing}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Movement\+Predictive.\+last\+Enemy\+Bearing\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 62 of file Movement\+Predictive.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cloud/\+One\+Drive/\+Dev/eclipse-\/workspace/\+Rainbow\+Surf/src/mega/boirlerplate/\hyperlink{_movement_predictive_8java}{Movement\+Predictive.\+java}\end{DoxyCompactItemize}
