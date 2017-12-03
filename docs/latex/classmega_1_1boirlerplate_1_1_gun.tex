@@ -1,0 +1,237 @@
+\hypertarget{classmega_1_1boirlerplate_1_1_gun}{}\section{mega.\+boirlerplate.\+Gun Class Reference}
+\label{classmega_1_1boirlerplate_1_1_gun}\index{mega.\+boirlerplate.\+Gun@{mega.\+boirlerplate.\+Gun}}
+
+
+Inheritance diagram for mega.\+boirlerplate.\+Gun\+:
+% FIG 0
+
+
+Collaboration diagram for mega.\+boirlerplate.\+Gun\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_gun_a023388651f9929428cdc9519a5b16a42}{Gun} (\hyperlink{classmega_1_1boirlerplate_1_1_state}{State} \hyperlink{classmega_1_1boirlerplate_1_1_component_a87b0d70f323b5fee60a200e07c9c20fd}{state})
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_gun_a42bc32a089d174c7d18d932e349cd7a7}{get\+Bullet\+Power} ()
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_gun_a0fdb9fc6e7c7756de11c783df6c3d90e}{get\+Rotation} ()
+\item 
+boolean \hyperlink{classmega_1_1boirlerplate_1_1_gun_ad920c032dd47ee1a80635f7fcb71e47c}{get\+Should\+Fire} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_gun_ab4997b55572602cc55d0b66a517af126}{fired\+Bullet} (\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked} tb)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_gun_a5d2c92e177f15f759fa0f7041189704b}{bullet\+Hit} (\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked} tb)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_gun_aad5eb4b0ea58655dbc1c37fcfde5c321}{bullet\+Missed} (\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked} tb)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_gun_a874ce5b2384de7ee92c67d56c60fa083}{bullet\+Power}
+\item 
+double \hyperlink{classmega_1_1boirlerplate_1_1_gun_ad5615ea434efe7faedcb5b15d9e80e03}{rotation}
+\item 
+boolean \hyperlink{classmega_1_1boirlerplate_1_1_gun_a33502b9a7774f1681ea2f105f7c2211a}{should\+Fire} = true
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Gates 
+\end{DoxyAuthor}
+
+
+Definition at line 8 of file Gun.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_a023388651f9929428cdc9519a5b16a42}\label{classmega_1_1boirlerplate_1_1_gun_a023388651f9929428cdc9519a5b16a42}} 
+\index{mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}!Gun@{Gun}}
+\index{Gun@{Gun}!mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}}
+\subsubsection{\texorpdfstring{Gun()}{Gun()}}
+{\footnotesize\ttfamily mega.\+boirlerplate.\+Gun.\+Gun (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_state}{State}}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file Gun.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_a5d2c92e177f15f759fa0f7041189704b}\label{classmega_1_1boirlerplate_1_1_gun_a5d2c92e177f15f759fa0f7041189704b}} 
+\index{mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}!bullet\+Hit@{bullet\+Hit}}
+\index{bullet\+Hit@{bullet\+Hit}!mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}}
+\subsubsection{\texorpdfstring{bullet\+Hit()}{bulletHit()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Gun.\+bullet\+Hit (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked}}]{tb }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em tb} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file Gun.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Bullet\+Hit().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_aad5eb4b0ea58655dbc1c37fcfde5c321}\label{classmega_1_1boirlerplate_1_1_gun_aad5eb4b0ea58655dbc1c37fcfde5c321}} 
+\index{mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}!bullet\+Missed@{bullet\+Missed}}
+\index{bullet\+Missed@{bullet\+Missed}!mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}}
+\subsubsection{\texorpdfstring{bullet\+Missed()}{bulletMissed()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Gun.\+bullet\+Missed (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked}}]{tb }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em tb} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 66 of file Gun.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Bullet\+Missed().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_ab4997b55572602cc55d0b66a517af126}\label{classmega_1_1boirlerplate_1_1_gun_ab4997b55572602cc55d0b66a517af126}} 
+\index{mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}!fired\+Bullet@{fired\+Bullet}}
+\index{fired\+Bullet@{fired\+Bullet}!mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}}
+\subsubsection{\texorpdfstring{fired\+Bullet()}{firedBullet()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Gun.\+fired\+Bullet (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked}{Bullet\+Tracked}}]{tb }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em tb} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file Gun.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+run().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_a42bc32a089d174c7d18d932e349cd7a7}\label{classmega_1_1boirlerplate_1_1_gun_a42bc32a089d174c7d18d932e349cd7a7}} 
+\index{mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}!get\+Bullet\+Power@{get\+Bullet\+Power}}
+\index{get\+Bullet\+Power@{get\+Bullet\+Power}!mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}}
+\subsubsection{\texorpdfstring{get\+Bullet\+Power()}{getBulletPower()}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Gun.\+get\+Bullet\+Power (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 26 of file Gun.\+java.
+
+
+
+References mega.\+boirlerplate.\+Gun.\+bullet\+Power.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+run().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_a0fdb9fc6e7c7756de11c783df6c3d90e}\label{classmega_1_1boirlerplate_1_1_gun_a0fdb9fc6e7c7756de11c783df6c3d90e}} 
+\index{mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}!get\+Rotation@{get\+Rotation}}
+\index{get\+Rotation@{get\+Rotation}!mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}}
+\subsubsection{\texorpdfstring{get\+Rotation()}{getRotation()}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Gun.\+get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 34 of file Gun.\+java.
+
+
+
+References mega.\+boirlerplate.\+Gun.\+rotation.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+run().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_ad920c032dd47ee1a80635f7fcb71e47c}\label{classmega_1_1boirlerplate_1_1_gun_ad920c032dd47ee1a80635f7fcb71e47c}} 
+\index{mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}!get\+Should\+Fire@{get\+Should\+Fire}}
+\index{get\+Should\+Fire@{get\+Should\+Fire}!mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}}
+\subsubsection{\texorpdfstring{get\+Should\+Fire()}{getShouldFire()}}
+{\footnotesize\ttfamily boolean mega.\+boirlerplate.\+Gun.\+get\+Should\+Fire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 42 of file Gun.\+java.
+
+
+
+References mega.\+boirlerplate.\+Gun.\+should\+Fire.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+run().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_a874ce5b2384de7ee92c67d56c60fa083}\label{classmega_1_1boirlerplate_1_1_gun_a874ce5b2384de7ee92c67d56c60fa083}} 
+\index{mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}!bullet\+Power@{bullet\+Power}}
+\index{bullet\+Power@{bullet\+Power}!mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}}
+\subsubsection{\texorpdfstring{bullet\+Power}{bulletPower}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Gun.\+bullet\+Power\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 10 of file Gun.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+execute(), and mega.\+boirlerplate.\+Gun.\+get\+Bullet\+Power().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_ad5615ea434efe7faedcb5b15d9e80e03}\label{classmega_1_1boirlerplate_1_1_gun_ad5615ea434efe7faedcb5b15d9e80e03}} 
+\index{mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}!rotation@{rotation}}
+\index{rotation@{rotation}!mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}}
+\subsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily double mega.\+boirlerplate.\+Gun.\+rotation\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 11 of file Gun.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Simple.\+calculate\+Rotation(), mega.\+boirlerplate.\+Gun\+Random.\+execute(), mega.\+boirlerplate.\+Gun\+Simple.\+execute(), mega.\+boirlerplate.\+Gun\+Predictive.\+execute(), and mega.\+boirlerplate.\+Gun.\+get\+Rotation().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_gun_a33502b9a7774f1681ea2f105f7c2211a}\label{classmega_1_1boirlerplate_1_1_gun_a33502b9a7774f1681ea2f105f7c2211a}} 
+\index{mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}!should\+Fire@{should\+Fire}}
+\index{should\+Fire@{should\+Fire}!mega\+::boirlerplate\+::\+Gun@{mega\+::boirlerplate\+::\+Gun}}
+\subsubsection{\texorpdfstring{should\+Fire}{shouldFire}}
+{\footnotesize\ttfamily boolean mega.\+boirlerplate.\+Gun.\+should\+Fire = true\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 12 of file Gun.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+execute(), and mega.\+boirlerplate.\+Gun.\+get\+Should\+Fire().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cloud/\+One\+Drive/\+Dev/eclipse-\/workspace/\+Rainbow\+Surf/src/mega/boirlerplate/\hyperlink{_gun_8java}{Gun.\+java}\end{DoxyCompactItemize}

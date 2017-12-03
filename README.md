@@ -1,5 +1,2 @@
-# U+1F47B
-
-_A [RoboCode][0] bot, plain and simple._
-
-[0]: http://robocode.sourceforge.net/
+# robocode-mega-boilerplate
+A RoboCode mega boirlerplate to help students from beginner to expect learn functionalities and implementations

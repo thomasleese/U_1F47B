@@ -1,0 +1,32 @@
+digraph "mega.boirlerplate.BulletVirtual"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="mega.boirlerplate.Bullet\lVirtual",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" position\nvelocity" ,fontname="Helvetica"];
+  Node2 [label="mega.boirlerplate.Vector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_vector.html"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Point2D::Double",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node2 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ZERO" ,fontname="Helvetica"];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" state" ,fontname="Helvetica"];
+  Node4 [label="mega.boirlerplate.State",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_state.html"];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" hitRobotEvents" ,fontname="Helvetica"];
+  Node5 [label="mega.boirlerplate.Vector\l\< HitRobotEvent \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_vector.html"];
+  Node2 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ZERO" ,fontname="Helvetica"];
+  Node6 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" latestRobot\ntrackingRobot" ,fontname="Helvetica"];
+  Node6 [label="mega.boirlerplate.OtherRobot",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_other_robot.html"];
+  Node7 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Comparable\< OtherRobot \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bulletWaves" ,fontname="Helvetica"];
+  Node8 [label="ArrayList\< mega.boirlerplate.\lWaveBullet \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node9 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" history" ,fontname="Helvetica"];
+  Node9 [label="ArrayList\< Tick \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node10 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ourBullets" ,fontname="Helvetica"];
+  Node10 [label="ArrayList\< mega.boirlerplate.\lBulletTracked \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node11 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" otherRobots" ,fontname="Helvetica"];
+  Node11 [label="Map\< String, mega.boirlerplate.\lOtherRobot \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node12 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bulletHitEvents" ,fontname="Helvetica"];
+  Node12 [label="mega.boirlerplate.Vector\l\< BulletHitEvent \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmega_1_1boirlerplate_1_1_vector.html"];
+  Node2 -> Node12 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ZERO" ,fontname="Helvetica"];
+}

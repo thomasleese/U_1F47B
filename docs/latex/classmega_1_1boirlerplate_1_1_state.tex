@@ -1,0 +1,209 @@
+\hypertarget{classmega_1_1boirlerplate_1_1_state}{}\section{mega.\+boirlerplate.\+State Class Reference}
+\label{classmega_1_1boirlerplate_1_1_state}\index{mega.\+boirlerplate.\+State@{mega.\+boirlerplate.\+State}}
+
+
+Collaboration diagram for mega.\+boirlerplate.\+State\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_state_a19a49e8e63e25e857701db1fb232c4e6}{State} (Advanced\+Robot robot)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_state_a7fe93033ef2498bcd8d8d5c0d777d816}{advance} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_state_a1a75c57383d9e9d41c609e2fa4acea0f}{on\+Scanned\+Robot} (Scanned\+Robot\+Event e)
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_state_a6c3bf3b3b16fc0f1b15cc2ba1d63c575}{on\+Robot\+Death} (Robot\+Death\+Event e)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} \hyperlink{classmega_1_1boirlerplate_1_1_state_a5701db7eabb0dd0edf293082879f4880}{calculate\+Position} (double bearing, double distance)
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} \hyperlink{classmega_1_1boirlerplate_1_1_state_aca2f99643fa4c2d6f45a2230f56ecba2}{calculate\+Velocity} (\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} old\+Position, \hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} new\+Position)
+\item 
+static double \hyperlink{classmega_1_1boirlerplate_1_1_state_aa70df138d69de469048d7071125fb261}{calculate\+Turn\+Rate} (\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} old\+Velocity, \hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} new\+Velocity)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classmega_1_1boirlerplate_1_1_state}{State} -\/ the particular condition that someone or something is in at a specific time.
+
+See\+: \href{https://en.wikipedia.org/wiki/State_space}{\tt https\+://en.\+wikipedia.\+org/wiki/\+State\+\_\+space}
+
+\begin{DoxyAuthor}{Author}
+Visual\+Melon 
+
+thomasleese 
+
+Cyanogenoid 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file State.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_state_a19a49e8e63e25e857701db1fb232c4e6}\label{classmega_1_1boirlerplate_1_1_state_a19a49e8e63e25e857701db1fb232c4e6}} 
+\index{mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}!State@{State}}
+\index{State@{State}!mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}}
+\subsubsection{\texorpdfstring{State()}{State()}}
+{\footnotesize\ttfamily mega.\+boirlerplate.\+State.\+State (\begin{DoxyParamCaption}\item[{Advanced\+Robot}]{robot }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em robot} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file State.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_state_a7fe93033ef2498bcd8d8d5c0d777d816}\label{classmega_1_1boirlerplate_1_1_state_a7fe93033ef2498bcd8d8d5c0d777d816}} 
+\index{mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}!advance@{advance}}
+\index{advance@{advance}!mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}}
+\subsubsection{\texorpdfstring{advance()}{advance()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+State.\+advance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 48 of file State.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+run().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_state_a5701db7eabb0dd0edf293082879f4880}\label{classmega_1_1boirlerplate_1_1_state_a5701db7eabb0dd0edf293082879f4880}} 
+\index{mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}!calculate\+Position@{calculate\+Position}}
+\index{calculate\+Position@{calculate\+Position}!mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}}
+\subsubsection{\texorpdfstring{calculate\+Position()}{calculatePosition()}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} mega.\+boirlerplate.\+State.\+calculate\+Position (\begin{DoxyParamCaption}\item[{double}]{bearing,  }\item[{double}]{distance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em bearing} & \\
+\hline
+{\em distance} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 120 of file State.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+State.\+on\+Scanned\+Robot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_state_aa70df138d69de469048d7071125fb261}\label{classmega_1_1boirlerplate_1_1_state_aa70df138d69de469048d7071125fb261}} 
+\index{mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}!calculate\+Turn\+Rate@{calculate\+Turn\+Rate}}
+\index{calculate\+Turn\+Rate@{calculate\+Turn\+Rate}!mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}}
+\subsubsection{\texorpdfstring{calculate\+Turn\+Rate()}{calculateTurnRate()}}
+{\footnotesize\ttfamily static double mega.\+boirlerplate.\+State.\+calculate\+Turn\+Rate (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}}]{old\+Velocity,  }\item[{\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}}]{new\+Velocity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em old\+Velocity} & \\
+\hline
+{\em new\+Velocity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 144 of file State.\+java.
+
+
+
+References mega.\+boirlerplate.\+Vector.\+get\+Angle().
+
+
+
+Referenced by mega.\+boirlerplate.\+State.\+on\+Scanned\+Robot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_state_aca2f99643fa4c2d6f45a2230f56ecba2}\label{classmega_1_1boirlerplate_1_1_state_aca2f99643fa4c2d6f45a2230f56ecba2}} 
+\index{mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}!calculate\+Velocity@{calculate\+Velocity}}
+\index{calculate\+Velocity@{calculate\+Velocity}!mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}}
+\subsubsection{\texorpdfstring{calculate\+Velocity()}{calculateVelocity()}}
+{\footnotesize\ttfamily static \hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector} mega.\+boirlerplate.\+State.\+calculate\+Velocity (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}}]{old\+Position,  }\item[{\hyperlink{classmega_1_1boirlerplate_1_1_vector}{Vector}}]{new\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em old\+Position} & \\
+\hline
+{\em new\+Position} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 133 of file State.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+State.\+on\+Scanned\+Robot().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_state_a6c3bf3b3b16fc0f1b15cc2ba1d63c575}\label{classmega_1_1boirlerplate_1_1_state_a6c3bf3b3b16fc0f1b15cc2ba1d63c575}} 
+\index{mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}!on\+Robot\+Death@{on\+Robot\+Death}}
+\index{on\+Robot\+Death@{on\+Robot\+Death}!mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}}
+\subsubsection{\texorpdfstring{on\+Robot\+Death()}{onRobotDeath()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+State.\+on\+Robot\+Death (\begin{DoxyParamCaption}\item[{Robot\+Death\+Event}]{e }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 94 of file State.\+java.
+
+
+
+References mega.\+boirlerplate.\+Other\+Robot.\+get\+Name().
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Robot\+Death().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_state_a1a75c57383d9e9d41c609e2fa4acea0f}\label{classmega_1_1boirlerplate_1_1_state_a1a75c57383d9e9d41c609e2fa4acea0f}} 
+\index{mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}!on\+Scanned\+Robot@{on\+Scanned\+Robot}}
+\index{on\+Scanned\+Robot@{on\+Scanned\+Robot}!mega\+::boirlerplate\+::\+State@{mega\+::boirlerplate\+::\+State}}
+\subsubsection{\texorpdfstring{on\+Scanned\+Robot()}{onScannedRobot()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+State.\+on\+Scanned\+Robot (\begin{DoxyParamCaption}\item[{Scanned\+Robot\+Event}]{e }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 60 of file State.\+java.
+
+
+
+References mega.\+boirlerplate.\+State.\+calculate\+Position(), mega.\+boirlerplate.\+State.\+calculate\+Turn\+Rate(), mega.\+boirlerplate.\+State.\+calculate\+Velocity(), mega.\+boirlerplate.\+Vector.\+div(), mega.\+boirlerplate.\+Other\+Robot.\+get\+History(), mega.\+boirlerplate.\+Other\+Robot.\+predict\+Bullet\+Shot(), and mega.\+boirlerplate.\+Other\+Robot.\+push\+History().
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Scanned\+Robot().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cloud/\+One\+Drive/\+Dev/eclipse-\/workspace/\+Rainbow\+Surf/src/mega/boirlerplate/\hyperlink{_state_8java}{State.\+java}\end{DoxyCompactItemize}

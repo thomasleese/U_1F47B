@@ -1,0 +1,152 @@
+\hypertarget{classmega_1_1boirlerplate_1_1_bullet_tracked}{}\section{mega.\+boirlerplate.\+Bullet\+Tracked Class Reference}
+\label{classmega_1_1boirlerplate_1_1_bullet_tracked}\index{mega.\+boirlerplate.\+Bullet\+Tracked@{mega.\+boirlerplate.\+Bullet\+Tracked}}
+
+
+Collaboration diagram for mega.\+boirlerplate.\+Bullet\+Tracked\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked_a094e0b6ceb88da97e44ecdcac2254e6a}{Bullet\+Tracked} (Bullet \hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked_a9d8b599d3e0a9ea13c7e7830cc830241}{bullet})
+\item 
+Bullet \hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked_ac1d69023b12ce0c7c7218f5a4b2561a4}{get\+Bullet} ()
+\item 
+void \hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked_a843a344ccc665e1cb68f5c714b610753}{set\+Data} (\hyperlink{classmega_1_1boirlerplate_1_1_prediction_data}{Prediction\+Data} dataN)
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_prediction_data}{Prediction\+Data} \hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked_a71d66f3a9565a7ce021bf77618b42eda}{get\+Data} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Bullet \hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked_a9d8b599d3e0a9ea13c7e7830cc830241}{bullet}
+\item 
+\hyperlink{classmega_1_1boirlerplate_1_1_prediction_data}{Prediction\+Data} \hyperlink{classmega_1_1boirlerplate_1_1_bullet_tracked_a0cc087b81d9d99264c05fe562507d56b}{data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Gates 
+\end{DoxyAuthor}
+
+
+Definition at line 9 of file Bullet\+Tracked.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_bullet_tracked_a094e0b6ceb88da97e44ecdcac2254e6a}\label{classmega_1_1boirlerplate_1_1_bullet_tracked_a094e0b6ceb88da97e44ecdcac2254e6a}} 
+\index{mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}!Bullet\+Tracked@{Bullet\+Tracked}}
+\index{Bullet\+Tracked@{Bullet\+Tracked}!mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}}
+\subsubsection{\texorpdfstring{Bullet\+Tracked()}{BulletTracked()}}
+{\footnotesize\ttfamily mega.\+boirlerplate.\+Bullet\+Tracked.\+Bullet\+Tracked (\begin{DoxyParamCaption}\item[{Bullet}]{bullet }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em bullet} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file Bullet\+Tracked.\+java.
+
+
+
+References mega.\+boirlerplate.\+Bullet\+Tracked.\+bullet.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_bullet_tracked_ac1d69023b12ce0c7c7218f5a4b2561a4}\label{classmega_1_1boirlerplate_1_1_bullet_tracked_ac1d69023b12ce0c7c7218f5a4b2561a4}} 
+\index{mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}!get\+Bullet@{get\+Bullet}}
+\index{get\+Bullet@{get\+Bullet}!mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}}
+\subsubsection{\texorpdfstring{get\+Bullet()}{getBullet()}}
+{\footnotesize\ttfamily Bullet mega.\+boirlerplate.\+Bullet\+Tracked.\+get\+Bullet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 26 of file Bullet\+Tracked.\+java.
+
+
+
+References mega.\+boirlerplate.\+Bullet\+Tracked.\+bullet.
+
+
+
+Referenced by mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Bullet\+Hit(), mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Bullet\+Hit\+Bullet(), and mega.\+boirlerplate.\+Rainbow\+Surf.\+on\+Bullet\+Missed().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_bullet_tracked_a71d66f3a9565a7ce021bf77618b42eda}\label{classmega_1_1boirlerplate_1_1_bullet_tracked_a71d66f3a9565a7ce021bf77618b42eda}} 
+\index{mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}}
+\subsubsection{\texorpdfstring{get\+Data()}{getData()}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_prediction_data}{Prediction\+Data} mega.\+boirlerplate.\+Bullet\+Tracked.\+get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 42 of file Bullet\+Tracked.\+java.
+
+
+
+References mega.\+boirlerplate.\+Bullet\+Tracked.\+data.
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_bullet_tracked_a843a344ccc665e1cb68f5c714b610753}\label{classmega_1_1boirlerplate_1_1_bullet_tracked_a843a344ccc665e1cb68f5c714b610753}} 
+\index{mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}!set\+Data@{set\+Data}}
+\index{set\+Data@{set\+Data}!mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}}
+\subsubsection{\texorpdfstring{set\+Data()}{setData()}}
+{\footnotesize\ttfamily void mega.\+boirlerplate.\+Bullet\+Tracked.\+set\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{classmega_1_1boirlerplate_1_1_prediction_data}{Prediction\+Data}}]{dataN }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataN} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 34 of file Bullet\+Tracked.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Gun\+Predictive.\+fired\+Bullet().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_bullet_tracked_a9d8b599d3e0a9ea13c7e7830cc830241}\label{classmega_1_1boirlerplate_1_1_bullet_tracked_a9d8b599d3e0a9ea13c7e7830cc830241}} 
+\index{mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}!bullet@{bullet}}
+\index{bullet@{bullet}!mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}}
+\subsubsection{\texorpdfstring{bullet}{bullet}}
+{\footnotesize\ttfamily Bullet mega.\+boirlerplate.\+Bullet\+Tracked.\+bullet\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 11 of file Bullet\+Tracked.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Bullet\+Tracked.\+Bullet\+Tracked(), and mega.\+boirlerplate.\+Bullet\+Tracked.\+get\+Bullet().
+
+\mbox{\Hypertarget{classmega_1_1boirlerplate_1_1_bullet_tracked_a0cc087b81d9d99264c05fe562507d56b}\label{classmega_1_1boirlerplate_1_1_bullet_tracked_a0cc087b81d9d99264c05fe562507d56b}} 
+\index{mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}!data@{data}}
+\index{data@{data}!mega\+::boirlerplate\+::\+Bullet\+Tracked@{mega\+::boirlerplate\+::\+Bullet\+Tracked}}
+\subsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \hyperlink{classmega_1_1boirlerplate_1_1_prediction_data}{Prediction\+Data} mega.\+boirlerplate.\+Bullet\+Tracked.\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 12 of file Bullet\+Tracked.\+java.
+
+
+
+Referenced by mega.\+boirlerplate.\+Bullet\+Tracked.\+get\+Data().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cloud/\+One\+Drive/\+Dev/eclipse-\/workspace/\+Rainbow\+Surf/src/mega/boirlerplate/\hyperlink{_bullet_tracked_8java}{Bullet\+Tracked.\+java}\end{DoxyCompactItemize}
